@@ -2,6 +2,9 @@ package com.edison.scanner.model.market;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.Objects;
+
+import com.edison.scanner.common.Timeframe;
 
 /**
  * Represents a single immutable OHLCV market candle.
@@ -50,32 +53,44 @@ public final class Candle {
      */
     private final Instant closeTime;
     
+    private final String symbol;
+    
+    private final Timeframe timeframe;
+    
     /**
-     * Creates an immutable market candle.
+     * Creates a market candle.
      *
-     * @param openTime opening time
-     * @param open opening price
-     * @param high highest price
-     * @param low lowest price
-     * @param close closing price
+     * @param symbol trading symbol
+     * @param timeframe candle timeframe
+     * @param openTime candle open time
+     * @param closeTime candle close time
+     * @param open open price
+     * @param high high price
+     * @param low low price
+     * @param close close price
      * @param volume traded volume
      */
     public Candle(
+            String symbol,
+            Timeframe timeframe,
             Instant openTime,
+            Instant closeTime,
             BigDecimal open,
             BigDecimal high,
             BigDecimal low,
             BigDecimal close,
-            BigDecimal volume,
-            Instant closeTime) {
+            BigDecimal volume) {
 
-        this.openTime = openTime;
-        this.open = open;
-        this.high = high;
-        this.low = low;
-        this.close = close;
-        this.volume = volume;
-        this.closeTime = closeTime;
+        this.symbol = Objects.requireNonNull(symbol, "symbol");
+        this.timeframe = Objects.requireNonNull(timeframe, "timeframe");
+        this.openTime = Objects.requireNonNull(openTime, "openTime");
+        this.closeTime = Objects.requireNonNull(closeTime, "closeTime");
+        this.open = Objects.requireNonNull(open, "open");
+        this.high = Objects.requireNonNull(high, "high");
+        this.low = Objects.requireNonNull(low, "low");
+        this.close = Objects.requireNonNull(close, "close");
+        this.volume = Objects.requireNonNull(volume, "volume");
+
     }
 
     /**
@@ -148,6 +163,14 @@ public final class Candle {
 
 	public Instant getCloseTime() {
 		return closeTime;
+	}
+
+	public String getSymbol() {
+		return symbol;
+	}
+
+	public Timeframe getTimeframe() {
+		return timeframe;
 	}
 
 }
