@@ -5,6 +5,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 import com.edison.scanner.common.Timeframe;
+import com.edison.scanner.model.CandleData;
 
 /**
  * Represents a single immutable OHLCV market candle.
@@ -16,7 +17,7 @@ import com.edison.scanner.common.Timeframe;
  * the trading logic.
  * </p>
  */
-public final class Candle {
+public final class Candle implements CandleData {
 
     /**
      * Candle opening time.

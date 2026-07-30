@@ -1,6 +1,7 @@
 package com.edison.scanner.exchange;
 
 import com.edison.scanner.common.Timeframe;
+import com.edison.scanner.config.ApplicationConfig;
 import com.edison.scanner.exception.BinanceException;
 import com.edison.scanner.mapper.BinanceCandleMapper;
 import com.edison.scanner.model.market.Candle;
@@ -13,42 +14,31 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Objects;
 
 /**
- * Client responsible for downloading historical candle data from Binance.
- *
- * <p>
- * This class communicates only with the Binance REST API.
- * It does not perform any indicator calculations or business logic.
- * </p>
+ * Binance REST client.
  */
-public class BinanceClient {
+public final class BinanceClient {
 
-    /**
-     * Base Binance REST URL.
-     */
-    private final String baseUrl;
+    private final ApplicationConfig config;
 
-    /**
-     * HTTP client.
-     */
     private final HttpClient httpClient;
 
-    /**
-     * Maps Binance JSON responses into domain objects.
-     */
     private final BinanceCandleMapper candleMapper;
 
     /**
      * Creates a Binance client.
      *
-     * @param baseUrl Binance REST base URL.
+     * @param config application configuration
      */
-    public BinanceClient(String baseUrl) {
+    public BinanceClient(
+            ApplicationConfig config,
+            BinanceCandleMapper candleMapper) {
 
-        this.baseUrl = baseUrl;
+        this.config = Objects.requireNonNull(config);
+        this.candleMapper = Objects.requireNonNull(candleMapper);
         this.httpClient = HttpClient.newHttpClient();
-        this.candleMapper = new BinanceCandleMapper();
 
     }
 
@@ -56,29 +46,25 @@ public class BinanceClient {
      * Downloads historical candles.
      *
      * @param symbol trading symbol
-     * @param timeframe candle timeframe
+     * @param timeframe timeframe
      * @param limit number of candles
-     *
-     * @return immutable list of candles
-     *
-     * @throws BinanceException if communication fails
+     * @return candles
      */
     public List<Candle> getCandles(
             String symbol,
             Timeframe timeframe,
             int limit) {
 
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(buildKlineUri(symbol, timeframe, limit))
+        URI uri = buildKlineUri(symbol, timeframe.getBinanceInterval(), limit);
+
+        HttpRequest request = HttpRequest.newBuilder(uri)
                 .GET()
                 .build();
 
         try {
 
             HttpResponse<String> response =
-                    httpClient.send(
-                            request,
-                            HttpResponse.BodyHandlers.ofString());
+                    httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
             validateResponse(response);
 
@@ -92,64 +78,40 @@ public class BinanceClient {
             Thread.currentThread().interrupt();
 
             throw new BinanceException(
-                    "Unable to retrieve Binance candles.",
+                    "Failed to retrieve Binance candles.",
                     ex);
 
         }
 
     }
 
-    /**
-     * Builds the Binance Klines endpoint URI.
-     *
-     * @param symbol trading symbol
-     * @param timeframe timeframe
-     * @param limit candle limit
-     *
-     * @return request URI
-     */
     private URI buildKlineUri(
             String symbol,
-            Timeframe timeframe,
+            String interval,
             int limit) {
 
-        String uri = String.format(
+        String url = String.format(
                 "%s/api/v3/klines?symbol=%s&interval=%s&limit=%d",
-                baseUrl,
+                config.getBaseUrl(),
                 encode(symbol),
-                encode(timeframe.getBinanceInterval()),
+                encode(interval),
                 limit);
 
-        return URI.create(uri);
+        return URI.create(url);
 
     }
 
-    /**
-     * Validates the HTTP response.
-     *
-     * @param response HTTP response
-     */
-    private void validateResponse(HttpResponse<String> response) {
+    private void validateResponse(HttpResponse<?> response) {
 
         if (response.statusCode() != 200) {
 
             throw new BinanceException(
-                    "Unexpected HTTP status: "
-                            + response.statusCode()
-                            + System.lineSeparator()
-                            + response.body());
+                    "Unexpected response status: " + response.statusCode());
 
         }
 
     }
 
-    /**
-     * URL-encodes a value.
-     *
-     * @param value value to encode
-     *
-     * @return encoded value
-     */
     private String encode(String value) {
 
         return URLEncoder.encode(
