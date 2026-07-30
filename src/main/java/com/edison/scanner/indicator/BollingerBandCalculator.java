@@ -41,6 +41,10 @@ public final class BollingerBandCalculator {
 
         Objects.requireNonNull(candles, "candles");
         Objects.requireNonNull(multiplier, "multiplier");
+        if (multiplier.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException(
+                    "multiplier must be greater than zero.");
+        }
 
         if (length <= 0) {
             throw new IllegalArgumentException("length must be greater than zero.");
