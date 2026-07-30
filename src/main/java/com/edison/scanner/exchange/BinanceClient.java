@@ -54,6 +54,16 @@ public final class BinanceClient {
             String symbol,
             Timeframe timeframe,
             int limit) {
+    	Objects.requireNonNull(symbol, "symbol");
+    	Objects.requireNonNull(timeframe, "timeframe");
+
+    	if (symbol.isBlank()) {
+    	    throw new IllegalArgumentException("symbol must not be blank.");
+    	}
+
+    	if (limit <= 0) {
+    	    throw new IllegalArgumentException("limit must be greater than zero.");
+    	}
 
         URI uri = buildKlineUri(symbol, timeframe.getBinanceInterval(), limit);
 
@@ -73,14 +83,15 @@ public final class BinanceClient {
                     timeframe,
                     response.body());
 
-        } catch (IOException | InterruptedException ex) {
-
+        } catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
-
             throw new BinanceException(
                     "Failed to retrieve Binance candles.",
                     ex);
-
+        } catch (IOException ex) {
+            throw new BinanceException(
+                    "Failed to retrieve Binance candles.",
+                    ex);
         }
 
     }

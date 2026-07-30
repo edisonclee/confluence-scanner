@@ -81,7 +81,7 @@ public final class Candle implements CandleData {
             BigDecimal low,
             BigDecimal close,
             BigDecimal volume) {
-
+    	
         this.symbol = Objects.requireNonNull(symbol, "symbol");
         this.timeframe = Objects.requireNonNull(timeframe, "timeframe");
         this.openTime = Objects.requireNonNull(openTime, "openTime");
@@ -92,6 +92,11 @@ public final class Candle implements CandleData {
         this.close = Objects.requireNonNull(close, "close");
         this.volume = Objects.requireNonNull(volume, "volume");
 
+        if (!openTime.isBefore(closeTime)) {
+    	    throw new IllegalArgumentException(
+    	            "openTime must be before closeTime.");
+    	}
+        
     }
 
     /**

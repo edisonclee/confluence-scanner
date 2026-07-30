@@ -48,6 +48,11 @@ public final class HeikenAshiCandle implements CandleData {
         this.low = Objects.requireNonNull(low);
         this.close = Objects.requireNonNull(close);
         this.volume = Objects.requireNonNull(volume);
+        
+        if (!openTime.isBefore(closeTime)) {
+            throw new IllegalArgumentException(
+                    "openTime must be before closeTime.");
+        }
 
     }
 

@@ -41,6 +41,18 @@ public final class BinanceCandleMapper {
             Timeframe timeframe,
             String json) {
 
+    	if (symbol == null || symbol.isBlank()) {
+    	    throw new IllegalArgumentException("symbol must not be blank.");
+    	}
+
+    	if (timeframe == null) {
+    	    throw new IllegalArgumentException("timeframe must not be null.");
+    	}
+
+    	if (json == null || json.isBlank()) {
+    	    throw new IllegalArgumentException("json must not be blank.");
+    	}
+    	
         try {
 
             JsonNode root = OBJECT_MAPPER.readTree(json);
@@ -87,6 +99,10 @@ public final class BinanceCandleMapper {
             String symbol,
             Timeframe timeframe,
             JsonNode node) {
+    	
+    	if (node == null || !node.isArray() || node.size() < 7) {
+    	    throw new BinanceException("Invalid Binance candle structure.");
+    	}
 
         return new Candle(
                 symbol,
