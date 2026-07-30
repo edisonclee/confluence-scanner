@@ -1,66 +1,40 @@
 package com.edison.scanner.config;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
+import java.util.Objects;
 
 /**
- * Loads the application configuration from the
- * application.properties file.
- *
- * <p>
- * This class provides read-only access to all configuration
- * values used throughout the application.
- * </p>
+ * Application configuration.
  */
-public class ApplicationConfig {
-
-    private final Properties properties;
+public final class ApplicationConfig {
 
     /**
-     * Creates a new configuration instance and loads
-     * application.properties from the classpath.
-     *
-     * @throws IllegalStateException
-     *         if the configuration file cannot be loaded.
+     * Binance REST API base URL.
+     */
+    private final String baseUrl;
+
+    /**
+     * Creates the default application configuration.
      */
     public ApplicationConfig() {
-
-        properties = new Properties();
-
-        try (InputStream input =
-                getClass().getClassLoader()
-                        .getResourceAsStream("application.properties")) {
-
-            if (input == null) {
-                throw new IllegalStateException(
-                        "application.properties was not found.");
-            }
-
-            properties.load(input);
-
-        } catch (IOException e) {
-
-            throw new IllegalStateException(
-                    "Unable to load application.properties.",
-                    e);
-
-        }
-
+        this("https://api.binance.com");
     }
 
     /**
-     * Returns a configuration value.
+     * Creates an application configuration.
      *
-     * @param key
-     *         Configuration key.
-     *
-     * @return configuration value.
+     * @param baseUrl Binance REST API base URL
      */
-    public String get(String key) {
+    public ApplicationConfig(String baseUrl) {
+        this.baseUrl = Objects.requireNonNull(baseUrl, "baseUrl");
+    }
 
-        return properties.getProperty(key);
-
+    /**
+     * Returns the Binance REST API base URL.
+     *
+     * @return base URL
+     */
+    public String getBaseUrl() {
+        return baseUrl;
     }
 
 }

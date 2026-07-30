@@ -1,11 +1,19 @@
 package com.edison.scanner;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import com.edison.scanner.common.Timeframe;
 import com.edison.scanner.config.ApplicationConfig;
+import com.edison.scanner.converter.HeikenAshiConverter;
+import com.edison.scanner.detector.TouchDetector;
 import com.edison.scanner.exchange.BinanceClient;
+import com.edison.scanner.indicator.BollingerBandCalculator;
+import com.edison.scanner.mapper.BinanceCandleMapper;
+import com.edison.scanner.model.TouchResult;
 import com.edison.scanner.model.market.Candle;
-
-import java.util.List;
+import com.edison.scanner.model.market.HeikenAshiCandle;
+import com.edison.scanner.scanner.ConfluenceScanner;
 
 /**
  * Application entry point.
@@ -32,28 +40,36 @@ public final class Main {
 
         ApplicationConfig config = new ApplicationConfig();
 
-        BinanceClient client =
-                new BinanceClient(
-                        config.get("binance.base-url"));
+        BinanceClient client = new BinanceClient(
+                config,
+                new BinanceCandleMapper());
 
-        System.out.println("Downloading BTCUSDT weekly candles...");
-        System.out.println();
+        List<Candle> candles = client.getCandles(
+                "BTCUSDT",
+                Timeframe.D1,
+                200);
 
-        List<Candle> candles =
-                client.getCandles(
-                        "BTCUSDT",
-                        Timeframe.W1,
-                        5);
+        // Convert to Heiken Ashi
+        HeikenAshiConverter converter = new HeikenAshiConverter();
 
-        System.out.println("Retrieved "
-                + candles.size()
-                + " candles.");
+        List<HeikenAshiCandle> haCandles =
+                converter.convert(candles);
 
-        System.out.println();
+        // Create scanner
+        ConfluenceScanner scanner =
+                new ConfluenceScanner(
+                        new BollingerBandCalculator(),
+                        new TouchDetector());
 
-        Candle candle = candles.getFirst();
+        // Execute scan
+        List<TouchResult> results =
+                scanner.scan(
+                        haCandles,
+                        50,
+                        BigDecimal.valueOf(0.2));
 
-        printCandle(candle);
+        results.forEach(System.out::println);
+        System.out.println("end");
 
     }
 

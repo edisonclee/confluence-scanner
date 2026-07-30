@@ -20,7 +20,7 @@ import java.util.List;
  * into the application's market model.
  * </p>
  */
-public class BinanceCandleMapper {
+public final class BinanceCandleMapper {
 
     /**
      * Shared Jackson object mapper.
