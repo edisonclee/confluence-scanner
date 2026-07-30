@@ -44,6 +44,8 @@ public final class MeanReversionStrategy
 
         for (RuleResult ruleResult : ruleResults) {
 
+            Objects.requireNonNull(ruleResult, "ruleResult");
+
             if (ruleResult.isMatched()) {
 
                 matchedRules.add(ruleResult);

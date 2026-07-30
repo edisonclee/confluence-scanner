@@ -128,6 +128,9 @@ public enum Timeframe {
      *         if the interval is unsupported.
      */
     public static Timeframe fromInterval(String interval) {
+        if (interval == null) {
+            throw new IllegalArgumentException("interval must not be null.");
+        }
 
         Timeframe timeframe = LOOKUP.get(interval.toLowerCase());
 
@@ -137,7 +140,6 @@ public enum Timeframe {
         }
 
         return timeframe;
-
     }
 
     @Override
