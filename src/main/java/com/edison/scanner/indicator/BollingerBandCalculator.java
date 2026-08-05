@@ -38,7 +38,7 @@ public final class BollingerBandCalculator {
             List<? extends CandleData> candles,
             int length,
             BigDecimal multiplier) {
-
+    	
         Objects.requireNonNull(candles, "candles");
         Objects.requireNonNull(multiplier, "multiplier");
         if (multiplier.compareTo(BigDecimal.ZERO) <= 0) {

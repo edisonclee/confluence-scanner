@@ -1,96 +1,138 @@
 package com.edison.scanner;
 
-import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
+import com.edison.scanner.bitunix.BitunixClient;
+import com.edison.scanner.bitunix.BitunixSymbolProvider;
+import com.edison.scanner.bitunix.mapper.BitunixSymbolMapper;
 import com.edison.scanner.common.Timeframe;
 import com.edison.scanner.config.ApplicationConfig;
 import com.edison.scanner.converter.HeikenAshiConverter;
 import com.edison.scanner.detector.TouchDetector;
-import com.edison.scanner.exchange.BinanceClient;
+import com.edison.scanner.exchange.BinanceFuturesClient;
+import com.edison.scanner.exchange.BinanceFuturesSymbolProvider;
 import com.edison.scanner.indicator.BollingerBandCalculator;
-import com.edison.scanner.mapper.BinanceCandleMapper;
-import com.edison.scanner.model.TouchResult;
-import com.edison.scanner.model.market.Candle;
-import com.edison.scanner.model.market.HeikenAshiCandle;
-import com.edison.scanner.scanner.ConfluenceScanner;
+import com.edison.scanner.mapper.BinanceFuturesCandleMapper;
+import com.edison.scanner.market.MarketDataCache;
+import com.edison.scanner.market.MarketDataLoader;
+import com.edison.scanner.model.ScanResult;
+import com.edison.scanner.scanner.MarketScanner;
 
-/**
- * Application entry point.
- */
 public final class Main {
 
-    /**
-     * Prevent instantiation.
-     */
     private Main() {
     }
 
-    /**
-     * Starts the application.
-     *
-     * @param args command-line arguments
-     */
     public static void main(String[] args) {
 
         System.out.println("=========================================");
-        System.out.println("     Trading Confluence Scanner");
+        System.out.println("   Bollinger Band Touch Scanner Start");
         System.out.println("=========================================");
         System.out.println();
 
-        ApplicationConfig config = new ApplicationConfig();
+        ApplicationConfig config =
+                new ApplicationConfig();
 
-        BinanceClient client = new BinanceClient(
-                config,
-                new BinanceCandleMapper());
+        BinanceFuturesCandleMapper candleMapper =
+                new BinanceFuturesCandleMapper();
 
-        List<Candle> candles = client.getCandles(
-                "BTCUSDT",
-                Timeframe.D1,
-                200);
+        BitunixSymbolMapper symbolMapper =
+                new BitunixSymbolMapper();
 
-        // Convert to Heiken Ashi
-        HeikenAshiConverter converter = new HeikenAshiConverter();
+        HeikenAshiConverter haConverter =
+                new HeikenAshiConverter();
 
-        List<HeikenAshiCandle> haCandles =
-                converter.convert(candles);
+        BollingerBandCalculator bbCalculator =
+                new BollingerBandCalculator();
 
-        // Create scanner
-        ConfluenceScanner scanner =
-                new ConfluenceScanner(
-                        new BollingerBandCalculator(),
-                        new TouchDetector());
+        TouchDetector touchDetector =
+                new TouchDetector();
 
-        // Execute scan
-        List<TouchResult> results =
-                scanner.scan(
-                        haCandles,
-                        50,
-                        BigDecimal.valueOf(0.2));
+        MarketDataCache cache =
+                new MarketDataCache();
 
-        results.forEach(System.out::println);
-        System.out.println("end");
+        BinanceFuturesClient futuresClient =
+                new BinanceFuturesClient(
+                        config,
+                        candleMapper);
 
-    }
+        BinanceFuturesSymbolProvider futuresSymbolProvider =
+                new BinanceFuturesSymbolProvider(
+                        futuresClient);
 
-    /**
-     * Prints a candle.
-     *
-     * @param candle candle to print
-     */
-    private static void printCandle(Candle candle) {
+        BitunixClient bitunixClient =
+                new BitunixClient(config);
 
-        System.out.println("-----------------------------------------");
-        System.out.println("Symbol     : " + candle.getSymbol());
-        System.out.println("Timeframe  : " + candle.getTimeframe());
-        System.out.println("Open Time  : " + candle.getOpenTime());
-        System.out.println("Close Time : " + candle.getCloseTime());
-        System.out.println("Open       : " + candle.getOpen());
-        System.out.println("High       : " + candle.getHigh());
-        System.out.println("Low        : " + candle.getLow());
-        System.out.println("Close      : " + candle.getClose());
-        System.out.println("Volume     : " + candle.getVolume());
-        System.out.println("-----------------------------------------");
+        BitunixSymbolProvider bitunixSymbolProvider =
+                new BitunixSymbolProvider(
+                        bitunixClient,
+                        symbolMapper,
+                        futuresSymbolProvider);
+
+        MarketDataLoader marketDataLoader =
+                new MarketDataLoader(
+                        config,
+                        futuresClient,
+                        haConverter,
+                        bbCalculator,
+                        cache);
+
+        MarketScanner marketScanner =
+                new MarketScanner(
+                        config,
+                        touchDetector);
+
+        ScannerApplication application =
+                new ScannerApplication(
+                        bitunixSymbolProvider,
+                        marketDataLoader,
+                        marketScanner,
+                        config.getScannerDownloadThreads());
+
+        List<ScanResult> results =
+                application.run();
+
+        Map<Timeframe, List<ScanResult>> grouped =
+                new TreeMap<>();
+
+        for (ScanResult result : results) {
+
+            grouped.computeIfAbsent(
+                    result.getTimeframe(),
+                    key -> new java.util.ArrayList<>())
+                    .add(result);
+
+        }
+
+        if (grouped.isEmpty()) {
+
+            System.out.println("No symbols found.");
+
+        } else {
+
+            System.out.println("MULTI-TIMEFRAME");
+
+            for (Map.Entry<Timeframe, List<ScanResult>> entry
+                    : grouped.entrySet()) {
+
+                System.out.println();
+                System.out.println("-------------------------");
+                System.out.println(entry.getKey());
+
+                for (ScanResult result : entry.getValue()) {
+                    System.out.println(result.getSymbol());
+                }
+
+            }
+
+        }
+
+        System.out.println();
+        System.out.println("=========================================");
+        System.out.println("  Bollinger Band Touch Scanner Complete");
+        System.out.println("=========================================");
 
     }
 

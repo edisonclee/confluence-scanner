@@ -1,16 +1,16 @@
 package com.edison.scanner.mapper;
 
-import com.edison.scanner.common.Timeframe;
-import com.edison.scanner.exception.BinanceException;
-import com.edison.scanner.model.market.Candle;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.edison.scanner.common.Timeframe;
+import com.edison.scanner.exceptions.ExchangeException;
+import com.edison.scanner.model.market.Candle;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Maps Binance Kline API responses into {@link Candle} domain objects.
@@ -20,7 +20,7 @@ import java.util.List;
  * into the application's market model.
  * </p>
  */
-public final class BinanceCandleMapper {
+public final class BinanceFuturesCandleMapper {
 
     /**
      * Shared Jackson object mapper.
@@ -72,7 +72,7 @@ public final class BinanceCandleMapper {
 
         } catch (JsonProcessingException ex) {
 
-            throw new BinanceException(
+            throw new ExchangeException(
                     "Unable to parse Binance candle response.",
                     ex);
 
@@ -101,7 +101,7 @@ public final class BinanceCandleMapper {
             JsonNode node) {
     	
     	if (node == null || !node.isArray() || node.size() < 7) {
-    	    throw new BinanceException("Invalid Binance candle structure.");
+    	    throw new ExchangeException("Invalid Binance candle structure.");
     	}
 
         return new Candle(
