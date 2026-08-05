@@ -1,59 +1,34 @@
 package com.edison.scanner.detector;
 
-import com.edison.scanner.common.BandType;
 import com.edison.scanner.model.CandleData;
-import com.edison.scanner.model.TouchResult;
 import com.edison.scanner.model.indicator.BollingerBand;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 /**
- * Detects Bollinger Band touches.
+ * Detects whether a candle touches any Bollinger Band.
  */
 public final class TouchDetector {
 
     /**
-     * Detects all Bollinger Band touches for a candle.
+     * Returns whether the candle touches any Bollinger Band.
      *
      * @param candle source candle
      * @param band calculated Bollinger Band
-     * @return detected touches
+     * @return true if any band is touched
      */
-    public List<TouchResult> detect(
+    public boolean isTouched(
             CandleData candle,
             BollingerBand band) {
 
         Objects.requireNonNull(candle, "candle");
         Objects.requireNonNull(band, "band");
 
-        List<TouchResult> touches = new ArrayList<>(3);
+        return isTouched(candle, band.getUpperBand())
+                || isTouched(candle, band.getBasisBand())
+                || isTouched(candle, band.getLowerBand());
 
-        detectTouch(candle, band.getUpperBand(), BandType.UPPER, touches);
-        detectTouch(candle, band.getBasisBand(), BandType.BASIS, touches);
-        detectTouch(candle, band.getLowerBand(), BandType.LOWER, touches);
-
-        return List.copyOf(touches);
-    }
-
-    private void detectTouch(
-            CandleData candle,
-            BigDecimal bandValue,
-            BandType bandType,
-            List<TouchResult> touches) {
-
-        if (isTouched(candle, bandValue)) {
-
-            touches.add(new TouchResult(
-                    candle.getSymbol(),
-                    candle.getTimeframe(),
-                    candle.getOpenTime(),
-                    candle.getCloseTime(),
-                    bandType));
-
-        }
     }
 
     /**
