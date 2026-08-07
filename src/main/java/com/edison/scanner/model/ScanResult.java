@@ -1,24 +1,43 @@
 package com.edison.scanner.model;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 import com.edison.scanner.common.Timeframe;
 
 /**
- * Represents a symbol that touched a Bollinger Band.
+ * Scanner result.
  */
 public final class ScanResult {
 
+    /**
+     * Trading symbol.
+     */
     private final String symbol;
 
+    /**
+     * Chart timeframe.
+     */
     private final Timeframe timeframe;
+
+    /**
+     * Bollinger Band width in percent.
+     */
+    private final BigDecimal bbWidthPercent;
 
     public ScanResult(
             String symbol,
-            Timeframe timeframe) {
+            Timeframe timeframe,
+            BigDecimal bbWidthPercent) {
 
-        this.symbol = Objects.requireNonNull(symbol, "symbol");
-        this.timeframe = Objects.requireNonNull(timeframe, "timeframe");
+        this.symbol =
+                Objects.requireNonNull(symbol);
+
+        this.timeframe =
+                Objects.requireNonNull(timeframe);
+
+        this.bbWidthPercent =
+                Objects.requireNonNull(bbWidthPercent);
 
     }
 
@@ -28,6 +47,10 @@ public final class ScanResult {
 
     public Timeframe getTimeframe() {
         return timeframe;
+    }
+
+    public BigDecimal getBbWidthPercent() {
+        return bbWidthPercent;
     }
 
 }

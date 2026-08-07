@@ -1,5 +1,7 @@
 package com.edison.scanner.scanner;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -82,11 +84,23 @@ public final class MarketScanner {
                 continue;
             }
 
+            BigDecimal bbWidthPercent =
+                    latestBand.getUpperBand()
+                            .subtract(
+                                    latestBand.getLowerBand())
+                            .divide(
+                                    latestBand.getBasisBand(),
+                                    8,
+                                    RoundingMode.HALF_UP)
+                            .multiply(
+                                    BigDecimal.valueOf(100));
+
             results.add(
                     new ScanResult(
                             marketData.getSymbol()
                                     .getExchangeSymbol(),
-                            chartTimeframe));
+                            chartTimeframe,
+                            bbWidthPercent));
 
         }
 
