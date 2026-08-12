@@ -1,10 +1,12 @@
-package com.edison.scanner.scanner;
+package com.edison.scanner.strategy.impl;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import org.springframework.stereotype.Component;
 
 import com.edison.scanner.common.Timeframe;
 import com.edison.scanner.config.ApplicationConfig;
@@ -14,17 +16,19 @@ import com.edison.scanner.market.TimeframeData;
 import com.edison.scanner.model.ScanResult;
 import com.edison.scanner.model.indicator.BollingerBand;
 import com.edison.scanner.model.market.HeikenAshiCandle;
+import com.edison.scanner.strategy.ScannerStrategy;
 
 /**
  * Scans prepared market data for Bollinger Band touches.
  */
-public final class MarketScanner {
+@Component
+public final class BollingerBandStrategy implements ScannerStrategy {
 
     private final ApplicationConfig config;
 
     private final TouchDetector touchDetector;
 
-    public MarketScanner(
+    public BollingerBandStrategy(
             ApplicationConfig config,
             TouchDetector touchDetector) {
 
@@ -106,6 +110,11 @@ public final class MarketScanner {
 
         return List.copyOf(results);
 
+    }
+
+    @Override
+    public String getName() {
+        return "bb";
     }
 
 }
