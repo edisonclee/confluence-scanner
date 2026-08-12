@@ -18,7 +18,7 @@ import java.util.concurrent.Future;
 /**
  * Coordinates the complete market scan.
  */
-public final class ScannerApplication {
+public final class ScannerEngine {
 
     private final BitunixSymbolProvider symbolProvider;
 
@@ -28,7 +28,7 @@ public final class ScannerApplication {
     
     private final int downloadThreads;
 
-    public ScannerApplication(
+    public ScannerEngine(
             BitunixSymbolProvider symbolProvider,
             MarketDataLoader marketDataLoader,
             MarketScanner marketScanner,
