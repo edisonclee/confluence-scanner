@@ -7,9 +7,10 @@ import com.edison.scanner.bitunix.BitunixSymbolProvider;
 import com.edison.scanner.exceptions.ExchangeException;
 import com.edison.scanner.market.MarketData;
 import com.edison.scanner.market.MarketDataLoader;
+import com.edison.scanner.model.ScanExecutionResult;
 import com.edison.scanner.model.ScanResult;
 import com.edison.scanner.model.market.TradingSymbol;
-import com.edison.scanner.scanner.MarketScanner;
+import com.edison.scanner.strategy.impl.BollingerBandStrategy;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -24,14 +25,14 @@ public final class ScannerEngine {
 
     private final MarketDataLoader marketDataLoader;
 
-    private final MarketScanner marketScanner;
+    private final BollingerBandStrategy marketScanner;
     
     private final int downloadThreads;
 
     public ScannerEngine(
             BitunixSymbolProvider symbolProvider,
             MarketDataLoader marketDataLoader,
-            MarketScanner marketScanner,
+            BollingerBandStrategy marketScanner,
             int downloadThreads) {
 
         this.symbolProvider = symbolProvider;
@@ -46,7 +47,7 @@ public final class ScannerEngine {
      *
      * @return scan results
      */
-    public List<ScanResult> run() {
+    public ScanExecutionResult run() {
     	long totalStart = System.nanoTime();
 
         List<TradingSymbol> symbols =
@@ -141,18 +142,13 @@ public final class ScannerEngine {
                 (totalEnd - totalStart)
                 / 1_000_000_000.0;
 
-        System.out.println();
-        System.out.println("========== Performance ==========");
-        System.out.printf("Download : %.2f sec%n",
-                downloadSeconds);
-        System.out.printf("Scan     : %.2f sec%n",
-                scanSeconds);
-        System.out.printf("Total    : %.2f sec%n",
-                totalSeconds);
-        System.out.println("=================================");
-        System.out.println();
 
-        return List.copyOf(results);
+        return new ScanExecutionResult(
+                results,
+                symbols.size(),
+                downloadSeconds,
+                scanSeconds,
+                totalSeconds);
 
     }
 

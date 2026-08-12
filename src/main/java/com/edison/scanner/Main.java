@@ -18,8 +18,9 @@ import com.edison.scanner.indicator.BollingerBandCalculator;
 import com.edison.scanner.mapper.BinanceFuturesCandleMapper;
 import com.edison.scanner.market.MarketDataCache;
 import com.edison.scanner.market.MarketDataLoader;
+import com.edison.scanner.model.ScanExecutionResult;
 import com.edison.scanner.model.ScanResult;
-import com.edison.scanner.scanner.MarketScanner;
+import com.edison.scanner.strategy.impl.BollingerBandStrategy;
 
 public final class Main {
 
@@ -80,8 +81,8 @@ public final class Main {
                         bbCalculator,
                         cache);
 
-        MarketScanner marketScanner =
-                new MarketScanner(
+        BollingerBandStrategy marketScanner =
+                new BollingerBandStrategy(
                         config,
                         touchDetector);
 
@@ -92,8 +93,11 @@ public final class Main {
                         marketScanner,
                         config.getScannerDownloadThreads());
 
-        List<ScanResult> results =
+        ScanExecutionResult execution =
                 application.run();
+
+        List<ScanResult> results =
+                execution.getResults();
 
         if (results.isEmpty()) {
 

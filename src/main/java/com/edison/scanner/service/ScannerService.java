@@ -2,14 +2,25 @@ package com.edison.scanner.service;
 
 import org.springframework.stereotype.Service;
 
-/**
- * Executes scanner operations.
- */
+import com.edison.scanner.ScannerEngine;
+import com.edison.scanner.model.ScanExecutionResult;
+
 @Service
 public class ScannerService {
 
-    public String health() {
-        return "Scanner Service OK";
+    private final ScannerEngine scannerEngine;
+
+    public ScannerService(
+            ScannerEngine scannerEngine) {
+
+        this.scannerEngine = scannerEngine;
+
+    }
+
+    public ScanExecutionResult run() {
+
+        return scannerEngine.run();
+
     }
 
 }
