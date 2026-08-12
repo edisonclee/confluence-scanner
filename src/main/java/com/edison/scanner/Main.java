@@ -85,8 +85,8 @@ public final class Main {
                         config,
                         touchDetector);
 
-        ScannerApplication application =
-                new ScannerApplication(
+        ScannerEngine application =
+                new ScannerEngine(
                         bitunixSymbolProvider,
                         marketDataLoader,
                         marketScanner,
