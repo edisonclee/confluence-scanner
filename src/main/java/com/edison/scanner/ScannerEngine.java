@@ -6,6 +6,7 @@ import java.util.List;
 import com.edison.scanner.bitunix.BitunixSymbolProvider;
 import com.edison.scanner.exceptions.ExchangeException;
 import com.edison.scanner.market.MarketData;
+import com.edison.scanner.market.MarketDataCache;
 import com.edison.scanner.market.MarketDataLoader;
 import com.edison.scanner.model.ScanExecutionResult;
 import com.edison.scanner.model.ScanResult;
@@ -29,15 +30,19 @@ public final class ScannerEngine {
     
     private final int downloadThreads;
 
+    private final MarketDataCache cache;
+    
     public ScannerEngine(
             BitunixSymbolProvider symbolProvider,
             MarketDataLoader marketDataLoader,
             BollingerBandStrategy marketScanner,
+            MarketDataCache cache,
             int downloadThreads) {
 
         this.symbolProvider = symbolProvider;
         this.marketDataLoader = marketDataLoader;
         this.marketScanner = marketScanner;
+        this.cache = cache;
         this.downloadThreads = downloadThreads;
 
     }
@@ -48,6 +53,9 @@ public final class ScannerEngine {
      * @return scan results
      */
     public ScanExecutionResult run() {
+    	
+    	cache.clear();
+    	
     	long totalStart = System.nanoTime();
 
         List<TradingSymbol> symbols =
@@ -154,6 +162,10 @@ public final class ScannerEngine {
 
 	public int getDownloadThreads() {
 		return downloadThreads;
+	}
+
+	public MarketDataCache getCache() {
+		return cache;
 	}
 
 }
