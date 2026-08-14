@@ -9,6 +9,26 @@ public class TimeframeResponse {
     private Timeframe timeframe;
 
     private List<ScanResultResponse> results;
+    
+    private String chartTimeframeDisplayName;
+
+    private String bbTimeframeDisplayName;
+
+	public String getChartTimeframeDisplayName() {
+		return chartTimeframeDisplayName;
+	}
+
+	public void setChartTimeframeDisplayName(String chartTimeframeDisplayName) {
+		this.chartTimeframeDisplayName = chartTimeframeDisplayName;
+	}
+
+	public String getBbTimeframeDisplayName() {
+		return bbTimeframeDisplayName;
+	}
+
+	public void setBbTimeframeDisplayName(String bbTimeframeDisplayName) {
+		this.bbTimeframeDisplayName = bbTimeframeDisplayName;
+	}
 
 	public Timeframe getTimeframe() {
 		return timeframe;
