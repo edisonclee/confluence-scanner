@@ -44,28 +44,42 @@ public class ScannerResponseMapper {
         response.setTotalMatches(
                 executionResult.getResults().size());
 
-        response.setTimeframes(
-                buildTimeframes(
-                        executionResult.getResults()));
+        List<MultiTimeframeResponse> multiTimeframe =
+                buildMultiTimeframe(
+                        executionResult.getResults());
 
         response.setMultiTimeframe(
-                buildMultiTimeframe(
-                        executionResult.getResults()));
+                multiTimeframe);
+
+        response.setTimeframes(
+                buildTimeframes(
+                        executionResult.getResults(),
+                        multiTimeframe));
 
         response.setMultiTimeframeMatches(
-                response.getMultiTimeframe().size());
+                multiTimeframe.size());
 
         return response;
 
     }
 
     private List<TimeframeResponse> buildTimeframes(
-            List<ScanResult> results) {
+            List<ScanResult> results,
+            List<MultiTimeframeResponse> multiTimeframe) {
 
         Map<Timeframe, List<ScanResult>> grouped =
                 new LinkedHashMap<>();
 
+        java.util.Set<String> multiSymbols =
+                multiTimeframe.stream()
+                        .map(MultiTimeframeResponse::getSymbol)
+                        .collect(java.util.stream.Collectors.toSet());
+
         for (ScanResult result : results) {
+
+            if (multiSymbols.contains(result.getSymbol())) {
+                continue;
+            }
 
             grouped.computeIfAbsent(
                     result.getTimeframe(),
@@ -74,13 +88,35 @@ public class ScannerResponseMapper {
 
         }
 
+        List<Timeframe> timeframeOrder = List.of(
+
+                Timeframe.D1,
+
+                Timeframe.H4,
+
+                Timeframe.H1,
+
+                Timeframe.M15
+
+        );
+
         List<TimeframeResponse> responses =
                 new ArrayList<>();
 
-        for (Map.Entry<Timeframe, List<ScanResult>> entry
-                : grouped.entrySet()) {
+        for (Timeframe timeframeKey : timeframeOrder) {
 
-            entry.getValue().sort(
+            List<ScanResult> timeframeResults =
+                    grouped.get(timeframeKey);
+
+            if (timeframeResults == null
+                    || timeframeResults.isEmpty()) {
+
+                continue;
+
+            }
+
+            timeframeResults.sort(
+
                     Comparator.comparing(
                             ScanResult::getBbWidthPercent)
                             .reversed());
@@ -89,13 +125,13 @@ public class ScannerResponseMapper {
                     new TimeframeResponse();
 
             timeframe.setTimeframe(
-                    entry.getKey());
+                    timeframeKey);
 
             timeframe.setChartTimeframeDisplayName(
-                    entry.getKey().getDisplayName());
+                    timeframeKey.getDisplayName());
 
             Timeframe higher =
-                    entry.getKey().getHigherTimeframe();
+                    timeframeKey.getHigherTimeframe();
 
             timeframe.setBbTimeframeDisplayName(
 
@@ -108,10 +144,14 @@ public class ScannerResponseMapper {
             );
 
             timeframe.setResults(
-                    entry.getValue()
-                            .stream()
+
+                    timeframeResults.stream()
+
                             .map(this::toScanResultResponse)
-                            .toList());
+
+                            .toList()
+
+            );
 
             responses.add(timeframe);
 
@@ -158,6 +198,16 @@ public class ScannerResponseMapper {
             responses.add(response);
 
         }
+        
+        responses.sort(
+                Comparator
+                        .comparingInt(
+                                (MultiTimeframeResponse response)
+                                        -> response.getTimeframes().size())
+                        .reversed()
+                        .thenComparing(
+                                MultiTimeframeResponse::getSymbol)
+        );
 
         return responses;
 
