@@ -91,7 +91,7 @@ public class ScannerResponseMapper {
             timeframe.setTimeframe(
                     entry.getKey());
 
-            timeframe.setDisplayName(
+            timeframe.setChartTimeframeDisplayName(
                     entry.getKey().getDisplayName());
 
             Timeframe higher =
