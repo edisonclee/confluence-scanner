@@ -157,6 +157,8 @@ public final class BinanceFuturesClient {
                 HttpRequest.newBuilder(uri)
                         .timeout(
                                 java.time.Duration.ofSeconds(30))
+                        .header("User-Agent", "ConfluenceScanner/1.0")
+                        .header("Accept", "application/json")
                         .GET()
                         .build();
 
@@ -199,10 +201,13 @@ public final class BinanceFuturesClient {
     /**
      * Validates Binance response.
      */
-    private void validateResponse(
-            HttpResponse<?> response) {
+    private void validateResponse (
+            HttpResponse<String> response) {
 
         if (response.statusCode() != 200) {
+
+            System.out.println("Status: " + response.statusCode());
+            System.out.println("Body: " + response.body());
 
             throw new ExchangeException(
                     "Unexpected response status: "
@@ -274,6 +279,10 @@ public final class BinanceFuturesClient {
         HttpRequest request =
                 HttpRequest.newBuilder(
                         buildExchangeInfoUri())
+                        .timeout(
+                                java.time.Duration.ofSeconds(30))
+                        .header("User-Agent", "ConfluenceScanner/1.0")
+                        .header("Accept", "application/json")
                         .GET()
                         .build();
 

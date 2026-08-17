@@ -99,9 +99,11 @@ public final class BitunixClient {
 
         if (response.statusCode() != 200) {
 
-            throw new ExchangeException(
-                    "Unexpected Bitunix response status: "
-                            + response.statusCode());
+        	throw new ExchangeException(
+        	        "Unexpected response status: "
+        	                + response.statusCode()
+        	                + " Body: "
+        	                + response.body());
 
         }
 
