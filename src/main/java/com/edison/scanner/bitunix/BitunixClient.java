@@ -70,6 +70,8 @@ public final class BitunixClient {
 
         } catch (InterruptedException ex) {
 
+        	ex.printStackTrace();
+        	
             Thread.currentThread().interrupt();
 
             throw new ExchangeException(
@@ -77,6 +79,7 @@ public final class BitunixClient {
                     ex);
 
         } catch (IOException ex) {
+        	ex.printStackTrace();
 
             throw new ExchangeException(
                     "Failed to retrieve Bitunix trading pairs.",

@@ -54,12 +54,10 @@ public final class BitunixSymbolMapper {
             return List.copyOf(symbols);
 
         } catch (Exception ex) {
+        	ex.printStackTrace();
 
-            throw new ExchangeException(
-                    "Failed to parse Bitunix trading pairs.",
-                    ex);
-
-        }
+			throw new ExchangeException("Failed to communicate with Binance Futures.",ex);
+		}
 
     }
 

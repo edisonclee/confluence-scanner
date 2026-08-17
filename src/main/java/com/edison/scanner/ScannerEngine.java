@@ -82,6 +82,7 @@ public final class ScannerEngine {
                             marketDataLoader.preload(symbol);
 
                         } catch (Exception ex) {
+                        	ex.printStackTrace();
 
                             System.err.printf(
                                     "Failed to download %s : %s%n",
@@ -101,6 +102,7 @@ public final class ScannerEngine {
                 future.get();
 
             } catch (Exception ex) {
+            	ex.printStackTrace();
 
                 throw new ExchangeException(
                         "Failed while downloading market data.",

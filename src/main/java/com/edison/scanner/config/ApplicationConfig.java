@@ -61,6 +61,7 @@ public final class ApplicationConfig {
             properties.load(input);
 
         } catch (IOException ex) {
+        	ex.printStackTrace();
             throw new UncheckedIOException(
                     "Failed to load application.properties.",
                     ex);

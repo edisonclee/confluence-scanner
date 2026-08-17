@@ -71,6 +71,7 @@ public final class BinanceFuturesCandleMapper {
             return List.copyOf(candles);
 
         } catch (JsonProcessingException ex) {
+        	ex.printStackTrace();
 
             throw new ExchangeException(
                     "Unable to parse Binance candle response.",

@@ -46,6 +46,7 @@ public final class SymbolProvider {
                     .collect(Collectors.toUnmodifiableList());
 
         } catch (IOException ex) {
+        	ex.printStackTrace();
 
             throw new IllegalStateException(
                     "Unable to read " + RESOURCE,

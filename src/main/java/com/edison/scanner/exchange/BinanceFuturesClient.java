@@ -55,7 +55,11 @@ public final class BinanceFuturesClient {
 
         this.config = Objects.requireNonNull(config);
         this.candleMapper = Objects.requireNonNull(candleMapper);
-        this.httpClient = HttpClient.newHttpClient();
+        this.httpClient =
+                HttpClient.newBuilder()
+                        .connectTimeout(
+                                java.time.Duration.ofSeconds(15))
+                        .build();
 
     }
 
@@ -151,6 +155,8 @@ public final class BinanceFuturesClient {
 
         HttpRequest request =
                 HttpRequest.newBuilder(uri)
+                        .timeout(
+                                java.time.Duration.ofSeconds(30))
                         .GET()
                         .build();
 
@@ -228,6 +234,7 @@ public final class BinanceFuturesClient {
             return response;
 
         } catch (InterruptedException ex) {
+        	ex.printStackTrace();
 
             Thread.currentThread().interrupt();
 
@@ -236,6 +243,7 @@ public final class BinanceFuturesClient {
                     ex);
 
         } catch (IOException ex) {
+        	ex.printStackTrace();
 
             throw new ExchangeException(
                     "Failed to communicate with Binance Futures.",
@@ -294,6 +302,7 @@ public final class BinanceFuturesClient {
             }
 
         } catch (IOException ex) {
+        	ex.printStackTrace();
 
             throw new UncheckedIOException(ex);
 
