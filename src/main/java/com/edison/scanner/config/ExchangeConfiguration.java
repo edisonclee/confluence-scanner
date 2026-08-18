@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import com.edison.scanner.bitunix.BitunixClient;
 import com.edison.scanner.bitunix.BitunixSymbolProvider;
 import com.edison.scanner.bitunix.mapper.BitunixSymbolMapper;
-import com.edison.scanner.exchange.BinanceFuturesClient;
 import com.edison.scanner.exchange.BinanceFuturesSymbolProvider;
 import com.edison.scanner.mapper.BinanceFuturesCandleMapper;
+import com.edison.scanner.mapper.BinanceFuturesClient;
 
 @Configuration
 public class ExchangeConfiguration {

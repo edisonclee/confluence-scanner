@@ -3,6 +3,8 @@ package com.edison.scanner.exchange;
 import java.util.Objects;
 import java.util.Set;
 
+import com.edison.scanner.mapper.BinanceFuturesClient;
+
 /**
  * Provides all Binance Futures trading symbols.
  */

@@ -1,5 +1,6 @@
 package com.edison.scanner.api.mapper;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -164,7 +165,7 @@ public class ScannerResponseMapper {
     private List<MultiTimeframeResponse> buildMultiTimeframe(
             List<ScanResult> results) {
 
-        Map<String, List<Timeframe>> grouped =
+        Map<String, List<ScanResult>> grouped =
                 new LinkedHashMap<>();
 
         for (ScanResult result : results) {
@@ -172,14 +173,14 @@ public class ScannerResponseMapper {
             grouped.computeIfAbsent(
                     result.getSymbol(),
                     key -> new ArrayList<>())
-                    .add(result.getTimeframe());
+                    .add(result);
 
         }
 
         List<MultiTimeframeResponse> responses =
                 new ArrayList<>();
 
-        for (Map.Entry<String, List<Timeframe>> entry
+        for (Map.Entry<String, List<ScanResult>> entry
                 : grouped.entrySet()) {
 
             if (entry.getValue().size() < 2) {
@@ -193,20 +194,40 @@ public class ScannerResponseMapper {
                     entry.getKey());
 
             response.setTimeframes(
-                    entry.getValue());
+
+                    entry.getValue()
+                            .stream()
+                            .map(ScanResult::getTimeframe)
+                            .toList());
+
+            double largestBbWidth =
+                    entry.getValue()
+                            .stream()
+                            .map(ScanResult::getBbWidthPercent)
+                            .mapToDouble(BigDecimal::doubleValue)
+                            .max()
+                            .orElse(0.0);
+
+            response.setLargestBbWidthPercent(
+                    largestBbWidth);
 
             responses.add(response);
 
         }
-        
+
         responses.sort(
+
                 Comparator
-                        .comparingInt(
-                                (MultiTimeframeResponse response)
-                                        -> response.getTimeframes().size())
+                        .comparingDouble(
+                                MultiTimeframeResponse::getLargestBbWidthPercent)
                         .reversed()
                         .thenComparing(
+                                (MultiTimeframeResponse response) ->
+                                        response.getTimeframes().size(),
+                                Comparator.reverseOrder())
+                        .thenComparing(
                                 MultiTimeframeResponse::getSymbol)
+
         );
 
         return responses;

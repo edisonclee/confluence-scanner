@@ -79,33 +79,12 @@ public final class BitunixSymbolProvider {
 
 	    }
 
-	    System.out.println();
-	    System.out.println("========== Symbol Summary ==========");
-	    System.out.println("Bitunix Futures : "
-	            + bitunixSymbols.size());
-
-	    System.out.println("Binance Futures : "
-	            + binanceSymbols.size());
-
-	    System.out.println("Scannable       : "
-	            + filtered.size());
-
-	    System.out.println("Unsupported     : "
-	            + unsupported.size());
-
-	    System.out.println("====================================");
 	    
 	    if (!unsupported.isEmpty()) {
-
-	        System.out.println();
-	        System.out.println("Symbols not available on Binance Futures:");
-
 	        unsupported.stream()
 	                .sorted()
 	                .forEach(symbol ->
 	                        System.out.println(" - " + symbol));
-
-	        System.out.println();
 
 	    }
 

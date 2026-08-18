@@ -28,7 +28,6 @@ public class ScannerController {
 
     @GetMapping("/run")
     public ScannerResponse run() {
-    	System.out.println(">>> /api/scanner/run called");
 
         ScanExecutionResult result =
                 scannerService.run();

@@ -1,4 +1,4 @@
-package com.edison.scanner.exchange;
+package com.edison.scanner.mapper;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -17,7 +17,6 @@ import java.util.Set;
 import com.edison.scanner.common.Timeframe;
 import com.edison.scanner.config.ApplicationConfig;
 import com.edison.scanner.exceptions.ExchangeException;
-import com.edison.scanner.mapper.BinanceFuturesCandleMapper;
 import com.edison.scanner.model.market.Candle;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -149,7 +148,7 @@ public final class BinanceFuturesClient {
         URI uri =
                 buildKlineUri(
                         symbol,
-                        timeframe.getBinanceInterval(),
+                        timeframe.getInterval(),
                         limit,
                         endTime);
 
@@ -205,9 +204,6 @@ public final class BinanceFuturesClient {
             HttpResponse<String> response) {
 
         if (response.statusCode() != 200) {
-
-            System.out.println("Status: " + response.statusCode());
-            System.out.println("Body: " + response.body());
 
             throw new ExchangeException(
                     "Unexpected response status: "

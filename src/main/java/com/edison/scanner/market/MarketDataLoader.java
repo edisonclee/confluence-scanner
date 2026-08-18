@@ -8,8 +8,8 @@ import java.util.Set;
 import com.edison.scanner.common.Timeframe;
 import com.edison.scanner.config.ApplicationConfig;
 import com.edison.scanner.converter.HeikenAshiConverter;
-import com.edison.scanner.exchange.BinanceFuturesClient;
 import com.edison.scanner.indicator.BollingerBandCalculator;
+import com.edison.scanner.mapper.BitunixFuturesClient;
 import com.edison.scanner.model.indicator.BollingerBand;
 import com.edison.scanner.model.market.Candle;
 import com.edison.scanner.model.market.HeikenAshiCandle;
@@ -22,17 +22,17 @@ public final class MarketDataLoader {
 
     private final ApplicationConfig config;
 
-    private final BinanceFuturesClient client;
+    private final BitunixFuturesClient client;
 
     private final HeikenAshiConverter heikenAshiConverter;
 
     private final BollingerBandCalculator bollingerBandCalculator;
-    
+
     private final MarketDataCache cache;
 
     public MarketDataLoader(
             ApplicationConfig config,
-            BinanceFuturesClient client,
+            BitunixFuturesClient client,
             HeikenAshiConverter heikenAshiConverter,
             BollingerBandCalculator bollingerBandCalculator,
             MarketDataCache cache) {
@@ -61,7 +61,7 @@ public final class MarketDataLoader {
         return cache.get(symbol);
 
     }
-    
+
     /**
      * Downloads and caches market data.
      *

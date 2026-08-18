@@ -1,5 +1,6 @@
 package com.edison.scanner.common;
 
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,12 +29,12 @@ import java.util.Map;
  */
 public enum Timeframe {
 
-    M5("5m", "5m"),
-    M15("15m", "15m"),
-    H1("1h", "1h"),
-    H4("4h", "4h"),
-    D1("1d", "1d"),
-    W1("1w", "1w");
+	M5("5m", "5m", java.time.Duration.ofMinutes(5)),
+	M15("15m", "15m", java.time.Duration.ofMinutes(15)),
+	H1("1h", "1h", java.time.Duration.ofHours(1)),
+	H4("4h", "4h", java.time.Duration.ofHours(4)),
+	D1("1d", "1d", java.time.Duration.ofDays(1)),
+	W1("1w", "1w", java.time.Duration.ofDays(7));
 
     /**
      * Lookup table for Binance intervals.
@@ -43,9 +44,9 @@ public enum Timeframe {
     static {
 
         for (Timeframe timeframe : values()) {
-            LOOKUP.put(
-                    timeframe.binanceInterval.toLowerCase(),
-                    timeframe);
+        	LOOKUP.put(
+        	        timeframe.interval.toLowerCase(),
+        	        timeframe);
         }
 
         M5.higherTimeframe = M15;
@@ -62,10 +63,9 @@ public enum Timeframe {
      */
     private final String displayName;
 
-    /**
-     * Binance interval.
-     */
-    private final String binanceInterval;
+    private final String interval;
+
+    private final Duration duration;
 
     /**
      * Default higher timeframe.
@@ -82,10 +82,12 @@ public enum Timeframe {
      */
     Timeframe(
             String displayName,
-            String binanceInterval) {
+            String interval,
+            Duration duration) {
 
         this.displayName = displayName;
-        this.binanceInterval = binanceInterval;
+        this.interval = interval;
+        this.duration = duration;
 
     }
 
@@ -103,8 +105,8 @@ public enum Timeframe {
      *
      * @return Binance interval.
      */
-    public String getBinanceInterval() {
-        return binanceInterval;
+    public String getInterval() {
+        return interval;
     }
 
     /**
@@ -146,5 +148,9 @@ public enum Timeframe {
     public String toString() {
         return displayName;
     }
+
+	public Duration getDuration() {
+		return duration;
+	}
 
 }
