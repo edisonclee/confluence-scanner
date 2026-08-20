@@ -122,9 +122,12 @@ public final class MarketDataLoader {
             marketData.put(
                     timeframe,
                     new TimeframeData(
-                            candles,
-                            ha,
-                            bands));
+                            ha.isEmpty()
+                                    ? null
+                                    : ha.get(ha.size() - 1),
+                            bands.isEmpty()
+                                    ? null
+                                    : bands.get(bands.size() - 1)));
 
         }
 

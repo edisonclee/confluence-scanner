@@ -57,9 +57,6 @@ public final class BitunixSymbolProvider {
 	    List<TradingSymbol> filtered =
 	            new ArrayList<>();
 
-	    List<String> unsupported =
-	            new ArrayList<>();
-
 	    for (TradingSymbol symbol : bitunixSymbols) {
 
 	        if ("XAUTUSDT".equals(
@@ -69,22 +66,7 @@ public final class BitunixSymbolProvider {
 	                    symbol.getExchangeSymbol())) {
 
 	            filtered.add(symbol);
-
-	        } else {
-
-	            unsupported.add(
-	                    symbol.getExchangeSymbol());
-
 	        }
-
-	    }
-
-	    
-	    if (!unsupported.isEmpty()) {
-	        unsupported.stream()
-	                .sorted()
-	                .forEach(symbol ->
-	                        System.out.println(" - " + symbol));
 
 	    }
 
