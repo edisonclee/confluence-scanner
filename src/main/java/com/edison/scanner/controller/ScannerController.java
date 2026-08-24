@@ -1,5 +1,6 @@
 package com.edison.scanner.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,7 @@ import com.edison.scanner.service.ScannerService;
 
 @RestController
 @RequestMapping("/api/scanner")
+@CrossOrigin(origins = "https://confluence-ui-ub41.onrender.com")
 public class ScannerController {
 
     private final ScannerService scannerService;
