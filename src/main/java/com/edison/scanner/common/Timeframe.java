@@ -34,7 +34,8 @@ public enum Timeframe {
 	H1("1h", "1h", java.time.Duration.ofHours(1)),
 	H4("4h", "4h", java.time.Duration.ofHours(4)),
 	D1("1d", "1d", java.time.Duration.ofDays(1)),
-	W1("1w", "1w", java.time.Duration.ofDays(7));
+	W1("1w", "1w", java.time.Duration.ofDays(7)),
+	MN1("1M", "1M", java.time.Duration.ofDays(30));
 
     /**
      * Lookup table for Binance intervals.
@@ -54,7 +55,8 @@ public enum Timeframe {
         H1.higherTimeframe = H4;
         H4.higherTimeframe = D1;
         D1.higherTimeframe = W1;
-        W1.higherTimeframe = null;
+        W1.higherTimeframe = MN1;
+        MN1.higherTimeframe = null;
 
     }
 
