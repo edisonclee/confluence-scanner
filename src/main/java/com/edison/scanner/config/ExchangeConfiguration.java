@@ -50,13 +50,11 @@ public class ExchangeConfiguration {
     @Bean
     public BitunixSymbolProvider bitunixSymbolProvider(
             BitunixClient client,
-            BitunixSymbolMapper mapper,
-            BinanceFuturesSymbolProvider futuresProvider) {
+            BitunixSymbolMapper mapper) {
 
         return new BitunixSymbolProvider(
                 client,
-                mapper,
-                futuresProvider);
+                mapper);
     }
 
 }
