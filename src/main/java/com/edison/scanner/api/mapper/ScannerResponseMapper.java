@@ -90,15 +90,11 @@ public class ScannerResponseMapper {
         }
 
         List<Timeframe> timeframeOrder = List.of(
-
+                Timeframe.W1,
                 Timeframe.D1,
-
                 Timeframe.H4,
-
                 Timeframe.H1,
-
                 Timeframe.M15
-
         );
 
         List<TimeframeResponse> responses =
