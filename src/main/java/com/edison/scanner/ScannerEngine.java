@@ -1,166 +1,158 @@
 package com.edison.scanner;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.edison.scanner.bitunix.BitunixSymbolProvider;
+import com.edison.scanner.common.Timeframe;
 import com.edison.scanner.exceptions.ExchangeException;
 import com.edison.scanner.market.MarketData;
 import com.edison.scanner.market.MarketDataCache;
 import com.edison.scanner.market.MarketDataLoader;
 import com.edison.scanner.model.ScanExecutionResult;
 import com.edison.scanner.model.ScanResult;
+import com.edison.scanner.model.ScannerRequest;
 import com.edison.scanner.model.market.TradingSymbol;
-import com.edison.scanner.strategy.impl.BollingerBandStrategy;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import com.edison.scanner.strategy.ScannerStrategy;
 
 /**
  * Coordinates the complete market scan.
  */
-public final class ScannerEngine {
+public class ScannerEngine {
 
-    private final BitunixSymbolProvider symbolProvider;
+	private static final Logger LOGGER = LoggerFactory.getLogger(ScannerEngine.class);
 
-    private final MarketDataLoader marketDataLoader;
+	protected final BitunixSymbolProvider symbolProvider;
 
-    private final BollingerBandStrategy marketScanner;
-    
-    private final int downloadThreads;
+	protected final MarketDataLoader marketDataLoader;
 
-    private final MarketDataCache cache;
-    
-    public ScannerEngine(
-            BitunixSymbolProvider symbolProvider,
-            MarketDataLoader marketDataLoader,
-            BollingerBandStrategy marketScanner,
-            MarketDataCache cache,
-            int downloadThreads) {
+	protected final ScannerStrategy marketScanner;
 
-        this.symbolProvider = symbolProvider;
-        this.marketDataLoader = marketDataLoader;
-        this.marketScanner = marketScanner;
-        this.cache = cache;
-        this.downloadThreads = downloadThreads;
+	protected final int downloadThreads;
 
-    }
+	protected final MarketDataCache cache;
 
-    /**
-     * Executes the complete scan.
-     *
-     * @return scan results
-     */
-    public ScanExecutionResult run() {
-    	
-    	cache.clear();
-    	
-    	long totalStart = System.nanoTime();
+	public ScannerEngine(BitunixSymbolProvider symbolProvider, MarketDataLoader marketDataLoader,
+			ScannerStrategy marketScanner, MarketDataCache cache, int downloadThreads) {
 
-        List<TradingSymbol> symbols =
-                symbolProvider.getSymbols();
+		this.symbolProvider = Objects.requireNonNull(symbolProvider);
+		this.marketDataLoader = Objects.requireNonNull(marketDataLoader);
+		this.marketScanner = marketScanner;
+		this.cache = Objects.requireNonNull(cache);
+		this.downloadThreads = downloadThreads;
 
-        /*
-         * Phase 1
-         * Download everything.
-         */
-        ExecutorService executor =
-                Executors.newFixedThreadPool(
-                        downloadThreads);
+	}
 
-        List<Future<?>> futures =
-                new ArrayList<>();
+	protected ScanExecutionResult runScanner(ScannerRequest request) {
 
-        for (TradingSymbol symbol : symbols) {
+		Objects.requireNonNull(request, "request");
 
-            futures.add(
-                    executor.submit(() -> {
+		String scannerName = Objects.requireNonNull(marketScanner, "marketScanner").getName();
 
-                        try {
+		LOGGER.info("Starting scanner: strategy={}, bbTimeframes={}", scannerName, request.getBbTimeframes());
 
-                            marketDataLoader.preload(symbol);
+		long totalStart = System.nanoTime();
 
-                        } catch (Exception ex) {
-                        	ex.printStackTrace();
+		List<TradingSymbol> symbols = preloadMarketData(request);
 
-                            System.err.printf(
-                                    "Failed to download %s : %s%n",
-                                    symbol.getExchangeSymbol(),
-                                    ex.getMessage());
+		long downloadEnd = System.nanoTime();
 
-                        }
+		double downloadSeconds = (downloadEnd - totalStart) / 1_000_000_000.0;
 
-                    }));
+		List<ScanResult> results = new ArrayList<>();
 
-        }
+		for (TradingSymbol symbol : symbols) {
 
-        for (Future<?> future : futures) {
+			MarketData marketData = marketDataLoader.get(symbol);
 
-            try {
+			if (marketData == null) {
+				continue;
+			}
 
-                future.get();
+			results.addAll(marketScanner.scan(marketData, request));
 
-            } catch (Exception ex) {
-            	ex.printStackTrace();
+		}
 
-                throw new ExchangeException(
-                        "Failed while downloading market data.",
-                        ex);
+		long totalEnd = System.nanoTime();
 
-            }
+		double scanSeconds = (totalEnd - downloadEnd) / 1_000_000_000.0;
 
-        }
+		double totalSeconds = (totalEnd - totalStart) / 1_000_000_000.0;
 
-        executor.shutdown();
-        
-        long downloadEnd = System.nanoTime();
+		LOGGER.info(
+				"Finished scanner: strategy={}, symbolsScanned={}, matches={}, downloadSeconds={}, scanSeconds={}, totalSeconds={}",
+				scannerName, symbols.size(), results.size(), downloadSeconds, scanSeconds, totalSeconds);
 
-        double downloadSeconds =
-                (downloadEnd - totalStart)
-                / 1_000_000_000.0;
+		return new ScanExecutionResult(results, symbols.size(), downloadSeconds, scanSeconds, totalSeconds);
 
-        /*
-         * Phase 2
-         * Scan everything.
-         */
-        List<ScanResult> results =
-                new ArrayList<>();
+	}
 
-        for (TradingSymbol symbol : symbols) {
+	protected List<TradingSymbol> preloadMarketData(ScannerRequest request) {
 
-            MarketData marketData =
-                    marketDataLoader.get(symbol);
+		cache.clear();
 
-            if (marketData == null) {
-                continue;
-            }
+		List<TradingSymbol> symbols = symbolProvider.getSymbols();
 
-            results.addAll(
-                    marketScanner.scan(
-                            marketData));
+		Set<Timeframe> requiredTimeframes = EnumSet.of(Timeframe.H1);
 
-        }
-        
-        long totalEnd = System.nanoTime();
+		requiredTimeframes.addAll(request.getBbTimeframes());
 
-        double scanSeconds =
-                (totalEnd - downloadEnd)
-                / 1_000_000_000.0;
+		ExecutorService executor = Executors.newFixedThreadPool(downloadThreads);
 
-        double totalSeconds =
-                (totalEnd - totalStart)
-                / 1_000_000_000.0;
+		List<Future<?>> futures = new ArrayList<>();
 
+		for (TradingSymbol symbol : symbols) {
 
-        return new ScanExecutionResult(
-                results,
-                symbols.size(),
-                downloadSeconds,
-                scanSeconds,
-                totalSeconds);
+			futures.add(executor.submit(() -> {
 
-    }
+				try {
+
+					marketDataLoader.preload(symbol, requiredTimeframes);
+
+				} catch (Exception ex) {
+
+					LOGGER.error("Failed to download market data: symbol={}", symbol.getExchangeSymbol(), ex);
+
+				}
+
+			}));
+
+		}
+
+		for (Future<?> future : futures) {
+
+			try {
+
+				future.get();
+
+			} catch (Exception ex) {
+
+				throw new ExchangeException("Failed while downloading market data.", ex);
+
+			}
+
+		}
+
+		executor.shutdown();
+
+		return symbols;
+
+	}
+
+	public ScanExecutionResult run(ScannerRequest request) {
+
+		return runScanner(request);
+
+	}
 
 	public int getDownloadThreads() {
 		return downloadThreads;

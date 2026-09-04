@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.edison.scanner.converter.HeikenAshiConverter;
 import com.edison.scanner.indicator.BollingerBandCalculator;
+import com.edison.scanner.indicator.RsiCalculator;
 import com.edison.scanner.mapper.BitunixFuturesCandleMapper;
 import com.edison.scanner.mapper.BitunixFuturesClient;
 import com.edison.scanner.market.MarketDataCache;
@@ -36,6 +37,7 @@ public class MarketConfiguration {
             BitunixFuturesClient client,
             HeikenAshiConverter heikenAshiConverter,
             BollingerBandCalculator bollingerBandCalculator,
+            RsiCalculator rsiCalculator,
             MarketDataCache cache) {
 
         return new MarketDataLoader(
@@ -43,6 +45,7 @@ public class MarketConfiguration {
                 client,
                 heikenAshiConverter,
                 bollingerBandCalculator,
+                rsiCalculator,
                 cache);
 
     }

@@ -11,70 +11,57 @@ import java.util.Map;
  */
 public final class MarketData {
 
-    /**
-     * Trading symbol.
-     */
-    private final TradingSymbol symbol;
+	/**
+	 * Trading symbol.
+	 */
+	private final TradingSymbol symbol;
 
-    /**
-     * Data by timeframe.
-     */
-    private final Map<Timeframe, TimeframeData> data =
-            new EnumMap<>(Timeframe.class);
+	/**
+	 * Data by timeframe.
+	 */
+	private final Map<Timeframe, TimeframeData> data = new EnumMap<>(Timeframe.class);
 
-    public MarketData(
-            TradingSymbol symbol) {
+	public MarketData(TradingSymbol symbol) {
 
-        this.symbol = symbol;
+		this.symbol = symbol;
 
-    }
+	}
 
-    public TradingSymbol getSymbol() {
-        return symbol;
-    }
+	public TradingSymbol getSymbol() {
+		return symbol;
+	}
 
-    public void put(
-            Timeframe timeframe,
-            TimeframeData timeframeData) {
+	public void put(Timeframe timeframe, TimeframeData timeframeData) {
 
-        data.put(
-                timeframe,
-                timeframeData);
+		data.put(timeframe, timeframeData);
 
-    }
+	}
 
-    public TimeframeData get(
-            Timeframe timeframe) {
+	public TimeframeData get(Timeframe timeframe) {
 
-        return data.get(timeframe);
+		return data.get(timeframe);
 
-    }
-    
-    /**
-     * Returns chart data.
-     */
-    public TimeframeData getChart(
-            Timeframe timeframe) {
+	}
 
-        return data.get(timeframe);
+	/**
+	 * Returns chart data.
+	 */
+	public TimeframeData getChart(Timeframe timeframe) {
 
-    }
+		return data.get(timeframe);
 
-    /**
-     * Returns higher timeframe data.
-     */
-    public TimeframeData getHigher(
-            Timeframe timeframe) {
+	}
 
-        Timeframe higher =
-                timeframe.getHigherTimeframe();
+	public TimeframeData getRsiTimeframe() {
 
-        if (higher == null) {
-            return null;
-        }
+		return get(Timeframe.H1);
 
-        return data.get(higher);
+	}
 
-    }
+	public TimeframeData getTransitionTimeframe() {
+
+		return get(Timeframe.H4);
+
+	}
 
 }

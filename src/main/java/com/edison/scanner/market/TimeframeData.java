@@ -1,6 +1,10 @@
 package com.edison.scanner.market;
 
+import java.util.List;
+
 import com.edison.scanner.model.indicator.BollingerBand;
+import com.edison.scanner.model.indicator.Rsi;
+import com.edison.scanner.model.market.Candle;
 import com.edison.scanner.model.market.HeikenAshiCandle;
 
 /**
@@ -8,25 +12,43 @@ import com.edison.scanner.model.market.HeikenAshiCandle;
  */
 public final class TimeframeData {
 
-    private final HeikenAshiCandle latestHeikenAshi;
+	private final List<Candle> candles;
 
-    private final BollingerBand latestBollingerBand;
+	private final List<HeikenAshiCandle> heikenAshiCandles;
 
-    public TimeframeData(
-            HeikenAshiCandle latestHeikenAshi,
-            BollingerBand latestBollingerBand) {
+	private final BollingerBand latestBollingerBand;
 
-        this.latestHeikenAshi = latestHeikenAshi;
-        this.latestBollingerBand = latestBollingerBand;
+	private final List<Rsi> rsiValues;
 
-    }
+	public TimeframeData(
+	        List<Candle> candles,
+	        List<HeikenAshiCandle> heikenAshiCandles,
+	        BollingerBand latestBollingerBand,
+	        List<Rsi> rsiValues) {
 
-    public HeikenAshiCandle getLatestHeikenAshi() {
-        return latestHeikenAshi;
-    }
+	    this.candles = List.copyOf(candles);
+
+	    this.heikenAshiCandles = List.copyOf(heikenAshiCandles);
+
+	    this.latestBollingerBand = latestBollingerBand;
+
+	    this.rsiValues = List.copyOf(rsiValues);
+	}
+
+	public List<HeikenAshiCandle> getHeikenAshiCandles() {
+	    return heikenAshiCandles;
+	}
 
     public BollingerBand getLatestBollingerBand() {
         return latestBollingerBand;
     }
+
+	public List<Rsi> getRsiValues() {
+		return rsiValues;
+	}
+
+	public List<Candle> getCandles() {
+		return candles;
+	}
 
 }
