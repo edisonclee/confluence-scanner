@@ -60,37 +60,56 @@ public class ScannerEngine {
 
 		LOGGER.info("Starting scanner: strategy={}, bbTimeframes={}", scannerName, request.getBbTimeframes());
 
-		long totalStart = System.nanoTime();
+		cache.clear();
 
-		List<TradingSymbol> symbols = preloadMarketData(request);
+		List<TradingSymbol> symbols = symbolProvider.getSymbols();
 
-		long downloadEnd = System.nanoTime();
+		Set<Timeframe> requiredTimeframes = EnumSet.of(Timeframe.H1);
 
-		double downloadSeconds = (downloadEnd - totalStart) / 1_000_000_000.0;
+		requiredTimeframes.addAll(request.getBbTimeframes());
 
 		List<ScanResult> results = new ArrayList<>();
 
+		long totalStart = System.nanoTime();
+		long downloadNanos = 0;
+		long scanNanos = 0;
+
 		for (TradingSymbol symbol : symbols) {
 
-			MarketData marketData = marketDataLoader.get(symbol);
+			try {
 
-			if (marketData == null) {
-				continue;
+				MarketData marketData = new MarketData(symbol);
+
+				long downloadStart = System.nanoTime();
+
+				marketDataLoader.load(marketData, requiredTimeframes);
+
+				downloadNanos += System.nanoTime() - downloadStart;
+
+				long scanStart = System.nanoTime();
+
+				results.addAll(marketScanner.scan(marketData, request));
+
+				scanNanos += System.nanoTime() - scanStart;
+
+			} catch (Exception ex) {
+
+				LOGGER.error("Failed to scan symbol: {}", symbol.getExchangeSymbol(), ex);
+
 			}
-
-			results.addAll(marketScanner.scan(marketData, request));
 
 		}
 
-		long totalEnd = System.nanoTime();
+		long totalNanos = System.nanoTime() - totalStart;
 
-		double scanSeconds = (totalEnd - downloadEnd) / 1_000_000_000.0;
+		double downloadSeconds = downloadNanos / 1_000_000_000.0;
 
-		double totalSeconds = (totalEnd - totalStart) / 1_000_000_000.0;
+		double scanSeconds = scanNanos / 1_000_000_000.0;
 
-		LOGGER.info(
-				"Finished scanner: strategy={}, symbolsScanned={}, matches={}, downloadSeconds={}, scanSeconds={}, totalSeconds={}",
-				scannerName, symbols.size(), results.size(), downloadSeconds, scanSeconds, totalSeconds);
+		double totalSeconds = totalNanos / 1_000_000_000.0;
+
+		LOGGER.info("Finished scanner: strategy={}, symbolsScanned={}, matches={}, totalSeconds={}", scannerName,
+				symbols.size(), results.size(), totalSeconds);
 
 		return new ScanExecutionResult(results, symbols.size(), downloadSeconds, scanSeconds, totalSeconds);
 
