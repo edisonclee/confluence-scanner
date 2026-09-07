@@ -14,159 +14,89 @@ import com.edison.scanner.common.Timeframe;
  */
 public final class ApplicationConfig {
 
-    /**
-     * Binance REST API base URL.
-     */
-    private final String binanceFuturesBaseUrl;
+	private final String binanceFuturesBaseUrl;
 
-    /**
-     * Bollinger Band length.
-     */
-    private final int bbLength;
+	private final int bbLength;
 
-    /**
-     * Bollinger Band multiplier.
-     */
-    private final BigDecimal bbMultiplier;
+	private final BigDecimal bbMultiplier;
 
-    /**
-     * Number of candles to download.
-     */
-    private final int scannerCandleLimit;
-    
-    private final int scannerHaWarmup;
-    
-    private final List<Timeframe> scannerTimeframes;
-    
-    private final String bitunixBaseUrl;
-    
-    private final int scannerDownloadThreads;
+	private final int scannerCandleLimit;
 
-    /**
-     * Creates the application configuration.
-     */
-    public ApplicationConfig() {
+	private final int scannerHaWarmup;
 
-        Properties properties = new Properties();
+	private final List<Timeframe> scannerTimeframes;
 
-        try (InputStream input = getClass()
-                .getClassLoader()
-                .getResourceAsStream("application.properties")) {
+	private final String bitunixBaseUrl;
 
-            if (input == null) {
-                throw new IllegalStateException(
-                        "application.properties not found.");
-            }
+	private final int scannerDownloadThreads;
 
-            properties.load(input);
+	public ApplicationConfig() {
 
-        } catch (IOException ex) {
-        	ex.printStackTrace();
-            throw new UncheckedIOException(
-                    "Failed to load application.properties.",
-                    ex);
-        }
+		Properties properties = new Properties();
 
-        this.binanceFuturesBaseUrl = requireProperty(
-                properties,
-                "binance.futures.base-url");
+		try (InputStream input = getClass().getClassLoader().getResourceAsStream("application.properties")) {
 
-        this.bbLength = Integer.parseInt(
-                requireProperty(
-                        properties,
-                        "bb.length"));
+			if (input == null) {
+				throw new IllegalStateException("application.properties not found.");
+			}
 
-        this.bbMultiplier = new BigDecimal(
-                requireProperty(
-                        properties,
-                        "bb.multiplier"));
+			properties.load(input);
 
-        this.scannerCandleLimit = Integer.parseInt(
-                requireProperty(
-                        properties,
-                        "scanner.candle.limit"));
-		this.scannerHaWarmup = Integer.parseInt(
-                requireProperty(
-                        properties,
-                        "scanner.ha.warmup"));
-        scannerTimeframes = parseTimeframes(
-                requireProperty(
-                        properties,
-                        "scanner.timeframes"));
-        
-        this.bitunixBaseUrl =
-                requireProperty(
-                        properties,
-                        "bitunix.base-url");
-        
-        this.scannerDownloadThreads =
-                Integer.parseInt(
-                        requireProperty(
-                                properties,
-                                "scanner.download.threads"));
+		} catch (IOException ex) {
 
-    }
-    
-    private static List<Timeframe> parseTimeframes(
-            String value) {
+			throw new UncheckedIOException("Failed to load application.properties.", ex);
+		}
 
-        return List.of(value.split(","))
-                .stream()
-                .map(String::trim)
-                .map(Timeframe::valueOf)
-                .toList();
+		this.binanceFuturesBaseUrl = requireProperty(properties, "binance.futures.base-url");
 
-    }
+		this.bbLength = Integer.parseInt(requireProperty(properties, "bb.length"));
 
-    /**
-     * Returns the Binance REST API base URL.
-     */
-    public String getBinanceFuturesBaseUrl() {
-        return binanceFuturesBaseUrl;
-    }
+		this.bbMultiplier = new BigDecimal(requireProperty(properties, "bb.multiplier"));
 
-    /**
-     * Returns the Bollinger Band length.
-     */
-    public int getBbLength() {
-        return bbLength;
-    }
+		this.scannerCandleLimit = Integer.parseInt(requireProperty(properties, "scanner.candle.limit"));
 
-    /**
-     * Returns the Bollinger Band multiplier.
-     */
-    public BigDecimal getBbMultiplier() {
-        return bbMultiplier;
-    }
+		this.scannerHaWarmup = Integer.parseInt(requireProperty(properties, "scanner.ha.warmup"));
 
-    /**
-     * Returns the candle download limit.
-     */
-    public int getScannerCandleLimit() {
-        return scannerCandleLimit;
-    }
+		this.scannerTimeframes = parseTimeframes(requireProperty(properties, "scanner.timeframes"));
 
-    /**
-     * Returns a required property.
-     *
-     * @param properties loaded properties
-     * @param key property key
-     * @return property value
-     */
-    private static String requireProperty(
-            Properties properties,
-            String key) {
+		this.bitunixBaseUrl = requireProperty(properties, "bitunix.base-url");
 
-        String value = properties.getProperty(key);
+		this.scannerDownloadThreads = Integer.parseInt(requireProperty(properties, "scanner.download.threads"));
 
-        if (value == null || value.isBlank()) {
-            throw new IllegalStateException(
-                    "Missing required property: " + key);
-        }
+	}
 
-        return value;
+	private static List<Timeframe> parseTimeframes(String value) {
 
-    }
+		return List.of(value.split(",")).stream().map(String::trim).map(Timeframe::valueOf).toList();
+	}
+
+	private static String requireProperty(Properties properties, String key) {
+
+		String value = properties.getProperty(key);
+
+		if (value == null || value.isBlank()) {
+
+			throw new IllegalStateException("Missing required property: " + key);
+		}
+
+		return value;
+	}
+
+	public String getBinanceFuturesBaseUrl() {
+		return binanceFuturesBaseUrl;
+	}
+
+	public int getBbLength() {
+		return bbLength;
+	}
+
+	public BigDecimal getBbMultiplier() {
+		return bbMultiplier;
+	}
+
+	public int getScannerCandleLimit() {
+		return scannerCandleLimit;
+	}
 
 	public List<Timeframe> getScannerTimeframes() {
 		return scannerTimeframes;
@@ -175,9 +105,9 @@ public final class ApplicationConfig {
 	public int getScannerHaWarmup() {
 		return scannerHaWarmup;
 	}
-	
+
 	public String getBitunixBaseUrl() {
-	    return bitunixBaseUrl;
+		return bitunixBaseUrl;
 	}
 
 	public int getScannerDownloadThreads() {
