@@ -1,7 +1,9 @@
 package com.edison.scanner.oi;
 
+import java.time.Instant;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 import org.springframework.stereotype.Service;
 
@@ -11,17 +13,83 @@ import com.edison.scanner.oi.model.OiRadarResult;
 @Service
 public class OiRadarService {
 
+	private static final int PAGE_SIZE = 20;
+
 	private final BinanceOiRadarClient client;
+
+	private final AtomicReference<CachedRadar> cache = new AtomicReference<>();
 
 	public OiRadarService(BinanceOiRadarClient client) {
 
 		this.client = client;
 	}
 
-	public List<OiRadarResult> scan() {
+	/**
+	 * Performs a completely new scan.
+	 *
+	 * This is the only operation that retrieves fresh Binance/CoinGecko data.
+	 */
+	public synchronized CachedRadar scan() {
 
-		return client.getSnapshots().stream().map(this::calculate)
-				.sorted(Comparator.comparingInt(OiRadarResult::radarScore).reversed()).toList();
+		List<OiRadarResult> results = client.getSnapshots().stream().map(this::calculate).sorted(
+				Comparator.comparingInt(OiRadarResult::radarScore).reversed().thenComparing(OiRadarResult::symbol))
+				.toList();
+
+		CachedRadar radar = new CachedRadar(Instant.now(), results);
+
+		cache.set(radar);
+
+		return radar;
+	}
+
+	/**
+	 * Returns the current cached scan.
+	 *
+	 * Does NOT perform a new scan.
+	 */
+	public CachedRadar getCachedRadar() {
+
+		CachedRadar radar = cache.get();
+
+		if (radar == null) {
+			return new CachedRadar(null, List.of());
+		}
+
+		return radar;
+	}
+
+	/**
+	 * Returns one page from the cached result.
+	 */
+	public RadarPage getPage(int page) {
+
+		if (page < 0) {
+			page = 0;
+		}
+
+		CachedRadar radar = getCachedRadar();
+
+		List<OiRadarResult> results = radar.results();
+
+		int totalResults = results.size();
+
+		int totalPages = totalResults == 0 ? 0 : (int) Math.ceil((double) totalResults / PAGE_SIZE);
+
+		if (totalPages == 0) {
+
+			return new RadarPage(page, PAGE_SIZE, 0, 0, radar.generatedAt(), List.of());
+		}
+
+		if (page >= totalPages) {
+			page = totalPages - 1;
+		}
+
+		int fromIndex = page * PAGE_SIZE;
+
+		int toIndex = Math.min(fromIndex + PAGE_SIZE, totalResults);
+
+		return new RadarPage(page, PAGE_SIZE, totalResults, totalPages, radar.generatedAt(),
+				results.subList(fromIndex, toIndex));
 	}
 
 	private OiRadarResult calculate(BinanceOiSnapshot data) {
@@ -50,13 +118,6 @@ public class OiRadarService {
 		double oneHour = Math.max(0, data.volume1h().doubleValue());
 
 		double fourHour = Math.max(0, data.volume4h().doubleValue());
-
-		/*
-		 * Volume itself isn't directly comparable between coins because BTC and small
-		 * alts have vastly different absolute volume.
-		 *
-		 * For V1 this is intentionally a simple activity component.
-		 */
 
 		if (oneHour <= 0 || fourHour <= 0) {
 
@@ -103,12 +164,6 @@ public class OiRadarService {
 	private int calculateFundingScore(BinanceOiSnapshot data) {
 
 		double funding = Math.abs(data.fundingRate().doubleValue());
-
-		/*
-		 * Binance funding is represented as decimal.
-		 *
-		 * 0.0001 = 0.01%
-		 */
 
 		if (funding <= 0.0002) {
 			return 20;
@@ -177,5 +232,12 @@ public class OiRadarService {
 		}
 
 		return "Quiet";
+	}
+
+	public record CachedRadar(Instant generatedAt, List<OiRadarResult> results) {
+	}
+
+	public record RadarPage(int page, int pageSize, int totalResults, int totalPages, Instant generatedAt,
+			List<OiRadarResult> results) {
 	}
 }

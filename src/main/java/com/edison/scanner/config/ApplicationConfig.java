@@ -15,20 +15,16 @@ import com.edison.scanner.common.Timeframe;
 public final class ApplicationConfig {
 
 	private final String binanceFuturesBaseUrl;
-
 	private final int bbLength;
-
 	private final BigDecimal bbMultiplier;
-
 	private final int scannerCandleLimit;
-
 	private final int scannerHaWarmup;
-
 	private final List<Timeframe> scannerTimeframes;
-
 	private final String bitunixBaseUrl;
-
 	private final int scannerDownloadThreads;
+	private final String bitunixUniverseFile;
+	private final int bitunixUniverseMinimumAgeDays;
+	private final int bitunixUniverseRefreshDays;
 
 	public ApplicationConfig() {
 
@@ -63,6 +59,13 @@ public final class ApplicationConfig {
 
 		this.scannerDownloadThreads = Integer.parseInt(requireProperty(properties, "scanner.download.threads"));
 
+		this.bitunixUniverseFile = requireProperty(properties, "bitunix.universe.file");
+
+		this.bitunixUniverseMinimumAgeDays = Integer
+				.parseInt(requireProperty(properties, "bitunix.universe.minimum-age-days"));
+
+		this.bitunixUniverseRefreshDays = Integer
+				.parseInt(requireProperty(properties, "bitunix.universe.refresh-days"));
 	}
 
 	private static List<Timeframe> parseTimeframes(String value) {
@@ -98,12 +101,12 @@ public final class ApplicationConfig {
 		return scannerCandleLimit;
 	}
 
-	public List<Timeframe> getScannerTimeframes() {
-		return scannerTimeframes;
-	}
-
 	public int getScannerHaWarmup() {
 		return scannerHaWarmup;
+	}
+
+	public List<Timeframe> getScannerTimeframes() {
+		return scannerTimeframes;
 	}
 
 	public String getBitunixBaseUrl() {
@@ -114,4 +117,15 @@ public final class ApplicationConfig {
 		return scannerDownloadThreads;
 	}
 
+	public String getBitunixUniverseFile() {
+		return bitunixUniverseFile;
+	}
+
+	public int getBitunixUniverseMinimumAgeDays() {
+		return bitunixUniverseMinimumAgeDays;
+	}
+
+	public int getBitunixUniverseRefreshDays() {
+		return bitunixUniverseRefreshDays;
+	}
 }
