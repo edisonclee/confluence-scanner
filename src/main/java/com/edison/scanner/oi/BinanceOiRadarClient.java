@@ -13,10 +13,11 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
+import com.edison.scanner.bitunix.BitunixSymbolProvider;
+import com.edison.scanner.model.market.TradingSymbol;
+import com.edison.scanner.oi.model.BinanceOiSnapshot;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import com.edison.scanner.oi.model.BinanceOiSnapshot;
 
 @Component
 public class BinanceOiRadarClient {
@@ -26,14 +27,16 @@ public class BinanceOiRadarClient {
 	private final HttpClient httpClient;
 	private final ObjectMapper objectMapper;
 	private final CoinGeckoMarketCapClient marketCapClient;
+	private final BitunixSymbolProvider symbolProvider;
 
-	public BinanceOiRadarClient(CoinGeckoMarketCapClient marketCapClient) {
+	public BinanceOiRadarClient(CoinGeckoMarketCapClient marketCapClient, BitunixSymbolProvider symbolProvider) {
 
 		this.httpClient = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
 
 		this.objectMapper = new ObjectMapper();
 
 		this.marketCapClient = marketCapClient;
+		this.symbolProvider = symbolProvider;
 	}
 
 	public List<BinanceOiSnapshot> getSnapshots() {
@@ -41,17 +44,47 @@ public class BinanceOiRadarClient {
 		try {
 
 			/*
-			 * Retrieve market caps ONCE per radar scan.
+			 * Retrieve CoinGecko market caps ONCE per radar scan.
 			 *
-			 * Do not call CoinGecko once per coin.
+			 * CoinGecko symbols are normal asset symbols:
+			 *
+			 * PEPE FLOKI BONK
+			 *
+			 * Binance may use leveraged/denominated contract symbols:
+			 *
+			 * 1000PEPEUSDT 1000FLOKIUSDT 1000BONKUSDT
+			 *
+			 * The normalization happens later when matching the Binance contract to
+			 * CoinGecko.
 			 */
 			Map<String, BigDecimal> marketCaps = marketCapClient.getMarketCaps();
 
-			List<String> symbols = getUsdtSymbols();
+			/*
+			 * Bitunix is the source of truth for the universe.
+			 *
+			 * Binance is only used for market data.
+			 */
+			List<TradingSymbol> tradingSymbols = symbolProvider.getSymbols();
 
 			List<BinanceOiSnapshot> results = new ArrayList<>();
 
-			for (String symbol : symbols) {
+			for (TradingSymbol tradingSymbol : tradingSymbols) {
+
+				/*
+				 * Keep the real Bitunix/Binance contract symbol.
+				 *
+				 * Example:
+				 *
+				 * 1000PEPEUSDT
+				 */
+				String symbol = tradingSymbol.getExchangeSymbol();
+
+				/*
+				 * Gold/XAUT is not part of the crypto OI Radar.
+				 */
+				if (tradingSymbol.isGold()) {
+					continue;
+				}
 
 				try {
 
@@ -71,58 +104,28 @@ public class BinanceOiRadarClient {
 
 		} catch (Exception ex) {
 
-			throw new IllegalStateException("Failed to retrieve Binance OI " + "radar data.", ex);
+			throw new IllegalStateException("Failed to retrieve Binance OI radar data.", ex);
 		}
-	}
-
-	private List<String> getUsdtSymbols() throws IOException, InterruptedException {
-
-		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(BASE_URL + "/fapi/v1/" + "exchangeInfo"))
-				.timeout(Duration.ofSeconds(15)).GET().build();
-
-		HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-
-		if (response.statusCode() != 200) {
-
-			throw new IllegalStateException("Binance exchangeInfo returned HTTP " + response.statusCode());
-		}
-
-		JsonNode root = objectMapper.readTree(response.body());
-
-		List<String> symbols = new ArrayList<>();
-
-		for (JsonNode symbol : root.get("symbols")) {
-
-			String symbolName = symbol.get("symbol").asText();
-
-			String status = symbol.get("status").asText();
-
-			String quoteAsset = symbol.get("quoteAsset").asText();
-
-			String contractType = symbol.get("contractType").asText();
-
-			if ("TRADING".equals(status) && "USDT".equals(quoteAsset) && "PERPETUAL".equals(contractType)) {
-
-				symbols.add(symbolName);
-			}
-		}
-
-		return symbols;
 	}
 
 	private BinanceOiSnapshot getSnapshot(String symbol, Map<String, BigDecimal> marketCaps)
 			throws IOException, InterruptedException {
 
 		/*
-		 * Convert BTCUSDT -> BTC
+		 * Convert the futures contract symbol into the CoinGecko lookup symbol.
+		 *
+		 * Examples:
+		 *
+		 * BTCUSDT -> BTC ETHUSDT -> ETH 1000PEPEUSDT -> PEPE 1000FLOKIUSDT -> FLOKI
 		 */
-		String baseSymbol = symbol.endsWith("USDT") ? symbol.substring(0, symbol.length() - 4) : symbol;
+		String baseSymbol = extractCoinGeckoSymbol(symbol);
 
 		BigDecimal marketCap = marketCaps.get(baseSymbol.toUpperCase());
 
 		/*
-		 * If CoinGecko doesn't know the asset, keep the row but mark market cap as
-		 * null.
+		 * Binance data MUST use the original contract symbol.
+		 *
+		 * Do NOT use baseSymbol here.
 		 */
 		BigDecimal price = getPrice(symbol);
 
@@ -132,6 +135,11 @@ public class BinanceOiRadarClient {
 
 		List<Candle> candles = getHourlyCandles(symbol);
 
+		/*
+		 * Need at least 5 candles:
+		 *
+		 * candle[-5] -> 4H reference candle[-2] -> 1H reference candle[-1] -> current
+		 */
 		if (candles.size() < 5) {
 			return null;
 		}
@@ -153,6 +161,48 @@ public class BinanceOiRadarClient {
 
 		return new BinanceOiSnapshot(symbol, price, marketCap, volume1h, volume4h, openInterest, oiChange1h, oiChange4h,
 				fundingRate, priceChange1h, priceChange4h);
+	}
+
+	/**
+	 * Converts a Binance Futures contract symbol into the corresponding CoinGecko
+	 * symbol.
+	 *
+	 * Examples:
+	 *
+	 * BTCUSDT -> BTC ETHUSDT -> ETH 1000PEPEUSDT -> PEPE 1000FLOKIUSDT -> FLOKI
+	 *
+	 * Only the CoinGecko lookup symbol is changed. The original Binance symbol
+	 * remains untouched.
+	 */
+	private String extractCoinGeckoSymbol(String symbol) {
+
+		if (symbol == null || symbol.isBlank()) {
+			return "";
+		}
+
+		String baseSymbol = symbol.toUpperCase();
+
+		/*
+		 * Remove the USDT quote asset.
+		 */
+		if (baseSymbol.endsWith("USDT")) {
+
+			baseSymbol = baseSymbol.substring(0, baseSymbol.length() - 4);
+		}
+
+		/*
+		 * Binance uses 1000-prefixed contracts for some tokens.
+		 *
+		 * Example:
+		 *
+		 * 1000PEPE -> PEPE 1000FLOKI -> FLOKI
+		 */
+		if (baseSymbol.startsWith("1000") && baseSymbol.length() > 4) {
+
+			baseSymbol = baseSymbol.substring(4);
+		}
+
+		return baseSymbol;
 	}
 
 	private BigDecimal getPrice(String symbol) throws IOException, InterruptedException {
