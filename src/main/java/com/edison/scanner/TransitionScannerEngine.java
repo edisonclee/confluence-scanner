@@ -2,6 +2,7 @@ package com.edison.scanner;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -31,7 +32,6 @@ public class TransitionScannerEngine extends ScannerEngine {
 		super(symbolProvider, marketDataLoader, null, cache, downloadThreads);
 
 		this.transitionPlayStrategy = transitionPlayStrategy;
-
 	}
 
 	public TransitionPlayResponse runTransitionScan() {
@@ -44,40 +44,66 @@ public class TransitionScannerEngine extends ScannerEngine {
 
 		List<TransitionPlayResult> results = new ArrayList<>();
 
+		int symbolsScanned = 0;
+		int symbolsSkipped = 0;
+
 		for (TradingSymbol symbol : symbols) {
-			MarketData marketData = new MarketData(symbol);
-			/*
-			 * Stage 1 Download H1 only.
-			 */
-			marketDataLoader.load(marketData, java.util.EnumSet.of(Timeframe.H1));
 
-			/*
-			 * RSI failed.
-			 */
-			if (!transitionPlayStrategy.passesRsi(marketData)) {
-				continue;
+			try {
+
+				LOGGER.debug("Transition scan: symbol={}", symbol.getExchangeSymbol());
+
+				MarketData marketData = new MarketData(symbol);
+
+				/*
+				 * Stage 1 Download H1 only.
+				 */
+				marketDataLoader.load(marketData, EnumSet.of(Timeframe.H1));
+
+				symbolsScanned++;
+
+				/*
+				 * RSI filter.
+				 */
+				if (!transitionPlayStrategy.passesRsi(marketData)) {
+					continue;
+				}
+
+				/*
+				 * Stage 2 Download H4 only.
+				 */
+				marketDataLoader.load(marketData, EnumSet.of(Timeframe.H4));
+
+				transitionPlayStrategy.scan(marketData).ifPresent(result -> {
+
+					LOGGER.info("Transition signal: symbol={}, direction={}, pattern={}", result.getSymbol(),
+							result.getDirection(), result.getPattern());
+
+					results.add(result);
+				});
+
+			} catch (Exception ex) {
+
+				symbolsSkipped++;
+
+				/*
+				 * Bitunix may still return a symbol from the trading-pairs universe even though
+				 * its futures contract is currently not allowed to trade.
+				 *
+				 * Skip that symbol instead of aborting the entire scan.
+				 */
+				LOGGER.warn("Skipping transition scan for symbol={} because market data could not be loaded: {}",
+						symbol.getExchangeSymbol(), ex.getMessage());
 			}
-
-			/*
-			 * Stage 2 Download H4 only.
-			 */
-			marketDataLoader.load(marketData, java.util.EnumSet.of(Timeframe.H4));
-			transitionPlayStrategy.scan(marketData).ifPresent(result -> {
-				LOGGER.info("Transition signal: symbol={}, direction={}, pattern={}", result.getSymbol(),
-						result.getDirection(), result.getPattern());
-
-				results.add(result);
-			});
 		}
 
 		long end = System.nanoTime();
-		double duration = ((end - start) / 1_000_000_000.0);
 
-		LOGGER.info("Finished transition scanner: symbolsScanned={}, signals={}, totalSeconds={}", symbols.size(),
-				results.size(), duration);
+		double duration = (end - start) / 1_000_000_000.0;
 
-		return new TransitionPlayResponse(LocalDateTime.now(), results, duration, symbols.size());
+		LOGGER.info("Finished transition scanner: symbolsScanned={}, symbolsSkipped={}, signals={}, totalSeconds={}",
+				symbolsScanned, symbolsSkipped, results.size(), duration);
 
+		return new TransitionPlayResponse(LocalDateTime.now(), results, duration, symbolsScanned);
 	}
-
 }

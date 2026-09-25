@@ -39,30 +39,21 @@ public class BinanceOiRadarClient {
 		this.symbolProvider = symbolProvider;
 	}
 
-	public List<BinanceOiSnapshot> getSnapshots() {
+	public List<BinanceOiSnapshot> getSnapshots(BigDecimal minMarketCap, BigDecimal maxMarketCap) {
 
 		try {
 
 			/*
-			 * Retrieve CoinGecko market caps ONCE per radar scan.
+			 * Retrieve CoinGecko market caps ONCE per scan.
 			 *
-			 * CoinGecko symbols are normal asset symbols:
+			 * Example:
 			 *
-			 * PEPE FLOKI BONK
-			 *
-			 * Binance may use leveraged/denominated contract symbols:
-			 *
-			 * 1000PEPEUSDT 1000FLOKIUSDT 1000BONKUSDT
-			 *
-			 * The normalization happens later when matching the Binance contract to
-			 * CoinGecko.
+			 * PEPE -> $5B FLOKI -> $500M BTC -> $2T
 			 */
 			Map<String, BigDecimal> marketCaps = marketCapClient.getMarketCaps();
 
 			/*
-			 * Bitunix is the source of truth for the universe.
-			 *
-			 * Binance is only used for market data.
+			 * Bitunix is the source of truth for the futures universe.
 			 */
 			List<TradingSymbol> tradingSymbols = symbolProvider.getSymbols();
 
@@ -71,7 +62,7 @@ public class BinanceOiRadarClient {
 			for (TradingSymbol tradingSymbol : tradingSymbols) {
 
 				/*
-				 * Keep the real Bitunix/Binance contract symbol.
+				 * Keep the REAL futures contract symbol.
 				 *
 				 * Example:
 				 *
@@ -80,7 +71,7 @@ public class BinanceOiRadarClient {
 				String symbol = tradingSymbol.getExchangeSymbol();
 
 				/*
-				 * Gold/XAUT is not part of the crypto OI Radar.
+				 * Exclude XAUT / Gold.
 				 */
 				if (tradingSymbol.isGold()) {
 					continue;
@@ -88,6 +79,33 @@ public class BinanceOiRadarClient {
 
 				try {
 
+					/*
+					 * Convert the futures contract symbol into the CoinGecko lookup symbol.
+					 *
+					 * 1000PEPEUSDT -> PEPE 1000FLOKIUSDT -> FLOKI BTCUSDT -> BTC
+					 */
+					String baseSymbol = extractCoinGeckoSymbol(symbol);
+
+					BigDecimal marketCap = marketCaps.get(baseSymbol.toUpperCase());
+
+					/*
+					 * IMPORTANT:
+					 *
+					 * Market-cap filtering happens BEFORE making any Binance API requests.
+					 *
+					 * This prevents us from scanning coins that don't belong to the selected
+					 * market-cap range.
+					 */
+					if (!passesMarketCapFilter(marketCap, minMarketCap, maxMarketCap)) {
+
+						continue;
+					}
+
+					/*
+					 * Only coins that passed the market-cap filter reach this point.
+					 *
+					 * Binance continues to receive the ORIGINAL contract symbol.
+					 */
 					BinanceOiSnapshot snapshot = getSnapshot(symbol, marketCaps);
 
 					if (snapshot != null) {
@@ -106,6 +124,39 @@ public class BinanceOiRadarClient {
 
 			throw new IllegalStateException("Failed to retrieve Binance OI radar data.", ex);
 		}
+	}
+
+	private boolean passesMarketCapFilter(BigDecimal marketCap, BigDecimal minMarketCap, BigDecimal maxMarketCap) {
+
+		/*
+		 * No market-cap filter.
+		 */
+		if (minMarketCap == null && maxMarketCap == null) {
+
+			return true;
+		}
+
+		/*
+		 * A market-cap filter is active but CoinGecko doesn't have the coin.
+		 *
+		 * Exclude it because we cannot determine whether it belongs inside the
+		 * requested range.
+		 */
+		if (marketCap == null) {
+			return false;
+		}
+
+		if (minMarketCap != null && marketCap.compareTo(minMarketCap) < 0) {
+
+			return false;
+		}
+
+		if (maxMarketCap != null && marketCap.compareTo(maxMarketCap) >= 0) {
+
+			return false;
+		}
+
+		return true;
 	}
 
 	private BinanceOiSnapshot getSnapshot(String symbol, Map<String, BigDecimal> marketCaps)

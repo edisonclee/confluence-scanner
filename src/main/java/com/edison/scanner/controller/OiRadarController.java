@@ -1,5 +1,6 @@
 package com.edison.scanner.controller;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 
@@ -43,14 +44,23 @@ public class OiRadarController {
 	 * Explicitly performs a fresh scan.
 	 */
 	@PostMapping("/scan")
-	public OiRadarResponse scan() {
+	public OiRadarResponse scan(
+	        @RequestParam(required = false) BigDecimal minMarketCap,
+	        @RequestParam(required = false) BigDecimal maxMarketCap) {
 
-		OiRadarService.CachedRadar radar = service.scan();
+	    OiRadarService.CachedRadar radar =
+	            service.scan(minMarketCap, maxMarketCap);
 
-		OiRadarService.RadarPage page = service.getPage(0);
+	    OiRadarService.RadarPage page =
+	            service.getPage(0);
 
-		return new OiRadarResponse(radar.generatedAt(), page.page(), page.pageSize(), page.totalResults(),
-				page.totalPages(), page.results());
+	    return new OiRadarResponse(
+	            radar.generatedAt(),
+	            page.page(),
+	            page.pageSize(),
+	            page.totalResults(),
+	            page.totalPages(),
+	            page.results());
 	}
 
 	public record OiRadarResponse(Instant generatedAt, int page, int pageSize, int totalResults, int totalPages,

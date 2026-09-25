@@ -1,5 +1,6 @@
 package com.edison.scanner.oi;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Comparator;
 import java.util.List;
@@ -29,10 +30,11 @@ public class OiRadarService {
 	 *
 	 * This is the only operation that retrieves fresh Binance/CoinGecko data.
 	 */
-	public synchronized CachedRadar scan() {
+	public synchronized CachedRadar scan(BigDecimal minMarketCap, BigDecimal maxMarketCap) {
 
-		List<OiRadarResult> results = client.getSnapshots().stream().map(this::calculate).sorted(
-				Comparator.comparingInt(OiRadarResult::radarScore).reversed().thenComparing(OiRadarResult::symbol))
+		List<OiRadarResult> results = client
+				.getSnapshots(minMarketCap, maxMarketCap).stream().map(this::calculate).sorted(Comparator
+						.comparingInt(OiRadarResult::radarScore).reversed().thenComparing(OiRadarResult::symbol))
 				.toList();
 
 		CachedRadar radar = new CachedRadar(Instant.now(), results);
