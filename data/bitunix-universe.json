@@ -1,0 +1,1914 @@
+{
+  "lastRefreshDate" : [ 2026, 9, 8 ],
+  "entries" : [ {
+    "symbol" : "SUSHIUSDT",
+    "baseAsset" : "SUSHI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CGPTUSDT",
+    "baseAsset" : "CGPT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TRUTHUSDT",
+    "baseAsset" : "TRUTH",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BNTUSDT",
+    "baseAsset" : "BNT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "INITUSDT",
+    "baseAsset" : "INIT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ZORAUSDT",
+    "baseAsset" : "ZORA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ARIAUSDT",
+    "baseAsset" : "ARIA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BANKUSDT",
+    "baseAsset" : "BANK",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MUBARAKUSDT",
+    "baseAsset" : "MUBARAK",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "XAIUSDT",
+    "baseAsset" : "XAI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SPELLUSDT",
+    "baseAsset" : "SPELL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ZKPUSDT",
+    "baseAsset" : "ZKP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SLXUSDT",
+    "baseAsset" : "SLX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "STABLEUSDT",
+    "baseAsset" : "STABLE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "STBLUSDT",
+    "baseAsset" : "STBL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MONUSDT",
+    "baseAsset" : "MON",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PNUTUSDT",
+    "baseAsset" : "PNUT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MEWUSDT",
+    "baseAsset" : "MEW",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "JOEUSDT",
+    "baseAsset" : "JOE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PENDLEUSDT",
+    "baseAsset" : "PENDLE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CCUSDT",
+    "baseAsset" : "CC",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AWEUSDT",
+    "baseAsset" : "AWE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "KAIAUSDT",
+    "baseAsset" : "KAIA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SHELLUSDT",
+    "baseAsset" : "SHELL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "NIGHTUSDT",
+    "baseAsset" : "NIGHT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CASHCATUSDT",
+    "baseAsset" : "CASHCAT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CHIPUSDT",
+    "baseAsset" : "CHIP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "REZUSDT",
+    "baseAsset" : "REZ",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TOWNSUSDT",
+    "baseAsset" : "TOWNS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "DOGEUSDT",
+    "baseAsset" : "DOGE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "1000BONKUSDT",
+    "baseAsset" : "BONK",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "GRIFFAINUSDT",
+    "baseAsset" : "GRIFFAIN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "GPSUSDT",
+    "baseAsset" : "GPS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ESPUSDT",
+    "baseAsset" : "ESP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TRXUSDT",
+    "baseAsset" : "TRX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "FHEUSDT",
+    "baseAsset" : "FHE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CHILLGUYUSDT",
+    "baseAsset" : "CHILLGUY",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SOLVUSDT",
+    "baseAsset" : "SOLV",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CFGUSDT",
+    "baseAsset" : "CFG",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SUSDT",
+    "baseAsset" : "S",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SAPIENUSDT",
+    "baseAsset" : "SAPIEN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SOMIUSDT",
+    "baseAsset" : "SOMI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "HMSTRUSDT",
+    "baseAsset" : "HMSTR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "EDENUSDT",
+    "baseAsset" : "EDEN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "XLMUSDT",
+    "baseAsset" : "XLM",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "IOTXUSDT",
+    "baseAsset" : "IOTX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BREVUSDT",
+    "baseAsset" : "BREV",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ARKUSDT",
+    "baseAsset" : "ARK",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "POLUSDT",
+    "baseAsset" : "POL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BROCCOLIUSDT",
+    "baseAsset" : "BROCCOLI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "UMAUSDT",
+    "baseAsset" : "UMA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "JELLYJELLYUSDT",
+    "baseAsset" : "JELLYJELLY",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SAHARAUSDT",
+    "baseAsset" : "SAHARA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "APEUSDT",
+    "baseAsset" : "APE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "RUNEUSDT",
+    "baseAsset" : "RUNE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ATHUSDT",
+    "baseAsset" : "ATH",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AEONUSDT",
+    "baseAsset" : "AEON",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AIOTUSDT",
+    "baseAsset" : "AIOT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SKLUSDT",
+    "baseAsset" : "SKL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "B2USDT",
+    "baseAsset" : "B2",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ZEREBROUSDT",
+    "baseAsset" : "ZEREBRO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "DOGSUSDT",
+    "baseAsset" : "DOGS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PLUMEUSDT",
+    "baseAsset" : "PLUME",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "OPENUSDT",
+    "baseAsset" : "OPEN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "GLMUSDT",
+    "baseAsset" : "GLM",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ALTUSDT",
+    "baseAsset" : "ALT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "RECALLUSDT",
+    "baseAsset" : "RECALL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SKYAIUSDT",
+    "baseAsset" : "SKYAI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "USELESSUSDT",
+    "baseAsset" : "USELESS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MTLUSDT",
+    "baseAsset" : "MTL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "GUSDT",
+    "baseAsset" : "G",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "IDOLUSDT",
+    "baseAsset" : "IDOL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CATIUSDT",
+    "baseAsset" : "CATI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "DOSUSDT",
+    "baseAsset" : "DOS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "HUMAUSDT",
+    "baseAsset" : "HUMA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TACUSDT",
+    "baseAsset" : "TAC",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MANAUSDT",
+    "baseAsset" : "MANA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "NXPCUSDT",
+    "baseAsset" : "NXPC",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MANTRAUSDT",
+    "baseAsset" : "MANTRA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CHRUSDT",
+    "baseAsset" : "CHR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "HEMIUSDT",
+    "baseAsset" : "HEMI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "2ZUSDT",
+    "baseAsset" : "2Z",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PTBUSDT",
+    "baseAsset" : "PTB",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PIPPINUSDT",
+    "baseAsset" : "PIPPIN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "OGNUSDT",
+    "baseAsset" : "OGN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "KOMAUSDT",
+    "baseAsset" : "KOMA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MOVEUSDT",
+    "baseAsset" : "MOVE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ENAUSDT",
+    "baseAsset" : "ENA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AIAUSDT",
+    "baseAsset" : "AIA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "HANAUSDT",
+    "baseAsset" : "HANA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "RAVEUSDT",
+    "baseAsset" : "RAVE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TAUSDT",
+    "baseAsset" : "TA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "USUSDT",
+    "baseAsset" : "US",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BLURUSDT",
+    "baseAsset" : "BLUR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "KNCUSDT",
+    "baseAsset" : "KNC",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MEGAUSDT",
+    "baseAsset" : "MEGA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ENJUSDT",
+    "baseAsset" : "ENJ",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ZBCNUSDT",
+    "baseAsset" : "ZBCN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PONSUSDT",
+    "baseAsset" : "PONS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ESPORTSUSDT",
+    "baseAsset" : "ESPORTS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "POWERUSDT",
+    "baseAsset" : "POWER",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "OPGUSDT",
+    "baseAsset" : "OPG",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TRUSTUSDT",
+    "baseAsset" : "TRUST",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SQDUSDT",
+    "baseAsset" : "SQD",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "DRIFTUSDT",
+    "baseAsset" : "DRIFT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TRADOORUSDT",
+    "baseAsset" : "TRADOOR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PUNDIXUSDT",
+    "baseAsset" : "PUNDIX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "IOSTUSDT",
+    "baseAsset" : "IOST",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "HBARUSDT",
+    "baseAsset" : "HBAR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SYNUSDT",
+    "baseAsset" : "SYN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "LIGHTUSDT",
+    "baseAsset" : "LIGHT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "POLYXUSDT",
+    "baseAsset" : "POLYX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BANUSDT",
+    "baseAsset" : "BAN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "FLOCKUSDT",
+    "baseAsset" : "FLOCK",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SYRUPUSDT",
+    "baseAsset" : "SYRUP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "GALAUSDT",
+    "baseAsset" : "GALA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "EDUUSDT",
+    "baseAsset" : "EDU",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AINUSDT",
+    "baseAsset" : "AIN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "GRVTUSDT",
+    "baseAsset" : "GRVT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "HIVEUSDT",
+    "baseAsset" : "HIVE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TAGUSDT",
+    "baseAsset" : "TAG",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "LISTAUSDT",
+    "baseAsset" : "LISTA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "JSTUSDT",
+    "baseAsset" : "JST",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "METUSDT",
+    "baseAsset" : "MET",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ACTUSDT",
+    "baseAsset" : "ACT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "DEEPUSDT",
+    "baseAsset" : "DEEP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SOPHUSDT",
+    "baseAsset" : "SOPH",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BTRUSDT",
+    "baseAsset" : "BTR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "EDGEXUSDT",
+    "baseAsset" : "EDGEX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PYTHUSDT",
+    "baseAsset" : "PYTH",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BRUSDT",
+    "baseAsset" : "BR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "HOMEUSDT",
+    "baseAsset" : "HOME",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SENTUSDT",
+    "baseAsset" : "SENT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "STGUSDT",
+    "baseAsset" : "STG",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "STXUSDT",
+    "baseAsset" : "STX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ARPAUSDT",
+    "baseAsset" : "ARPA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CROSSUSDT",
+    "baseAsset" : "CROSS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "1INCHUSDT",
+    "baseAsset" : "1INCH",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "STOUSDT",
+    "baseAsset" : "STO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TUSDT",
+    "baseAsset" : "T",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SIRENUSDT",
+    "baseAsset" : "SIREN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PIXELUSDT",
+    "baseAsset" : "PIXEL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TURTLEUSDT",
+    "baseAsset" : "TURTLE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ZETAUSDT",
+    "baseAsset" : "ZETA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "FIDAUSDT",
+    "baseAsset" : "FIDA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PUMPUSDT",
+    "baseAsset" : "PUMP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AIOUSDT",
+    "baseAsset" : "AIO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BLENDUSDT",
+    "baseAsset" : "BLEND",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AUSDT",
+    "baseAsset" : "A",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BTWUSDT",
+    "baseAsset" : "BTW",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "FOGOUSDT",
+    "baseAsset" : "FOGO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "1000SATSUSDT",
+    "baseAsset" : "SATS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "GMTUSDT",
+    "baseAsset" : "GMT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "LINEAUSDT",
+    "baseAsset" : "LINEA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PIEVERSEUSDT",
+    "baseAsset" : "PIEVERSE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "GWEIUSDT",
+    "baseAsset" : "GWEI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "COOKIEUSDT",
+    "baseAsset" : "COOKIE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "DOODUSDT",
+    "baseAsset" : "DOOD",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SPACEUSDT",
+    "baseAsset" : "SPACE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "LDOUSDT",
+    "baseAsset" : "LDO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PENGUUSDT",
+    "baseAsset" : "PENGU",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CARVUSDT",
+    "baseAsset" : "CARV",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SKRUSDT",
+    "baseAsset" : "SKR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "4USDT",
+    "baseAsset" : "4",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BLUAIUSDT",
+    "baseAsset" : "BLUAI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ONEUSDT",
+    "baseAsset" : "ONE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MAVIAUSDT",
+    "baseAsset" : "MAVIA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "WALUSDT",
+    "baseAsset" : "WAL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "DOLOUSDT",
+    "baseAsset" : "DOLO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "NIULAIUSDT",
+    "baseAsset" : "NIULAI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TAKEUSDT",
+    "baseAsset" : "TAKE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MIRAUSDT",
+    "baseAsset" : "MIRA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PROMPTUSDT",
+    "baseAsset" : "PROMPT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SEIUSDT",
+    "baseAsset" : "SEI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "FIGHTUSDT",
+    "baseAsset" : "FIGHT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "FUSDT",
+    "baseAsset" : "F",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BIOUSDT",
+    "baseAsset" : "BIO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MOCAUSDT",
+    "baseAsset" : "MOCA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ANKRUSDT",
+    "baseAsset" : "ANKR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AIGENSYNUSDT",
+    "baseAsset" : "AIGENSYN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "REDUSDT",
+    "baseAsset" : "RED",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "OUSDT",
+    "baseAsset" : "O",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "USUALUSDT",
+    "baseAsset" : "USUAL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MAVUSDT",
+    "baseAsset" : "MAV",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ANIMEUSDT",
+    "baseAsset" : "ANIME",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MEMEUSDT",
+    "baseAsset" : "MEME",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "KMNOUSDT",
+    "baseAsset" : "KMNO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "NOMUSDT",
+    "baseAsset" : "NOM",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CVCUSDT",
+    "baseAsset" : "CVC",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ASTRUSDT",
+    "baseAsset" : "ASTR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ELSAUSDT",
+    "baseAsset" : "ELSA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "HOTUSDT",
+    "baseAsset" : "HOT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ORDERUSDT",
+    "baseAsset" : "ORDER",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "FRAXUSDT",
+    "baseAsset" : "FRAX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MMTUSDT",
+    "baseAsset" : "MMT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PRLUSDT",
+    "baseAsset" : "PRL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MOODENGUSDT",
+    "baseAsset" : "MOODENG",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AIXBTUSDT",
+    "baseAsset" : "AIXBT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "COREUSDT",
+    "baseAsset" : "CORE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CYSUSDT",
+    "baseAsset" : "CYS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AVAAIUSDT",
+    "baseAsset" : "AVAAI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SCRUSDT",
+    "baseAsset" : "SCR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CETUSUSDT",
+    "baseAsset" : "CETUS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "XPINUSDT",
+    "baseAsset" : "XPIN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "HAJIMIUSDT",
+    "baseAsset" : "HAJIMI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ADAUSDT",
+    "baseAsset" : "ADA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "JTOUSDT",
+    "baseAsset" : "JTO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "LSKUSDT",
+    "baseAsset" : "LSK",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TSTUSDT",
+    "baseAsset" : "TST",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ARXUSDT",
+    "baseAsset" : "ARX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TREEUSDT",
+    "baseAsset" : "TREE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "FFUSDT",
+    "baseAsset" : "FF",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "XNYUSDT",
+    "baseAsset" : "XNY",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BIGTIMEUSDT",
+    "baseAsset" : "BIGTIME",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "STEEMUSDT",
+    "baseAsset" : "STEEM",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "HYPERUSDT",
+    "baseAsset" : "HYPER",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BMTUSDT",
+    "baseAsset" : "BMT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MUSDT",
+    "baseAsset" : "M",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "USTCUSDT",
+    "baseAsset" : "USTC",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ZKCUSDT",
+    "baseAsset" : "ZKC",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "LYNUSDT",
+    "baseAsset" : "LYN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "DATAIPUSDT",
+    "baseAsset" : "DATAIP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SOONUSDT",
+    "baseAsset" : "SOON",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "RAREUSDT",
+    "baseAsset" : "RARE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "WOOUSDT",
+    "baseAsset" : "WOO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ALLOUSDT",
+    "baseAsset" : "ALLO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TRIAUSDT",
+    "baseAsset" : "TRIA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SFPUSDT",
+    "baseAsset" : "SFP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "WETUSDT",
+    "baseAsset" : "WET",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "XANUSDT",
+    "baseAsset" : "XAN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SWARMSUSDT",
+    "baseAsset" : "SWARMS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CFXUSDT",
+    "baseAsset" : "CFX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "KGENUSDT",
+    "baseAsset" : "KGEN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BUSDT",
+    "baseAsset" : "B",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "KERNELUSDT",
+    "baseAsset" : "KERNEL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "IDUSDT",
+    "baseAsset" : "ID",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ACUUSDT",
+    "baseAsset" : "ACU",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SPORTFUNUSDT",
+    "baseAsset" : "SPORTFUN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "POWRUSDT",
+    "baseAsset" : "POWR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "VELVETUSDT",
+    "baseAsset" : "VELVET",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "WAXPUSDT",
+    "baseAsset" : "WAXP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BNLIFEUSDT",
+    "baseAsset" : "BNLIFE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CTKUSDT",
+    "baseAsset" : "CTK",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "KATUSDT",
+    "baseAsset" : "KAT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MINAUSDT",
+    "baseAsset" : "MINA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TAIKOUSDT",
+    "baseAsset" : "TAIKO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ONUSDT",
+    "baseAsset" : "ON",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SPKUSDT",
+    "baseAsset" : "SPK",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "RIFUSDT",
+    "baseAsset" : "RIF",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CELRUSDT",
+    "baseAsset" : "CELR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "COAIUSDT",
+    "baseAsset" : "COAI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AGLDUSDT",
+    "baseAsset" : "AGLD",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "UPUSDT",
+    "baseAsset" : "UP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "RSRUSDT",
+    "baseAsset" : "RSR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ERAUSDT",
+    "baseAsset" : "ERA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ICNTUSDT",
+    "baseAsset" : "ICNT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "INUSDT",
+    "baseAsset" : "IN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "JASMYUSDT",
+    "baseAsset" : "JASMY",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "NOTUSDT",
+    "baseAsset" : "NOT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "RESOLVUSDT",
+    "baseAsset" : "RESOLV",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BASUSDT",
+    "baseAsset" : "BAS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PHAROSUSDT",
+    "baseAsset" : "PHAROS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "COLLECTUSDT",
+    "baseAsset" : "COLLECT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "YGGUSDT",
+    "baseAsset" : "YGG",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "NEWTUSDT",
+    "baseAsset" : "NEWT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PUMPFUNUSDT",
+    "baseAsset" : "PUMPFUN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SAFEUSDT",
+    "baseAsset" : "SAFE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "XIAOMIUSDT",
+    "baseAsset" : "XIAOMI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "NAORISUSDT",
+    "baseAsset" : "NAORIS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "LUNA2USDT",
+    "baseAsset" : "LUNA2",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CTRUSDT",
+    "baseAsset" : "CTR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "VETUSDT",
+    "baseAsset" : "VET",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "IMXUSDT",
+    "baseAsset" : "IMX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "UBUSDT",
+    "baseAsset" : "UB",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "POPCATUSDT",
+    "baseAsset" : "POPCAT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "COTIUSDT",
+    "baseAsset" : "COTI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "1000CHEEMSUSDT",
+    "baseAsset" : "CHEEMS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "GRTUSDT",
+    "baseAsset" : "GRT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CPUSDT",
+    "baseAsset" : "CP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "WLFIUSDT",
+    "baseAsset" : "WLFI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "GOATUSDT",
+    "baseAsset" : "GOAT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MITOUSDT",
+    "baseAsset" : "MITO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "GENIUSUSDT",
+    "baseAsset" : "GENIUS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "DIAUSDT",
+    "baseAsset" : "DIA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TUTUSDT",
+    "baseAsset" : "TUT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MASKUSDT",
+    "baseAsset" : "MASK",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "REUSDT",
+    "baseAsset" : "RE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SKYUSDT",
+    "baseAsset" : "SKY",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ZKUSDT",
+    "baseAsset" : "ZK",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "1MBABYDOGEUSDT",
+    "baseAsset" : "BABYDOGE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BBUSDT",
+    "baseAsset" : "BB",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ALCHUSDT",
+    "baseAsset" : "ALCH",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MAGMAUSDT",
+    "baseAsset" : "MAGMA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BARDUSDT",
+    "baseAsset" : "BARD",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MERLUSDT",
+    "baseAsset" : "MERL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AVNTUSDT",
+    "baseAsset" : "AVNT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CKBUSDT",
+    "baseAsset" : "CKB",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BIRBUSDT",
+    "baseAsset" : "BIRB",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BILLUSDT",
+    "baseAsset" : "BILL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "C98USDT",
+    "baseAsset" : "C98",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BRETTUSDT",
+    "baseAsset" : "BRETT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "HAEDALUSDT",
+    "baseAsset" : "HAEDAL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "APRUSDT",
+    "baseAsset" : "APR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "NEARUSDT",
+    "baseAsset" : "NEAR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ZAMAUSDT",
+    "baseAsset" : "ZAMA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TWTUSDT",
+    "baseAsset" : "TWT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "GUNUSDT",
+    "baseAsset" : "GUN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PIUSDT",
+    "baseAsset" : "PI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "KITEUSDT",
+    "baseAsset" : "KITE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BEAMXUSDT",
+    "baseAsset" : "BEAMX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "COWUSDT",
+    "baseAsset" : "COW",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "YBUSDT",
+    "baseAsset" : "YB",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BOMEUSDT",
+    "baseAsset" : "BOME",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "1000SHIBUSDT",
+    "baseAsset" : "SHIB",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SLPUSDT",
+    "baseAsset" : "SLP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MARSCOINUSDT",
+    "baseAsset" : "MARSCOIN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TLMUSDT",
+    "baseAsset" : "TLM",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ETHWUSDT",
+    "baseAsset" : "ETHW",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SIGNUSDT",
+    "baseAsset" : "SIGN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "1000CATUSDT",
+    "baseAsset" : "1000CAT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CUSDT",
+    "baseAsset" : "C",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BEATUSDT",
+    "baseAsset" : "BEAT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BICOUSDT",
+    "baseAsset" : "BICO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ICPUSDT",
+    "baseAsset" : "ICP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "1000LUNCUSDT",
+    "baseAsset" : "LUNC",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TURBOUSDT",
+    "baseAsset" : "TURBO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BABYUSDT",
+    "baseAsset" : "BABY",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AVAXUSDT",
+    "baseAsset" : "AVAX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CAKEUSDT",
+    "baseAsset" : "CAKE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PARTIUSDT",
+    "baseAsset" : "PARTI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ROBOUSDT",
+    "baseAsset" : "ROBO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "OPNUSDT",
+    "baseAsset" : "OPN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "JUPUSDT",
+    "baseAsset" : "JUP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "0GUSDT",
+    "baseAsset" : "0G",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "IRYSUSDT",
+    "baseAsset" : "IRYS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ROSEUSDT",
+    "baseAsset" : "ROSE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ONGUSDT",
+    "baseAsset" : "ONG",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "JCTUSDT",
+    "baseAsset" : "JCT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "INXUSDT",
+    "baseAsset" : "INX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TIAUSDT",
+    "baseAsset" : "TIA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "PEOPLEUSDT",
+    "baseAsset" : "PEOPLE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "MYXUSDT",
+    "baseAsset" : "MYX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "UNIUSDT",
+    "baseAsset" : "UNI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CLOUSDT",
+    "baseAsset" : "CLO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ARKMUSDT",
+    "baseAsset" : "ARKM",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "RVNUSDT",
+    "baseAsset" : "RVN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ATUSDT",
+    "baseAsset" : "AT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "1000PEPEUSDT",
+    "baseAsset" : "PEPE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "1000RATSUSDT",
+    "baseAsset" : "RATS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "FETUSDT",
+    "baseAsset" : "FET",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SUPERUSDT",
+    "baseAsset" : "SUPER",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BANANAS31USDT",
+    "baseAsset" : "BANANAS31",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "1000FLOKIUSDT",
+    "baseAsset" : "FLOKI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BASEDUSDT",
+    "baseAsset" : "BASED",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ZESTUSDT",
+    "baseAsset" : "ZEST",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CAPUSDT",
+    "baseAsset" : "CAP",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CROUSDT",
+    "baseAsset" : "CRO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SPXUSDT",
+    "baseAsset" : "SPX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "QUSDT",
+    "baseAsset" : "Q",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "UAIUSDT",
+    "baseAsset" : "UAI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "GUAUSDT",
+    "baseAsset" : "GUA",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "HUSDT",
+    "baseAsset" : "H",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "WLDUSDT",
+    "baseAsset" : "WLD",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "HOLOUSDT",
+    "baseAsset" : "HOLO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ASTERUSDT",
+    "baseAsset" : "ASTER",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "WCTUSDT",
+    "baseAsset" : "WCT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AZTECUSDT",
+    "baseAsset" : "AZTEC",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AKEUSDT",
+    "baseAsset" : "AKE",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BLESSUSDT",
+    "baseAsset" : "BLESS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ZILUSDT",
+    "baseAsset" : "ZIL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "AXSUSDT",
+    "baseAsset" : "AXS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "TOSHIUSDT",
+    "baseAsset" : "TOSHI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "BSBUSDT",
+    "baseAsset" : "BSB",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CHZUSDT",
+    "baseAsset" : "CHZ",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "DUSKUSDT",
+    "baseAsset" : "DUSK",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "KASUSDT",
+    "baseAsset" : "KAS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "CTSIUSDT",
+    "baseAsset" : "CTSI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ACHUSDT",
+    "baseAsset" : "ACH",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "XPLUSDT",
+    "baseAsset" : "XPL",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "VELODROMEUSDT",
+    "baseAsset" : "VELODROME",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "VTHOUSDT",
+    "baseAsset" : "VTHO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "SUNUSDT",
+    "baseAsset" : "SUN",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 8, 9 ]
+  } ]
+}
