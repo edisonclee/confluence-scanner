@@ -37,19 +37,20 @@ public class BitunixUniverseService {
 	private final ApplicationConfig config;
 	private final ObjectMapper objectMapper;
 	private final Path storagePath;
+	private final CryptoAssetRegistry cryptoAssetRegistry;
 
 	private final Map<String, BitunixUniverseEntry> entries = new HashMap<>();
 
 	private LocalDate lastRefreshDate;
 	private boolean loaded;
 
-	public BitunixUniverseService(BitunixClient bitunixClient, BitunixSymbolMapper mapper, ApplicationConfig config) {
+	public BitunixUniverseService(BitunixClient bitunixClient, BitunixSymbolMapper mapper, ApplicationConfig config,
+			CryptoAssetRegistry cryptoAssetRegistry) {
 
 		this.bitunixClient = Objects.requireNonNull(bitunixClient);
-
 		this.mapper = Objects.requireNonNull(mapper);
-
 		this.config = Objects.requireNonNull(config);
+		this.cryptoAssetRegistry = Objects.requireNonNull(cryptoAssetRegistry);
 
 		this.objectMapper = new ObjectMapper().findAndRegisterModules().enable(SerializationFeature.INDENT_OUTPUT);
 
@@ -60,30 +61,41 @@ public class BitunixUniverseService {
 	 * Returns only Bitunix Futures symbols that have reached the configured minimum
 	 * age.
 	 */
+
 	public synchronized List<TradingSymbol> getEligibleSymbols() {
 
 		ensureLoaded();
-
 		refreshIfNeeded();
 
 		LocalDate today = LocalDate.now();
 
 		return entries.values().stream().filter(entry -> isEligible(entry, today))
+				.filter(entry -> isAllowedAsset(entry.symbol(), entry.baseAsset()))
 				.sorted(Comparator.comparing(BitunixUniverseEntry::symbol))
 				.map(entry -> new TradingSymbol(entry.symbol(), entry.baseAsset(), entry.quoteAsset())).toList();
+	}
+
+	private boolean isAllowedAsset(String symbol, String baseAsset) {
+		if ("XAUTUSDT".equalsIgnoreCase(symbol) && "XAUT".equalsIgnoreCase(baseAsset)) {
+			return true;
+		}
+
+		return cryptoAssetRegistry.isCryptoBaseAsset(baseAsset);
 	}
 
 	/**
 	 * Returns every currently tracked entry, including coins that are still inside
 	 * the minimum-age waiting period.
 	 */
+
 	public synchronized List<BitunixUniverseEntry> getAllEntries() {
 
 		ensureLoaded();
-
 		refreshIfNeeded();
 
-		return entries.values().stream().sorted(Comparator.comparing(BitunixUniverseEntry::symbol)).toList();
+		return entries.values().stream()
+				.filter(entry -> isAllowedAsset(entry.symbol(), entry.baseAsset()))
+				.sorted(Comparator.comparing(BitunixUniverseEntry::symbol)).toList();
 	}
 
 	/**
@@ -269,6 +281,10 @@ public class BitunixUniverseService {
 
 			throw new ExchangeException("Failed to save Bitunix universe.", ex);
 		}
+	}
+
+	public CryptoAssetRegistry getCryptoAssetRegistry() {
+		return cryptoAssetRegistry;
 	}
 
 	private record UniverseFile(LocalDate lastRefreshDate, List<BitunixUniverseEntry> entries) {

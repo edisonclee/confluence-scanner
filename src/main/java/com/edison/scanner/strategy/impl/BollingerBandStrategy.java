@@ -1,3 +1,4 @@
+
 package com.edison.scanner.strategy.impl;
 
 import java.math.BigDecimal;
@@ -5,7 +6,10 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import com.edison.scanner.common.Timeframe;
@@ -22,85 +26,153 @@ import com.edison.scanner.strategy.ScannerStrategy;
 @Component
 public final class BollingerBandStrategy implements ScannerStrategy {
 
-	private final ApplicationConfig config;
+    private static final Logger log =
+            LoggerFactory.getLogger(BollingerBandStrategy.class);
 
-	private final TouchDetector touchDetector;
+    private static final Set<String> DIAGNOSTIC_SYMBOLS =
+            Set.of("BTCUSDT", "ETHUSDT", "XRPUSDT");
 
-	public BollingerBandStrategy(ApplicationConfig config, TouchDetector touchDetector) {
+    private final ApplicationConfig config;
+    private final TouchDetector touchDetector;
 
-		this.config = Objects.requireNonNull(config);
-		this.touchDetector = Objects.requireNonNull(touchDetector);
+    public BollingerBandStrategy(
+            ApplicationConfig config,
+            TouchDetector touchDetector) {
 
-	}
+        this.config = Objects.requireNonNull(config);
+        this.touchDetector = Objects.requireNonNull(touchDetector);
+    }
 
-	public List<ScanResult> scan(MarketData marketData, ScannerRequest request) {
+    @Override
+    public List<ScanResult> scan(
+            MarketData marketData,
+            ScannerRequest request) {
 
-		Objects.requireNonNull(marketData, "marketData");
+        Objects.requireNonNull(marketData, "marketData");
+        Objects.requireNonNull(request, "request");
 
-		Objects.requireNonNull(request, "request");
+        List<ScanResult> results = new ArrayList<>();
 
-		List<ScanResult> results = new ArrayList<>();
+        String symbol =
+                marketData.getSymbol().getExchangeSymbol();
 
-		//
-		// H1 is always the chart timeframe.
-		//
-		Timeframe chartTimeframe = Timeframe.H1;
+        boolean diagnostic =
+                DIAGNOSTIC_SYMBOLS.contains(symbol);
 
-		TimeframeData chart = marketData.getChart(chartTimeframe);
+        // H1 is always the chart timeframe.
+        TimeframeData chart = marketData.getChart(Timeframe.H1);
 
-		if (chart == null) {
-			return List.of();
-		}
+        if (chart == null) {
+            return List.of();
+        }
 
-		List<HeikenAshiCandle> ha = chart.getHeikenAshiCandles();
+        List<HeikenAshiCandle> candles =
+                chart.getHeikenAshiCandles();
 
-		if (ha.isEmpty()) {
-			return List.of();
-		}
+        if (candles.isEmpty()) {
+            return List.of();
+        }
 
-		HeikenAshiCandle latestChart = ha.get(ha.size() - 1);
+        HeikenAshiCandle latestChart =
+                candles.get(candles.size() - 1);
 
-		//
-		// Scan only the BB timeframes selected
-		// by the user.
-		//
-		for (Timeframe bbTimeframe : request.getBbTimeframes()) {
+        // Check only the BB timeframes selected by the user.
+        for (Timeframe bbTimeframe : request.getBbTimeframes()) {
 
-			TimeframeData bb = marketData.getChart(bbTimeframe);
+            TimeframeData bbData =
+                    marketData.getChart(bbTimeframe);
 
-			if (bb == null) {
-				continue;
-			}
+            if (bbData == null) {
+                continue;
+            }
 
-			BollingerBand latestBand = bb.getLatestBollingerBand();
+            BollingerBand band =
+                    bbData.getLatestBollingerBand();
 
-			if (latestBand == null) {
-				continue;
-			}
+            if (band == null) {
+                continue;
+            }
 
-			if (!touchDetector.isTouched(latestChart, latestBand)) {
+            boolean upperTouched =
+                    touches(latestChart, band.getUpperBand());
 
-				continue;
-			}
+            boolean basisTouched =
+                    touches(latestChart, band.getBasisBand());
 
-			BigDecimal bbWidthPercent = latestBand.getUpperBand().subtract(latestBand.getLowerBand())
-					.divide(latestBand.getBasisBand(), 8, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100));
+            boolean lowerTouched =
+                    touches(latestChart, band.getLowerBand());
 
-			results.add(new ScanResult(marketData.getSymbol().getExchangeSymbol(), bbTimeframe, bbWidthPercent));
+            boolean touched =
+                    touchDetector.isTouched(latestChart, band);
 
-		}
+            // One concise diagnostic line per target symbol
+            // and selected BB timeframe.
+            if (diagnostic) {
+                log.info(
+                    "[BB-DIAG] symbol={} chartTF=H1 bbTF={} "
+                    + "HA[O={},H={},L={},C={}] "
+                    + "BB[U={},B={},L={}] "
+                    + "touch[U={},B={},L={}] result={}",
+                    symbol,
+                    bbTimeframe,
+                    latestChart.getOpen(),
+                    latestChart.getHigh(),
+                    latestChart.getLow(),
+                    latestChart.getClose(),
+                    band.getUpperBand(),
+                    band.getBasisBand(),
+                    band.getLowerBand(),
+                    upperTouched,
+                    basisTouched,
+                    lowerTouched,
+                    touched
+                );
+            }
 
-		return List.copyOf(results);
+            if (!touched) {
+                continue;
+            }
 
-	}
+            BigDecimal bbWidthPercent =
+                    band.getUpperBand()
+                        .subtract(band.getLowerBand())
+                        .divide(
+                            band.getBasisBand(),
+                            8,
+                            RoundingMode.HALF_UP
+                        )
+                        .multiply(BigDecimal.valueOf(100));
 
-	@Override
-	public String getName() {
-		return "bb";
-	}
+            results.add(
+                new ScanResult(
+                    symbol,
+                    bbTimeframe,
+                    bbWidthPercent
+                )
+            );
+        }
 
-	public ApplicationConfig getConfig() {
-		return config;
-	}
+        return List.copyOf(results);
+    }
 
+    /**
+     * A wick touches a band when the candle's high-low range
+     * includes the band's value.
+     */
+    private boolean touches(
+            HeikenAshiCandle candle,
+            BigDecimal bandValue) {
+
+        return candle.getLow().compareTo(bandValue) <= 0
+                && candle.getHigh().compareTo(bandValue) >= 0;
+    }
+
+    @Override
+    public String getName() {
+        return "bb";
+    }
+
+    public ApplicationConfig getConfig() {
+        return config;
+    }
 }
