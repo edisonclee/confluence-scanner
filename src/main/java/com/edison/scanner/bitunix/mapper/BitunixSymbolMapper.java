@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import com.edison.scanner.bitunix.CryptoAssetRegistry;
@@ -15,6 +17,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Component
 public final class BitunixSymbolMapper {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(BitunixSymbolMapper.class);
 
 	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
@@ -30,22 +34,57 @@ public final class BitunixSymbolMapper {
 			JsonNode data = root.path("data");
 
 			if (!data.isArray()) {
-				throw new ExchangeException("Invalid Bitunix trading-pairs response: data is not an array.");
+				throw new ExchangeException("Invalid Bitunix trading-pairs response: " + "data is not an array.");
 			}
 
 			List<TradingSymbol> symbols = new ArrayList<>();
 
+			int rejectedStatus = 0;
+			int rejectedApi = 0;
+			int rejectedQuote = 0;
+			int rejectedAsset = 0;
+
 			for (JsonNode node : data) {
-				if (!isSupported(node)) {
+				if (!"OPEN".equals(node.path("symbolStatus").asText())) {
+					rejectedStatus++;
 					continue;
 				}
 
-				String symbol = node.path("symbol").asText("");
-				String base = node.path("base").asText("");
-				String quote = node.path("quote").asText("");
+				if (!node.path("isApiSupported").asBoolean(false)) {
+					rejectedApi++;
+					continue;
+				}
+
+				String symbol = node.path("symbol").asText("").trim();
+				String base = node.path("base").asText("").trim();
+				String quote = node.path("quote").asText("").trim();
+
+				if (!"USDT".equalsIgnoreCase(quote)) {
+					rejectedQuote++;
+					continue;
+				}
+
+				if (symbol.isEmpty() || base.isEmpty()) {
+					rejectedAsset++;
+					LOGGER.warn("[SYMBOL-FILTER] REJECT invalid contract: {}", node);
+					continue;
+				}
+
+				if (!cryptoAssetRegistry.isAllowedContract(symbol, base)) {
+					rejectedAsset++;
+					continue;
+				}
 
 				symbols.add(new TradingSymbol(symbol, base, quote));
 			}
+
+			LOGGER.info(
+					"[SYMBOL-FILTER] total={} accepted={} " + "rejectedStatus={} rejectedApi={} "
+							+ "rejectedQuote={} rejectedAsset={}",
+					data.size(), symbols.size(), rejectedStatus, rejectedApi, rejectedQuote, rejectedAsset);
+
+			LOGGER.info("[SYMBOL-FILTER] Accepted contracts include XAUTUSDT={}",
+					symbols.stream().anyMatch(s -> "XAUTUSDT".equalsIgnoreCase(s.getExchangeSymbol())));
 
 			return List.copyOf(symbols);
 
@@ -54,33 +93,5 @@ public final class BitunixSymbolMapper {
 		} catch (Exception ex) {
 			throw new ExchangeException("Failed to parse Bitunix trading pairs.", ex);
 		}
-	}
-
-	private boolean isSupported(JsonNode node) {
-		if (!"OPEN".equals(node.path("symbolStatus").asText())) {
-			return false;
-		}
-
-		if (!node.path("isApiSupported").asBoolean(false)) {
-			return false;
-		}
-
-		if (!"USDT".equals(node.path("quote").asText())) {
-			return false;
-		}
-
-		String symbol = node.path("symbol").asText("").trim();
-		String base = node.path("base").asText("").trim();
-
-		if (symbol.isEmpty() || base.isEmpty()) {
-			return false;
-		}
-
-		// Explicit exception requested: retain Tether Gold.
-		if ("XAUTUSDT".equalsIgnoreCase(symbol) && "XAUT".equalsIgnoreCase(base)) {
-			return true;
-		}
-
-		return cryptoAssetRegistry.isCryptoBaseAsset(base);
 	}
 }

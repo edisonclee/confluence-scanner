@@ -69,18 +69,22 @@ public class BitunixUniverseService {
 
 		LocalDate today = LocalDate.now();
 
-		return entries.values().stream().filter(entry -> isEligible(entry, today))
+		List<TradingSymbol> result = entries.values().stream().filter(entry -> isEligible(entry, today))
 				.filter(entry -> isAllowedAsset(entry.symbol(), entry.baseAsset()))
 				.sorted(Comparator.comparing(BitunixUniverseEntry::symbol))
 				.map(entry -> new TradingSymbol(entry.symbol(), entry.baseAsset(), entry.quoteAsset())).toList();
+
+		LOGGER.info("[UNIVERSE-DIAG] Eligible symbols returned to scanners: {}", result.size());
+
+		LOGGER.info("[UNIVERSE-DIAG] Watched symbols in final result: {}",
+				result.stream().map(TradingSymbol::getExchangeSymbol)
+						.filter(symbol -> WATCH_SYMBOLS.contains(symbol.toUpperCase(java.util.Locale.ROOT))).toList());
+
+		return result;
 	}
 
 	private boolean isAllowedAsset(String symbol, String baseAsset) {
-		if ("XAUTUSDT".equalsIgnoreCase(symbol) && "XAUT".equalsIgnoreCase(baseAsset)) {
-			return true;
-		}
-
-		return cryptoAssetRegistry.isCryptoBaseAsset(baseAsset);
+	    return cryptoAssetRegistry.isAllowedContract(symbol, baseAsset);
 	}
 
 	/**
@@ -93,8 +97,7 @@ public class BitunixUniverseService {
 		ensureLoaded();
 		refreshIfNeeded();
 
-		return entries.values().stream()
-				.filter(entry -> isAllowedAsset(entry.symbol(), entry.baseAsset()))
+		return entries.values().stream().filter(entry -> isAllowedAsset(entry.symbol(), entry.baseAsset()))
 				.sorted(Comparator.comparing(BitunixUniverseEntry::symbol)).toList();
 	}
 
@@ -182,6 +185,7 @@ public class BitunixUniverseService {
 		save();
 
 		LOGGER.info("Bitunix universe bootstrap completed. " + "Tracked={}", entries.size());
+		logWatchedUniverseEntries("AFTER_BOOTSTRAP");
 	}
 
 	private void refresh() {
@@ -218,6 +222,7 @@ public class BitunixUniverseService {
 		lastRefreshDate = today;
 
 		save();
+		logWatchedUniverseEntries("AFTER_REFRESH");
 
 		LOGGER.info("Bitunix Futures universe refreshed. " + "Current={}, tracked={}, new={}, eligible={}",
 				currentSymbols.size(), entries.size(), newSymbols, countEligible(today));
@@ -252,6 +257,7 @@ public class BitunixUniverseService {
 			lastRefreshDate = file.lastRefreshDate();
 
 			LOGGER.info("Loaded Bitunix universe. " + "Tracked={}, lastRefresh={}", entries.size(), lastRefreshDate);
+			logWatchedUniverseEntries("AFTER_CACHE_LOAD");
 
 		} catch (Exception ex) {
 
@@ -289,4 +295,23 @@ public class BitunixUniverseService {
 
 	private record UniverseFile(LocalDate lastRefreshDate, List<BitunixUniverseEntry> entries) {
 	}
+
+	private static final java.util.Set<String> WATCH_SYMBOLS = java.util.Set.of("PYPLUSDT", "TTWOUSDT", "IWMUSDT",
+			"XAUTUSDT");
+
+	private void logWatchedUniverseEntries(String stage) {
+		for (BitunixUniverseEntry entry : entries.values()) {
+			String symbol = entry.symbol().toUpperCase(java.util.Locale.ROOT);
+
+			if (!WATCH_SYMBOLS.contains(symbol)) {
+				continue;
+			}
+
+			boolean allowed = isAllowedAsset(entry.symbol(), entry.baseAsset());
+
+			LOGGER.warn("[UNIVERSE-DIAG] stage={}, symbol={}, base={}, quote={}, " + "firstSeen={}, assetAllowed={}",
+					stage, entry.symbol(), entry.baseAsset(), entry.quoteAsset(), entry.firstSeen(), allowed);
+		}
+	}
+
 }
