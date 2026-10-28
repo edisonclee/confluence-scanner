@@ -37,7 +37,7 @@ public class BitunixUniverseService {
 	private final ApplicationConfig config;
 	private final ObjectMapper objectMapper;
 	private final Path storagePath;
-	private final CryptoAssetRegistry cryptoAssetRegistry;
+	private final BitunixContractFilter bitunixContractFilter;
 
 	private final Map<String, BitunixUniverseEntry> entries = new HashMap<>();
 
@@ -45,12 +45,12 @@ public class BitunixUniverseService {
 	private boolean loaded;
 
 	public BitunixUniverseService(BitunixClient bitunixClient, BitunixSymbolMapper mapper, ApplicationConfig config,
-			CryptoAssetRegistry cryptoAssetRegistry) {
+			BitunixContractFilter bitunixContractFilter) {
 
 		this.bitunixClient = Objects.requireNonNull(bitunixClient);
 		this.mapper = Objects.requireNonNull(mapper);
 		this.config = Objects.requireNonNull(config);
-		this.cryptoAssetRegistry = Objects.requireNonNull(cryptoAssetRegistry);
+		this.bitunixContractFilter = Objects.requireNonNull(bitunixContractFilter);
 
 		this.objectMapper = new ObjectMapper().findAndRegisterModules().enable(SerializationFeature.INDENT_OUTPUT);
 
@@ -74,17 +74,14 @@ public class BitunixUniverseService {
 				.sorted(Comparator.comparing(BitunixUniverseEntry::symbol))
 				.map(entry -> new TradingSymbol(entry.symbol(), entry.baseAsset(), entry.quoteAsset())).toList();
 
-		LOGGER.info("[UNIVERSE-DIAG] Eligible symbols returned to scanners: {}", result.size());
-
-		LOGGER.info("[UNIVERSE-DIAG] Watched symbols in final result: {}",
-				result.stream().map(TradingSymbol::getExchangeSymbol)
-						.filter(symbol -> WATCH_SYMBOLS.contains(symbol.toUpperCase(java.util.Locale.ROOT))).toList());
+		result.stream().map(TradingSymbol::getExchangeSymbol)
+				.filter(symbol -> WATCH_SYMBOLS.contains(symbol.toUpperCase(java.util.Locale.ROOT))).toList();
 
 		return result;
 	}
 
 	private boolean isAllowedAsset(String symbol, String baseAsset) {
-	    return cryptoAssetRegistry.isAllowedContract(symbol, baseAsset);
+		return bitunixContractFilter.isAllowedContract(symbol, baseAsset);
 	}
 
 	/**
@@ -96,6 +93,23 @@ public class BitunixUniverseService {
 
 		ensureLoaded();
 		refreshIfNeeded();
+
+		LocalDate today = LocalDate.now();
+		entries.values().stream().filter(entry -> "SOLUSDT".equalsIgnoreCase(entry.symbol())).forEach(entry -> {
+			long ageDays = ChronoUnit.DAYS.between(entry.firstSeen(), today);
+
+			boolean ageEligible = isEligible(entry, today);
+			boolean assetAllowed = isAllowedAsset(entry.symbol(), entry.baseAsset());
+
+			LOGGER.info("[SOL-TRACE] Universe entry found: symbol={}, base={}, "
+					+ "firstSeen={}, ageDays={}, minimumAgeDays={}, " + "ageEligible={}, assetAllowed={}, included={}",
+					entry.symbol(), entry.baseAsset(), entry.firstSeen(), ageDays,
+					config.getBitunixUniverseMinimumAgeDays(), ageEligible, assetAllowed, ageEligible && assetAllowed);
+		});
+
+		if (entries.values().stream().noneMatch(entry -> "SOLUSDT".equalsIgnoreCase(entry.symbol()))) {
+			LOGGER.warn("[SOL-TRACE] SOLUSDT is missing from the tracked Bitunix universe.");
+		}
 
 		return entries.values().stream().filter(entry -> isAllowedAsset(entry.symbol(), entry.baseAsset()))
 				.sorted(Comparator.comparing(BitunixUniverseEntry::symbol)).toList();
@@ -185,7 +199,6 @@ public class BitunixUniverseService {
 		save();
 
 		LOGGER.info("Bitunix universe bootstrap completed. " + "Tracked={}", entries.size());
-		logWatchedUniverseEntries("AFTER_BOOTSTRAP");
 	}
 
 	private void refresh() {
@@ -222,7 +235,6 @@ public class BitunixUniverseService {
 		lastRefreshDate = today;
 
 		save();
-		logWatchedUniverseEntries("AFTER_REFRESH");
 
 		LOGGER.info("Bitunix Futures universe refreshed. " + "Current={}, tracked={}, new={}, eligible={}",
 				currentSymbols.size(), entries.size(), newSymbols, countEligible(today));
@@ -257,7 +269,6 @@ public class BitunixUniverseService {
 			lastRefreshDate = file.lastRefreshDate();
 
 			LOGGER.info("Loaded Bitunix universe. " + "Tracked={}, lastRefresh={}", entries.size(), lastRefreshDate);
-			logWatchedUniverseEntries("AFTER_CACHE_LOAD");
 
 		} catch (Exception ex) {
 
@@ -289,29 +300,10 @@ public class BitunixUniverseService {
 		}
 	}
 
-	public CryptoAssetRegistry getCryptoAssetRegistry() {
-		return cryptoAssetRegistry;
-	}
-
 	private record UniverseFile(LocalDate lastRefreshDate, List<BitunixUniverseEntry> entries) {
 	}
 
 	private static final java.util.Set<String> WATCH_SYMBOLS = java.util.Set.of("PYPLUSDT", "TTWOUSDT", "IWMUSDT",
 			"XAUTUSDT");
-
-	private void logWatchedUniverseEntries(String stage) {
-		for (BitunixUniverseEntry entry : entries.values()) {
-			String symbol = entry.symbol().toUpperCase(java.util.Locale.ROOT);
-
-			if (!WATCH_SYMBOLS.contains(symbol)) {
-				continue;
-			}
-
-			boolean allowed = isAllowedAsset(entry.symbol(), entry.baseAsset());
-
-			LOGGER.warn("[UNIVERSE-DIAG] stage={}, symbol={}, base={}, quote={}, " + "firstSeen={}, assetAllowed={}",
-					stage, entry.symbol(), entry.baseAsset(), entry.quoteAsset(), entry.firstSeen(), allowed);
-		}
-	}
 
 }

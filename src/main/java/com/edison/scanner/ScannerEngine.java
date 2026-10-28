@@ -63,6 +63,15 @@ public class ScannerEngine {
 		cache.clear();
 
 		List<TradingSymbol> symbols = symbolProvider.getSymbols();
+		
+		boolean solIncluded = symbols.stream()
+		        .anyMatch(s -> "SOLUSDT".equalsIgnoreCase(s.getExchangeSymbol()));
+
+		LOGGER.info(
+		        "[SOL-TRACE] Present in scanner universe: {}, totalSymbols={}",
+		        solIncluded,
+		        symbols.size()
+		);
 
 		Set<Timeframe> requiredTimeframes = EnumSet.of(Timeframe.H1);
 
@@ -75,6 +84,9 @@ public class ScannerEngine {
 		long scanNanos = 0;
 
 		for (TradingSymbol symbol : symbols) {
+			if ("SOLUSDT".equalsIgnoreCase(symbol.getExchangeSymbol())) {
+			    LOGGER.info("[SOL-TRACE] SOLUSDT entered scan loop");
+			}
 
 			try {
 

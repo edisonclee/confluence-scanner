@@ -75,34 +75,24 @@ public class CryptoAssetRegistry {
 		String normalizedBase = normalize(baseAsset);
 
 		if (normalizedSymbol.isEmpty() || normalizedBase.isEmpty()) {
-			LOGGER.debug("[ASSET-FILTER] REJECT symbol={} base={} reason=EMPTY_SYMBOL_OR_BASE", symbol, baseAsset);
 			return false;
 		}
 
 		// Always retain the explicitly requested XAUTUSDT contract.
 		if (EXCEPTION_SYMBOL.equals(normalizedSymbol) && EXCEPTION_BASE.equals(normalizedBase)) {
-			LOGGER.info("[ASSET-FILTER] ACCEPT symbol={} base={} reason=EXPLICIT_EXCEPTION", normalizedSymbol,
-					normalizedBase);
 			return true;
 		}
 
 		// Reject exact known non-crypto contracts.
 		if (EXCLUDED_CONTRACTS.contains(normalizedSymbol)) {
-			LOGGER.info("[ASSET-FILTER] REJECT symbol={} base={} reason=EXPLICIT_EXCLUSION", normalizedSymbol,
-					normalizedBase);
 			return false;
 		}
 
 		boolean crypto = isCryptoBaseAsset(normalizedBase);
 
 		if (!crypto) {
-			LOGGER.info("[ASSET-FILTER] REJECT symbol={} base={} reason=NOT_IN_COINGECKO_SYMBOL_LIST", normalizedSymbol,
-					normalizedBase);
 			return false;
 		}
-
-		LOGGER.debug("[ASSET-FILTER] ACCEPT symbol={} base={} reason=COINGECKO_SYMBOL_MATCH", normalizedSymbol,
-				normalizedBase);
 
 		return true;
 	}

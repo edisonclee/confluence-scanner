@@ -6,7 +6,6 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,153 +25,147 @@ import com.edison.scanner.strategy.ScannerStrategy;
 @Component
 public final class BollingerBandStrategy implements ScannerStrategy {
 
-    private static final Logger log =
-            LoggerFactory.getLogger(BollingerBandStrategy.class);
+	private static final Logger log = LoggerFactory.getLogger(BollingerBandStrategy.class);
 
-    private static final Set<String> DIAGNOSTIC_SYMBOLS =
-            Set.of("BTCUSDT", "ETHUSDT", "XRPUSDT");
+	// Temporary focused diagnostic. Remove this symbol after verification.
+	private static final String DIAGNOSTIC_SYMBOL = "SOLUSDT";
 
-    private final ApplicationConfig config;
-    private final TouchDetector touchDetector;
+	private final ApplicationConfig config;
+	private final TouchDetector touchDetector;
 
-    public BollingerBandStrategy(
-            ApplicationConfig config,
-            TouchDetector touchDetector) {
+	public BollingerBandStrategy(ApplicationConfig config, TouchDetector touchDetector) {
 
-        this.config = Objects.requireNonNull(config);
-        this.touchDetector = Objects.requireNonNull(touchDetector);
-    }
+		this.config = Objects.requireNonNull(config);
+		this.touchDetector = Objects.requireNonNull(touchDetector);
+	}
 
-    @Override
-    public List<ScanResult> scan(
-            MarketData marketData,
-            ScannerRequest request) {
+	@Override
+	public List<ScanResult> scan(MarketData marketData, ScannerRequest request) {
 
-        Objects.requireNonNull(marketData, "marketData");
-        Objects.requireNonNull(request, "request");
+		Objects.requireNonNull(marketData, "marketData");
+		Objects.requireNonNull(request, "request");
 
-        List<ScanResult> results = new ArrayList<>();
+		List<ScanResult> results = new ArrayList<>();
 
-        String symbol =
-                marketData.getSymbol().getExchangeSymbol();
+		String symbol = marketData.getSymbol().getExchangeSymbol();
 
-        boolean diagnostic =
-                DIAGNOSTIC_SYMBOLS.contains(symbol);
+		boolean diagnostic = DIAGNOSTIC_SYMBOL.equals(symbol);
 
-        // H1 is always the chart timeframe.
-        TimeframeData chart = marketData.getChart(Timeframe.H1);
+		// H1 is the chart timeframe; BB timeframe comes from the request.
+		TimeframeData chart = marketData.getChart(Timeframe.H1);
 
-        if (chart == null) {
-            return List.of();
-        }
+		if (chart == null) {
+			if (diagnostic) {
+				log.info("[BB-PRICE-CHECK] symbol={} chartTF=H1 status=NO_CHART", symbol);
+			}
+			return List.of();
+		}
 
-        List<HeikenAshiCandle> candles =
-                chart.getHeikenAshiCandles();
+		List<HeikenAshiCandle> candles = chart.getHeikenAshiCandles();
 
-        if (candles.isEmpty()) {
-            return List.of();
-        }
+		if (candles.isEmpty()) {
+			if (diagnostic) {
+				log.info("[BB-PRICE-CHECK] symbol={} chartTF=H1 status=NO_CANDLES", symbol);
+			}
+			return List.of();
+		}
 
-        HeikenAshiCandle latestChart =
-                candles.get(candles.size() - 1);
+		HeikenAshiCandle latestChart = candles.get(candles.size() - 1);
 
-        // Check only the BB timeframes selected by the user.
-        for (Timeframe bbTimeframe : request.getBbTimeframes()) {
+		// This is the latest H1 Heiken Ashi close, not necessarily
+		// the exchange's live market price.
+		BigDecimal price = latestChart.getClose();
 
-            TimeframeData bbData =
-                    marketData.getChart(bbTimeframe);
+		for (Timeframe bbTimeframe : request.getBbTimeframes()) {
 
-            if (bbData == null) {
-                continue;
-            }
+			TimeframeData bbData = marketData.getChart(bbTimeframe);
 
-            BollingerBand band =
-                    bbData.getLatestBollingerBand();
+			if (bbData == null) {
+				if (diagnostic) {
+					log.info("[BB-PRICE-CHECK] symbol={} chartTF=H1 bbTF={} " + "status=NO_BB_TIMEFRAME_DATA", symbol,
+							bbTimeframe);
+				}
+				continue;
+			}
 
-            if (band == null) {
-                continue;
-            }
+			BollingerBand band = bbData.getLatestBollingerBand();
 
-            boolean upperTouched =
-                    touches(latestChart, band.getUpperBand());
+			if (band == null || band.getUpperBand() == null || band.getBasisBand() == null
+					|| band.getLowerBand() == null) {
 
-            boolean basisTouched =
-                    touches(latestChart, band.getBasisBand());
+				if (diagnostic) {
+					log.info("[BB-PRICE-CHECK] symbol={} chartTF=H1 bbTF={} " + "status=NO_VALID_BANDS", symbol,
+							bbTimeframe);
+				}
+				continue;
+			}
 
-            boolean lowerTouched =
-                    touches(latestChart, band.getLowerBand());
+			BigDecimal upper = band.getUpperBand();
+			BigDecimal basis = band.getBasisBand();
+			BigDecimal lower = band.getLowerBand();
 
-            boolean touched =
-                    touchDetector.isTouched(latestChart, band);
+			boolean upperTouched = touches(latestChart, upper);
 
-            // One concise diagnostic line per target symbol
-            // and selected BB timeframe.
-            if (diagnostic) {
-                log.info(
-                    "[BB-DIAG] symbol={} chartTF=H1 bbTF={} "
-                    + "HA[O={},H={},L={},C={}] "
-                    + "BB[U={},B={},L={}] "
-                    + "touch[U={},B={},L={}] result={}",
-                    symbol,
-                    bbTimeframe,
-                    latestChart.getOpen(),
-                    latestChart.getHigh(),
-                    latestChart.getLow(),
-                    latestChart.getClose(),
-                    band.getUpperBand(),
-                    band.getBasisBand(),
-                    band.getLowerBand(),
-                    upperTouched,
-                    basisTouched,
-                    lowerTouched,
-                    touched
-                );
-            }
+			boolean basisTouched = touches(latestChart, basis);
 
-            if (!touched) {
-                continue;
-            }
+			boolean lowerTouched = touches(latestChart, lower);
 
-            BigDecimal bbWidthPercent =
-                    band.getUpperBand()
-                        .subtract(band.getLowerBand())
-                        .divide(
-                            band.getBasisBand(),
-                            8,
-                            RoundingMode.HALF_UP
-                        )
-                        .multiply(BigDecimal.valueOf(100));
+			boolean candleTouchesBB = touchDetector.isTouched(latestChart, band);
 
-            results.add(
-                new ScanResult(
-                    symbol,
-                    bbTimeframe,
-                    bbWidthPercent
-                )
-            );
-        }
+			// Inclusive range: lower <= price <= upper.
+			boolean priceInsideBands = price.compareTo(lower) >= 0 && price.compareTo(upper) <= 0;
 
-        return List.copyOf(results);
-    }
+			// A symbol qualifies if the H1 candle touches a BB line
+			// OR its H1 Heiken Ashi close is inside the selected BB range.
+			boolean qualifies = candleTouchesBB || priceInsideBands;
 
-    /**
-     * A wick touches a band when the candle's high-low range
-     * includes the band's value.
-     */
-    private boolean touches(
-            HeikenAshiCandle candle,
-            BigDecimal bandValue) {
+			if (diagnostic) {
+				log.info(
+						"[BB-PRICE-CHECK] symbol={} chartTF=H1 bbTF={} " + "priceSource=H1_HEIKEN_ASHI_CLOSE price={} "
+								+ "upper={} basis={} lower={} " + "priceInsideBands={} candleTouchesBB={} "
+								+ "touchUpper={} touchBasis={} touchLower={} " + "qualifies={} reason={}",
+						symbol, bbTimeframe, price, upper, basis, lower, priceInsideBands, candleTouchesBB,
+						upperTouched, basisTouched, lowerTouched, qualifies,
+						qualifies ? (priceInsideBands ? "PRICE_INSIDE_BANDS" : "CANDLE_TOUCH")
+								: "OUTSIDE_BANDS_NO_TOUCH");
+			}
 
-        return candle.getLow().compareTo(bandValue) <= 0
-                && candle.getHigh().compareTo(bandValue) >= 0;
-    }
+			if (!qualifies) {
+				continue;
+			}
 
-    @Override
-    public String getName() {
-        return "bb";
-    }
+			// Prevent division by zero if the BB basis is invalid.
+			if (basis.compareTo(BigDecimal.ZERO) == 0) {
+				if (diagnostic) {
+					log.warn("[BB-PRICE-CHECK] symbol={} bbTF={} " + "status=INVALID_ZERO_BASIS", symbol, bbTimeframe);
+				}
+				continue;
+			}
 
-    public ApplicationConfig getConfig() {
-        return config;
-    }
+			BigDecimal bbWidthPercent = upper.subtract(lower).divide(basis, 8, RoundingMode.HALF_UP)
+					.multiply(BigDecimal.valueOf(100));
+
+			results.add(new ScanResult(symbol, bbTimeframe, bbWidthPercent));
+		}
+
+		return List.copyOf(results);
+	}
+
+	/**
+	 * Returns true when the candle's high-low range includes the specified
+	 * Bollinger Band value.
+	 */
+	private boolean touches(HeikenAshiCandle candle, BigDecimal bandValue) {
+
+		return candle.getLow().compareTo(bandValue) <= 0 && candle.getHigh().compareTo(bandValue) >= 0;
+	}
+
+	@Override
+	public String getName() {
+		return "bb";
+	}
+
+	public ApplicationConfig getConfig() {
+		return config;
+	}
 }
