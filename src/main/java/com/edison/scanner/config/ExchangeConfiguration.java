@@ -6,8 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import com.edison.scanner.bitunix.BitunixClient;
 import com.edison.scanner.bitunix.BitunixSymbolProvider;
 import com.edison.scanner.bitunix.BitunixUniverseService;
-import com.edison.scanner.bitunix.CryptoAssetRegistry;
-import com.edison.scanner.bitunix.mapper.BitunixSymbolMapper;
 import com.edison.scanner.exchange.BinanceFuturesSymbolProvider;
 import com.edison.scanner.mapper.BinanceFuturesCandleMapper;
 import com.edison.scanner.mapper.BinanceFuturesClient;
@@ -15,38 +13,32 @@ import com.edison.scanner.mapper.BinanceFuturesClient;
 @Configuration
 public class ExchangeConfiguration {
 
-	@Bean
-	public BinanceFuturesCandleMapper binanceFuturesCandleMapper() {
+    @Bean
+    public BinanceFuturesCandleMapper binanceFuturesCandleMapper() {
+        return new BinanceFuturesCandleMapper();
+    }
 
-		return new BinanceFuturesCandleMapper();
-	}
+    @Bean
+    public BinanceFuturesClient binanceFuturesClient(
+            ApplicationConfig config,
+            BinanceFuturesCandleMapper mapper) {
+        return new BinanceFuturesClient(config, mapper);
+    }
 
-	@Bean
-	public BitunixSymbolMapper bitunixSymbolMapper(CryptoAssetRegistry cryptoAssetRegistry) {
-		return new BitunixSymbolMapper(cryptoAssetRegistry);
-	}
+    @Bean
+    public BinanceFuturesSymbolProvider futuresSymbolProvider(
+            BinanceFuturesClient client) {
+        return new BinanceFuturesSymbolProvider(client);
+    }
 
-	@Bean
-	public BinanceFuturesClient binanceFuturesClient(ApplicationConfig config, BinanceFuturesCandleMapper mapper) {
+    @Bean
+    public BitunixClient bitunixClient(ApplicationConfig config) {
+        return new BitunixClient(config);
+    }
 
-		return new BinanceFuturesClient(config, mapper);
-	}
-
-	@Bean
-	public BinanceFuturesSymbolProvider futuresSymbolProvider(BinanceFuturesClient client) {
-
-		return new BinanceFuturesSymbolProvider(client);
-	}
-
-	@Bean
-	public BitunixClient bitunixClient(ApplicationConfig config) {
-
-		return new BitunixClient(config);
-	}
-
-	@Bean
-	public BitunixSymbolProvider bitunixSymbolProvider(BitunixUniverseService universeService) {
-
-		return new BitunixSymbolProvider(universeService);
-	}
+    @Bean
+    public BitunixSymbolProvider bitunixSymbolProvider(
+            BitunixUniverseService universeService) {
+        return new BitunixSymbolProvider(universeService);
+    }
 }

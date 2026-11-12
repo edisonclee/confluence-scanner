@@ -38,6 +38,7 @@ public class BitunixUniverseService {
 	private final ObjectMapper objectMapper;
 	private final Path storagePath;
 	private final BitunixContractFilter bitunixContractFilter;
+	private final ManualCoinExclusionService manualCoinExclusionService;
 
 	private final Map<String, BitunixUniverseEntry> entries = new HashMap<>();
 
@@ -45,12 +46,13 @@ public class BitunixUniverseService {
 	private boolean loaded;
 
 	public BitunixUniverseService(BitunixClient bitunixClient, BitunixSymbolMapper mapper, ApplicationConfig config,
-			BitunixContractFilter bitunixContractFilter) {
+			BitunixContractFilter bitunixContractFilter, ManualCoinExclusionService manualCoinExclusionService) {
 
 		this.bitunixClient = Objects.requireNonNull(bitunixClient);
 		this.mapper = Objects.requireNonNull(mapper);
 		this.config = Objects.requireNonNull(config);
 		this.bitunixContractFilter = Objects.requireNonNull(bitunixContractFilter);
+		this.manualCoinExclusionService = Objects.requireNonNull(manualCoinExclusionService);
 
 		this.objectMapper = new ObjectMapper().findAndRegisterModules().enable(SerializationFeature.INDENT_OUTPUT);
 
@@ -71,6 +73,7 @@ public class BitunixUniverseService {
 
 		List<TradingSymbol> result = entries.values().stream().filter(entry -> isEligible(entry, today))
 				.filter(entry -> isAllowedAsset(entry.symbol(), entry.baseAsset()))
+				.filter(entry -> !manualCoinExclusionService.isExcluded(entry.symbol()))
 				.sorted(Comparator.comparing(BitunixUniverseEntry::symbol))
 				.map(entry -> new TradingSymbol(entry.symbol(), entry.baseAsset(), entry.quoteAsset())).toList();
 
@@ -112,6 +115,7 @@ public class BitunixUniverseService {
 		}
 
 		return entries.values().stream().filter(entry -> isAllowedAsset(entry.symbol(), entry.baseAsset()))
+				.filter(entry -> !manualCoinExclusionService.isExcluded(entry.symbol()))
 				.sorted(Comparator.comparing(BitunixUniverseEntry::symbol)).toList();
 	}
 
