@@ -1,3 +1,4 @@
+
 package com.edison.scanner.controller;
 
 import java.util.Arrays;
@@ -22,15 +23,16 @@ import com.edison.scanner.service.StrategyScannerService;
 @CrossOrigin(origins = { "https://confluence-ui-ub41.onrender.com", "http://localhost:5173" })
 public class ScannerController {
 
-	private final StrategyScannerService scannerService;
+	private static final Set<Timeframe> ALLOWED_BB_TIMEFRAMES = EnumSet.of(Timeframe.H1, Timeframe.H4, Timeframe.D1,
+			Timeframe.W1, Timeframe.MN1);
 
+	private final StrategyScannerService scannerService;
 	private final ScannerResponseMapper mapper;
 
 	public ScannerController(StrategyScannerService scannerService, ScannerResponseMapper mapper) {
 
 		this.scannerService = scannerService;
 		this.mapper = mapper;
-
 	}
 
 	@GetMapping("/run")
@@ -43,14 +45,12 @@ public class ScannerController {
 		ScanExecutionResult result = scannerService.run(request);
 
 		return mapper.toResponse(result);
-
 	}
 
 	private Set<Timeframe> parseBbTimeframes(String bbTimeframes) {
 
 		if (bbTimeframes == null || bbTimeframes.isBlank()) {
-
-			return EnumSet.of(Timeframe.H1, Timeframe.H4, Timeframe.D1, Timeframe.W1);
+			return EnumSet.copyOf(ALLOWED_BB_TIMEFRAMES);
 		}
 
 		EnumSet<Timeframe> timeframes = EnumSet.noneOf(Timeframe.class);
@@ -63,8 +63,12 @@ public class ScannerController {
 
 			Timeframe timeframe = Timeframe.valueOf(value.trim().toUpperCase());
 
-			timeframes.add(timeframe);
+			if (!ALLOWED_BB_TIMEFRAMES.contains(timeframe)) {
+				throw new IllegalArgumentException(
+						"Unsupported BB timeframe: " + timeframe + ". Allowed values: H1,H4,D1,W1,MN1");
+			}
 
+			timeframes.add(timeframe);
 		}
 
 		if (timeframes.isEmpty()) {
@@ -72,7 +76,5 @@ public class ScannerController {
 		}
 
 		return timeframes;
-
 	}
-
 }

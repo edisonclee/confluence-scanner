@@ -1,3 +1,4 @@
+
 package com.edison.scanner.strategy.transition;
 
 import java.time.LocalDateTime;
@@ -9,14 +10,16 @@ public final class TransitionPlayResponse {
 	private final LocalDateTime scanTime;
 	private final double durationSeconds;
 	private final int symbolsScanned;
+	private final int symbolsSkipped;
 	private final List<TransitionPlayResult> signals;
 
 	public TransitionPlayResponse(LocalDateTime scanTime, List<TransitionPlayResult> signals, double durationSeconds,
-			int symbolsScanned) {
+			int symbolsScanned, int symbolsSkipped) {
 
 		this.scanTime = Objects.requireNonNull(scanTime);
 		this.durationSeconds = durationSeconds;
 		this.symbolsScanned = symbolsScanned;
+		this.symbolsSkipped = symbolsSkipped;
 		this.signals = List.copyOf(signals);
 	}
 
@@ -36,4 +39,7 @@ public final class TransitionPlayResponse {
 		return symbolsScanned;
 	}
 
+	public int getSymbolsSkipped() {
+		return symbolsSkipped;
+	}
 }

@@ -104,6 +104,6 @@ public class TransitionScannerEngine extends ScannerEngine {
 		LOGGER.info("Finished transition scanner: symbolsScanned={}, symbolsSkipped={}, signals={}, totalSeconds={}",
 				symbolsScanned, symbolsSkipped, results.size(), duration);
 
-		return new TransitionPlayResponse(LocalDateTime.now(), results, duration, symbolsScanned);
+		return new TransitionPlayResponse(LocalDateTime.now(), results, duration, symbolsScanned, symbolsSkipped);
 	}
 }

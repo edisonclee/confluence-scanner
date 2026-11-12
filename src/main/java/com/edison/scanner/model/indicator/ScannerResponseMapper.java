@@ -1,3 +1,4 @@
+
 package com.edison.scanner.model.indicator;
 
 import java.math.BigDecimal;
@@ -7,6 +8,8 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -21,20 +24,19 @@ import com.edison.scanner.model.ScanResult;
 @Component
 public class ScannerResponseMapper {
 
+	private static final List<Timeframe> TIMEFRAME_ORDER = List.of(Timeframe.H1, Timeframe.H4, Timeframe.D1,
+			Timeframe.W1, Timeframe.MN1);
+
 	public ScannerResponse toResponse(ScanExecutionResult executionResult) {
 
 		ScannerResponse response = new ScannerResponse();
 
 		response.setGeneratedAt(LocalDateTime.now());
-
 		response.setDownloadSeconds(executionResult.getDownloadSeconds());
-
 		response.setScanSeconds(executionResult.getScanSeconds());
-
 		response.setTotalSeconds(executionResult.getTotalSeconds());
-
 		response.setSymbolsScanned(executionResult.getSymbolsScanned());
-
+		response.setSymbolsFailed(executionResult.getSymbolsFailed());
 		response.setTotalMatches(executionResult.getResults().size());
 
 		List<MultiTimeframeResponse> multiTimeframe = buildMultiTimeframe(executionResult.getResults());
@@ -46,7 +48,6 @@ public class ScannerResponseMapper {
 		response.setMultiTimeframeMatches(multiTimeframe.size());
 
 		return response;
-
 	}
 
 	private List<TimeframeResponse> buildTimeframes(List<ScanResult> results,
@@ -54,8 +55,8 @@ public class ScannerResponseMapper {
 
 		Map<Timeframe, List<ScanResult>> grouped = new LinkedHashMap<>();
 
-		java.util.Set<String> multiSymbols = multiTimeframe.stream().map(MultiTimeframeResponse::getSymbol)
-				.collect(java.util.stream.Collectors.toSet());
+		Set<String> multiSymbols = multiTimeframe.stream().map(MultiTimeframeResponse::getSymbol)
+				.collect(Collectors.toSet());
 
 		for (ScanResult result : results) {
 
@@ -64,14 +65,11 @@ public class ScannerResponseMapper {
 			}
 
 			grouped.computeIfAbsent(result.getTimeframe(), key -> new ArrayList<>()).add(result);
-
 		}
-
-		List<Timeframe> timeframeOrder = List.of(Timeframe.W1, Timeframe.D1, Timeframe.H4, Timeframe.H1);
 
 		List<TimeframeResponse> responses = new ArrayList<>();
 
-		for (Timeframe bbTimeframe : timeframeOrder) {
+		for (Timeframe bbTimeframe : TIMEFRAME_ORDER) {
 
 			List<ScanResult> timeframeResults = grouped.get(bbTimeframe);
 
@@ -83,26 +81,16 @@ public class ScannerResponseMapper {
 
 			TimeframeResponse timeframe = new TimeframeResponse();
 
-			//
-			// "timeframe" now means BB timeframe.
-			//
 			timeframe.setTimeframe(bbTimeframe);
-
-			//
-			// Chart timeframe is always H1.
-			//
 			timeframe.setChartTimeframeDisplayName(Timeframe.H1.getDisplayName());
-
 			timeframe.setBbTimeframeDisplayName(bbTimeframe.getDisplayName());
 
 			timeframe.setResults(timeframeResults.stream().map(this::toScanResultResponse).toList());
 
 			responses.add(timeframe);
-
 		}
 
 		return responses;
-
 	}
 
 	private List<MultiTimeframeResponse> buildMultiTimeframe(List<ScanResult> results) {
@@ -112,7 +100,6 @@ public class ScannerResponseMapper {
 		for (ScanResult result : results) {
 
 			grouped.computeIfAbsent(result.getSymbol(), key -> new ArrayList<>()).add(result);
-
 		}
 
 		List<MultiTimeframeResponse> responses = new ArrayList<>();
@@ -127,9 +114,7 @@ public class ScannerResponseMapper {
 
 			response.setSymbol(entry.getKey());
 
-			response.setTimeframes(
-
-					entry.getValue().stream().map(ScanResult::getTimeframe).toList());
+			response.setTimeframes(entry.getValue().stream().map(ScanResult::getTimeframe).toList());
 
 			double largestBbWidth = entry.getValue().stream().map(ScanResult::getBbWidthPercent)
 					.mapToDouble(BigDecimal::doubleValue).max().orElse(0.0);
@@ -137,20 +122,14 @@ public class ScannerResponseMapper {
 			response.setLargestBbWidthPercent(largestBbWidth);
 
 			responses.add(response);
-
 		}
 
-		responses.sort(
-
-				Comparator.comparingDouble(MultiTimeframeResponse::getLargestBbWidthPercent).reversed()
-						.thenComparing((MultiTimeframeResponse response) -> response.getTimeframes().size(),
-								Comparator.reverseOrder())
-						.thenComparing(MultiTimeframeResponse::getSymbol)
-
-		);
+		responses.sort(Comparator.comparingDouble(MultiTimeframeResponse::getLargestBbWidthPercent).reversed()
+				.thenComparing((MultiTimeframeResponse response) -> response.getTimeframes().size(),
+						Comparator.reverseOrder())
+				.thenComparing(MultiTimeframeResponse::getSymbol));
 
 		return responses;
-
 	}
 
 	private ScanResultResponse toScanResultResponse(ScanResult result) {
@@ -158,13 +137,9 @@ public class ScannerResponseMapper {
 		ScanResultResponse response = new ScanResultResponse();
 
 		response.setSymbol(result.getSymbol());
-
 		response.setTimeframe(result.getTimeframe());
-
 		response.setBbWidthPercent(result.getBbWidthPercent());
 
 		return response;
-
 	}
-
 }

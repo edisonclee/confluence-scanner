@@ -1,52 +1,49 @@
+
 package com.edison.scanner.model;
 
 import java.util.List;
 
 public class ScanExecutionResult {
 
-    private final List<ScanResult> results;
+	private final List<ScanResult> results;
+	private final int symbolsScanned;
+	private final int symbolsFailed;
+	private final double downloadSeconds;
+	private final double scanSeconds;
+	private final double totalSeconds;
 
-    private final int symbolsScanned;
+	public ScanExecutionResult(List<ScanResult> results, int symbolsScanned, int symbolsFailed, double downloadSeconds,
+			double scanSeconds, double totalSeconds) {
 
-    private final double downloadSeconds;
+		this.results = List.copyOf(results);
+		this.symbolsScanned = symbolsScanned;
+		this.symbolsFailed = symbolsFailed;
+		this.downloadSeconds = downloadSeconds;
+		this.scanSeconds = scanSeconds;
+		this.totalSeconds = totalSeconds;
+	}
 
-    private final double scanSeconds;
+	public List<ScanResult> getResults() {
+		return results;
+	}
 
-    private final double totalSeconds;
+	public int getSymbolsScanned() {
+		return symbolsScanned;
+	}
 
-    public ScanExecutionResult(
-            List<ScanResult> results,
-            int symbolsScanned,
-            double downloadSeconds,
-            double scanSeconds,
-            double totalSeconds) {
+	public int getSymbolsFailed() {
+		return symbolsFailed;
+	}
 
-        this.results = List.copyOf(results);
-        this.symbolsScanned = symbolsScanned;
-        this.downloadSeconds = downloadSeconds;
-        this.scanSeconds = scanSeconds;
-        this.totalSeconds = totalSeconds;
+	public double getDownloadSeconds() {
+		return downloadSeconds;
+	}
 
-    }
+	public double getScanSeconds() {
+		return scanSeconds;
+	}
 
-    public List<ScanResult> getResults() {
-        return results;
-    }
-
-    public int getSymbolsScanned() {
-        return symbolsScanned;
-    }
-
-    public double getDownloadSeconds() {
-        return downloadSeconds;
-    }
-
-    public double getScanSeconds() {
-        return scanSeconds;
-    }
-
-    public double getTotalSeconds() {
-        return totalSeconds;
-    }
-
+	public double getTotalSeconds() {
+		return totalSeconds;
+	}
 }

@@ -23,6 +23,8 @@ public class ScannerResponse {
     private List<MultiTimeframeResponse> multiTimeframe;
 
     private List<TimeframeResponse> timeframes;
+    
+    private int symbolsFailed;
 
 	public LocalDateTime getGeneratedAt() {
 		return generatedAt;
@@ -98,6 +100,14 @@ public class ScannerResponse {
 	    this.multiTimeframeMatches =
 	            multiTimeframeMatches;
 
+	}
+
+	public int getSymbolsFailed() {
+		return symbolsFailed;
+	}
+
+	public void setSymbolsFailed(int symbolsFailed) {
+		this.symbolsFailed = symbolsFailed;
 	}
 
 }

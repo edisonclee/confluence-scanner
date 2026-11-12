@@ -63,21 +63,18 @@ public class ScannerEngine {
 		cache.clear();
 
 		List<TradingSymbol> symbols = symbolProvider.getSymbols();
-		
-		boolean solIncluded = symbols.stream()
-		        .anyMatch(s -> "SOLUSDT".equalsIgnoreCase(s.getExchangeSymbol()));
 
-		LOGGER.info(
-		        "[SOL-TRACE] Present in scanner universe: {}, totalSymbols={}",
-		        solIncluded,
-		        symbols.size()
-		);
+		boolean solIncluded = symbols.stream().anyMatch(s -> "SOLUSDT".equalsIgnoreCase(s.getExchangeSymbol()));
+
+		LOGGER.info("[SOL-TRACE] Present in scanner universe: {}, totalSymbols={}", solIncluded, symbols.size());
 
 		Set<Timeframe> requiredTimeframes = EnumSet.of(Timeframe.H1);
 
 		requiredTimeframes.addAll(request.getBbTimeframes());
 
 		List<ScanResult> results = new ArrayList<>();
+		int symbolsFailed = 0;
+		int symbolsScanned = 0;
 
 		long totalStart = System.nanoTime();
 		long downloadNanos = 0;
@@ -85,7 +82,7 @@ public class ScannerEngine {
 
 		for (TradingSymbol symbol : symbols) {
 			if ("SOLUSDT".equalsIgnoreCase(symbol.getExchangeSymbol())) {
-			    LOGGER.info("[SOL-TRACE] SOLUSDT entered scan loop");
+				LOGGER.info("[SOL-TRACE] SOLUSDT entered scan loop");
 			}
 
 			try {
@@ -102,12 +99,15 @@ public class ScannerEngine {
 
 				results.addAll(marketScanner.scan(marketData, request));
 
+				symbolsScanned++;
+
 				scanNanos += System.nanoTime() - scanStart;
 
 			} catch (Exception ex) {
 
-				LOGGER.error("Failed to scan symbol: {}", symbol.getExchangeSymbol(), ex);
+				symbolsFailed++;
 
+				LOGGER.error("Failed to scan symbol: {}", symbol.getExchangeSymbol(), ex);
 			}
 
 		}
@@ -120,10 +120,11 @@ public class ScannerEngine {
 
 		double totalSeconds = totalNanos / 1_000_000_000.0;
 
-		LOGGER.info("Finished scanner: strategy={}, symbolsScanned={}, matches={}, totalSeconds={}", scannerName,
-				symbols.size(), results.size(), totalSeconds);
+		LOGGER.info("Finished scanner: strategy={}, symbolsScanned={}, symbolsFailed={}, matches={}, totalSeconds={}",
+				scannerName, symbolsScanned, symbolsFailed, results.size(), totalSeconds);
 
-		return new ScanExecutionResult(results, symbols.size(), downloadSeconds, scanSeconds, totalSeconds);
+		return new ScanExecutionResult(results, symbolsScanned, symbolsFailed, downloadSeconds, scanSeconds,
+				totalSeconds);
 
 	}
 
