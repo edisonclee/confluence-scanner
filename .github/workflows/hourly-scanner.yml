@@ -1,0 +1,92 @@
+
+name: Hourly Crypto Scanner
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hourly-crypto-scanner
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+
+    steps:
+      # Checkout application source from main
+      - name: Checkout application
+        uses: actions/checkout@v4
+
+      # Checkout persistent scanner data
+      - name: Checkout scanner data
+        uses: actions/checkout@v4
+        with:
+          ref: scanner-data
+          path: scanner-data
+
+      # Use Java 17
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      # Restore the Bitunix universe from previous run
+      - name: Restore Bitunix universe
+        run: |
+          mkdir -p data
+          if [ -f scanner-data/data/bitunix-universe.json ]; then
+            cp scanner-data/data/bitunix-universe.json data/bitunix-universe.json
+            echo "Previous Bitunix universe restored."
+          else
+            echo "No previous universe found. First-run bootstrap will be used."
+          fi
+
+      # Build application
+      - name: Build scanner
+        run: |
+          chmod +x mvnw
+          ./mvnw -B clean package -DskipTests
+
+      # Run both scanners
+      - name: Run automated scanners
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          java -jar target/confluence-scanner-*.jar \
+            --scanner.job.enabled=true \
+            --spring.main.web-application-type=none
+
+      # Persist universe even if scanner execution fails
+      - name: Save Bitunix universe
+        if: always()
+        run: |
+          if [ -f data/bitunix-universe.json ]; then
+            cd scanner-data
+
+            git pull --rebase origin scanner-data
+
+            mkdir -p data
+            cp ../data/bitunix-universe.json data/bitunix-universe.json
+
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+            git add data/bitunix-universe.json
+
+            if ! git diff --cached --quiet; then
+              git commit -m "Update persistent Bitunix universe"
+              git push origin scanner-data
+            else
+              echo "Bitunix universe has no changes."
+            fi
+          else
+            echo "No universe file was generated."
+          fi
