@@ -1,11 +1,6 @@
 {
-  "lastRefreshDate" : [ 2026, 10, 13 ],
+  "lastRefreshDate" : [ 2026, 11, 12 ],
   "entries" : [ {
-    "symbol" : "ALABUSDT",
-    "baseAsset" : "ALAB",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "SUSHIUSDT",
     "baseAsset" : "SUSHI",
     "quoteAsset" : "USDT",
@@ -16,20 +11,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "TEMUSDT",
-    "baseAsset" : "TEM",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "TRUTHUSDT",
     "baseAsset" : "TRUTH",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "CVNAUSDT",
-    "baseAsset" : "CVNA",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "BNTUSDT",
     "baseAsset" : "BNT",
@@ -43,11 +28,6 @@
   }, {
     "symbol" : "EVAAUSDT",
     "baseAsset" : "EVAA",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "KORUUSDT",
-    "baseAsset" : "KORU",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -86,11 +66,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "SQQQUSDT",
-    "baseAsset" : "SQQQ",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "PENDLEUSDT",
     "baseAsset" : "PENDLE",
     "quoteAsset" : "USDT",
@@ -105,11 +80,6 @@
     "baseAsset" : "AWE",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "MPUSDT",
-    "baseAsset" : "MP",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "KAIAUSDT",
     "baseAsset" : "KAIA",
@@ -126,28 +96,13 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "MARAUSDT",
-    "baseAsset" : "MARA",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "CHIPUSDT",
     "baseAsset" : "CHIP",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "ZSUSDT",
-    "baseAsset" : "ZS",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "REZUSDT",
     "baseAsset" : "REZ",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "1000BONKUSDT",
-    "baseAsset" : "BONK",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
@@ -165,11 +120,6 @@
     "baseAsset" : "TRX",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "SAMSUNGEMUSDT",
-    "baseAsset" : "SAMSUNGEM",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "MORPHOUSDT",
     "baseAsset" : "MORPHO",
@@ -206,11 +156,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "EPICUSDT",
-    "baseAsset" : "EPIC",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "BREVUSDT",
     "baseAsset" : "BREV",
     "quoteAsset" : "USDT",
@@ -220,16 +165,6 @@
     "baseAsset" : "POL",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "DKNGUSDT",
-    "baseAsset" : "DKNG",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "BRKBUSDT",
-    "baseAsset" : "BRKB",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "UMAUSDT",
     "baseAsset" : "UMA",
@@ -246,30 +181,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "KODEX200USDT",
-    "baseAsset" : "KODEX200",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "AXTIUSDT",
-    "baseAsset" : "AXTI",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "MINIMAXUSDT",
-    "baseAsset" : "MINIMAX",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "AIOTUSDT",
     "baseAsset" : "AIOT",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "HPEUSDT",
-    "baseAsset" : "HPE",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "SKLUSDT",
     "baseAsset" : "SKL",
@@ -295,16 +210,6 @@
     "baseAsset" : "OPEN",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "SNOWUSDT",
-    "baseAsset" : "SNOW",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "NAVERUSDT",
-    "baseAsset" : "NAVER",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "ALTUSDT",
     "baseAsset" : "ALT",
@@ -346,11 +251,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "NOKUSDT",
-    "baseAsset" : "NOK",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "CATIUSDT",
     "baseAsset" : "CATI",
     "quoteAsset" : "USDT",
@@ -368,21 +268,6 @@
   }, {
     "symbol" : "KSMUSDT",
     "baseAsset" : "KSM",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "HDUSDT",
-    "baseAsset" : "HD",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "AKAMUSDT",
-    "baseAsset" : "AKAM",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "BMNRUSDT",
-    "baseAsset" : "BMNR",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -406,11 +291,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "TZAUSDT",
-    "baseAsset" : "TZA",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "WUSDT",
     "baseAsset" : "W",
     "quoteAsset" : "USDT",
@@ -421,18 +301,8 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "AMCUSDT",
-    "baseAsset" : "AMC",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "2ZUSDT",
     "baseAsset" : "2Z",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "PTBUSDT",
-    "baseAsset" : "PTB",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
@@ -441,20 +311,15 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "JPMUSDT",
-    "baseAsset" : "JPM",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "CSOPSX2LUSDT",
-    "baseAsset" : "CSOPSX2L",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "FORMUSDT",
     "baseAsset" : "FORM",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
+  }, {
+    "symbol" : "USARUSDT",
+    "baseAsset" : "USAR",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 11, 12 ]
   }, {
     "symbol" : "KOMAUSDT",
     "baseAsset" : "KOMA",
@@ -491,11 +356,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "MRNAUSDT",
-    "baseAsset" : "MRNA",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "ENJUSDT",
     "baseAsset" : "ENJ",
     "quoteAsset" : "USDT",
@@ -505,11 +365,6 @@
     "baseAsset" : "ZBCN",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "AMATUSDT",
-    "baseAsset" : "AMAT",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "OPGUSDT",
     "baseAsset" : "OPG",
@@ -526,11 +381,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "ZMUSDT",
-    "baseAsset" : "ZM",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "PUNDIXUSDT",
     "baseAsset" : "PUNDIX",
     "quoteAsset" : "USDT",
@@ -538,16 +388,6 @@
   }, {
     "symbol" : "ENSUSDT",
     "baseAsset" : "ENS",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "GEVUSDT",
-    "baseAsset" : "GEV",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "BXUSDT",
-    "baseAsset" : "BX",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -571,16 +411,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "1000000MOGUSDT",
-    "baseAsset" : "MOG",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "TBTUSDT",
-    "baseAsset" : "TBT",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "SYRUPUSDT",
     "baseAsset" : "SYRUP",
     "quoteAsset" : "USDT",
@@ -593,11 +423,6 @@
   }, {
     "symbol" : "AVAUSDT",
     "baseAsset" : "AVA",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "OKLOUSDT",
-    "baseAsset" : "OKLO",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -636,16 +461,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "EDGEXUSDT",
-    "baseAsset" : "EDGEX",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "CSOPHLS2LUSDT",
-    "baseAsset" : "CSOPHLS2L",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "HOMEUSDT",
     "baseAsset" : "HOME",
     "quoteAsset" : "USDT",
@@ -655,11 +470,6 @@
     "baseAsset" : "STX",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "GLWUSDT",
-    "baseAsset" : "GLW",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "GIGGLEUSDT",
     "baseAsset" : "GIGGLE",
@@ -698,11 +508,6 @@
   }, {
     "symbol" : "FILUSDT",
     "baseAsset" : "FIL",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "TEAMUSDT",
-    "baseAsset" : "TEAM",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -751,30 +556,20 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "1000SATSUSDT",
-    "baseAsset" : "SATS",
+    "symbol" : "DNAUSDT",
+    "baseAsset" : "DNA",
     "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
+    "firstSeen" : [ 2026, 11, 12 ]
   }, {
     "symbol" : "GMTUSDT",
     "baseAsset" : "GMT",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "BYDUSDT",
-    "baseAsset" : "BYD",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "LINEAUSDT",
     "baseAsset" : "LINEA",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "HANMIUSDT",
-    "baseAsset" : "HANMI",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "XVSUSDT",
     "baseAsset" : "XVS",
@@ -796,11 +591,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "SOFIUSDT",
-    "baseAsset" : "SOFI",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "BANDUSDT",
     "baseAsset" : "BAND",
     "quoteAsset" : "USDT",
@@ -810,11 +600,6 @@
     "baseAsset" : "SKR",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "NATGASUSDT",
-    "baseAsset" : "NATGAS",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "RPLUSDT",
     "baseAsset" : "RPL",
@@ -841,18 +626,8 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "TMFUSDT",
-    "baseAsset" : "TMF",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "WALUSDT",
     "baseAsset" : "WAL",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "NIULAIUSDT",
-    "baseAsset" : "NIULAI",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
@@ -876,20 +651,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "PANWUSDT",
-    "baseAsset" : "PANW",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "BIOUSDT",
     "baseAsset" : "BIO",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "STXXUSDT",
-    "baseAsset" : "STXX",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "REDUSDT",
     "baseAsset" : "RED",
@@ -915,16 +680,6 @@
     "baseAsset" : "NOM",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "CYPHUSDT",
-    "baseAsset" : "CYPH",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "DJTUSDT",
-    "baseAsset" : "DJT",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "HOTUSDT",
     "baseAsset" : "HOT",
@@ -976,11 +731,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "AVAAIUSDT",
-    "baseAsset" : "AVAAI",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
     "symbol" : "IOTAUSDT",
     "baseAsset" : "IOTA",
     "quoteAsset" : "USDT",
@@ -1006,11 +756,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "PATHUSDT",
-    "baseAsset" : "PATH",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "BIGTIMEUSDT",
     "baseAsset" : "BIGTIME",
     "quoteAsset" : "USDT",
@@ -1028,11 +773,6 @@
   }, {
     "symbol" : "ETHFIUSDT",
     "baseAsset" : "ETHFI",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "UBERUSDT",
-    "baseAsset" : "UBER",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -1061,11 +801,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "GTLBUSDT",
-    "baseAsset" : "GTLB",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "WOOUSDT",
     "baseAsset" : "WOO",
     "quoteAsset" : "USDT",
@@ -1075,6 +810,11 @@
     "baseAsset" : "ALLO",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
+  }, {
+    "symbol" : "ARMUSDT",
+    "baseAsset" : "ARM",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 11, 12 ]
   }, {
     "symbol" : "MSTRUSDT",
     "baseAsset" : "MSTR",
@@ -1090,16 +830,6 @@
     "baseAsset" : "SWARMS",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "XAGUSDT",
-    "baseAsset" : "XAG",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "AAOIUSDT",
-    "baseAsset" : "AAOI",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "CFXUSDT",
     "baseAsset" : "CFX",
@@ -1121,16 +851,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "CLUSDT",
-    "baseAsset" : "CL",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "XBIUSDT",
-    "baseAsset" : "XBI",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "POWRUSDT",
     "baseAsset" : "POWR",
     "quoteAsset" : "USDT",
@@ -1138,11 +858,6 @@
   }, {
     "symbol" : "NEOUSDT",
     "baseAsset" : "NEO",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "LRCXUSDT",
-    "baseAsset" : "LRCX",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -1191,11 +906,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "ZHONGJIUSDT",
-    "baseAsset" : "ZHONGJI",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "UPUSDT",
     "baseAsset" : "UP",
     "quoteAsset" : "USDT",
@@ -1205,11 +915,6 @@
     "baseAsset" : "RSR",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "OURAUSDT",
-    "baseAsset" : "OURA",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "ICNTUSDT",
     "baseAsset" : "ICNT",
@@ -1223,11 +928,6 @@
   }, {
     "symbol" : "4STOCKUSDT",
     "baseAsset" : "4STOCK",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "UNHUSDT",
-    "baseAsset" : "UNH",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -1251,50 +951,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "PUMPFUNUSDT",
-    "baseAsset" : "PUMPFUN",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "XIAOMIUSDT",
-    "baseAsset" : "XIAOMI",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "KLACUSDT",
-    "baseAsset" : "KLAC",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "IRENUSDT",
-    "baseAsset" : "IREN",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "MCDUSDT",
-    "baseAsset" : "MCD",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "GAMESTOPUSDT",
-    "baseAsset" : "GAMESTOP",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "EGLDUSDT",
     "baseAsset" : "EGLD",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "PEPUSDT",
-    "baseAsset" : "PEP",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "LUNA2USDT",
-    "baseAsset" : "LUNA2",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
   }, {
     "symbol" : "CTRUSDT",
     "baseAsset" : "CTR",
@@ -1316,21 +976,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "SOXSUSDT",
-    "baseAsset" : "SOXS",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "MITOUSDT",
-    "baseAsset" : "MITO",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "CBRSUSDT",
-    "baseAsset" : "CBRS",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "TUTUSDT",
     "baseAsset" : "TUT",
     "quoteAsset" : "USDT",
@@ -1341,15 +986,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "SHOPUSDT",
-    "baseAsset" : "SHOP",
+    "symbol" : "EWYUSDT",
+    "baseAsset" : "EWY",
     "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "1MBABYDOGEUSDT",
-    "baseAsset" : "BABYDOGE",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
+    "firstSeen" : [ 2026, 11, 12 ]
   }, {
     "symbol" : "MAGMAUSDT",
     "baseAsset" : "MAGMA",
@@ -1375,11 +1015,6 @@
     "baseAsset" : "AVNT",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "FLEXUSDT",
-    "baseAsset" : "FLEX",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "BIRBUSDT",
     "baseAsset" : "BIRB",
@@ -1421,11 +1056,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "BEAMXUSDT",
-    "baseAsset" : "BEAMX",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
     "symbol" : "BCHUSDT",
     "baseAsset" : "BCH",
     "quoteAsset" : "USDT",
@@ -1441,20 +1071,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "1000SHIBUSDT",
-    "baseAsset" : "SHIB",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
     "symbol" : "SLPUSDT",
     "baseAsset" : "SLP",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "RAMUSDT",
-    "baseAsset" : "RAM",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "BERAUSDT",
     "baseAsset" : "BERA",
@@ -1463,11 +1083,6 @@
   }, {
     "symbol" : "KAITOUSDT",
     "baseAsset" : "KAITO",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "RIVNUSDT",
-    "baseAsset" : "RIVN",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -1486,28 +1101,8 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "GDXUSDT",
-    "baseAsset" : "GDX",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "BICOUSDT",
     "baseAsset" : "BICO",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "LGEUSDT",
-    "baseAsset" : "LGE",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "PYPLUSDT",
-    "baseAsset" : "PYPL",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "1000LUNCUSDT",
-    "baseAsset" : "LUNC",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
@@ -1531,16 +1126,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "CXMTUSDT",
-    "baseAsset" : "CXMT",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "BZUSDT",
-    "baseAsset" : "BZ",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "JUPUSDT",
     "baseAsset" : "JUP",
     "quoteAsset" : "USDT",
@@ -1550,11 +1135,6 @@
     "baseAsset" : "IRYS",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "ADBEUSDT",
-    "baseAsset" : "ADBE",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "MOVRUSDT",
     "baseAsset" : "MOVR",
@@ -1591,11 +1171,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "EBAYUSDT",
-    "baseAsset" : "EBAY",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "SKHYUSDT",
     "baseAsset" : "SKHY",
     "quoteAsset" : "USDT",
@@ -1611,21 +1186,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "NBISUSDT",
-    "baseAsset" : "NBIS",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "CRDOUSDT",
-    "baseAsset" : "CRDO",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "DDOGUSDT",
-    "baseAsset" : "DDOG",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "COMPUSDT",
     "baseAsset" : "COMP",
     "quoteAsset" : "USDT",
@@ -1633,16 +1193,6 @@
   }, {
     "symbol" : "ATUSDT",
     "baseAsset" : "AT",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "1000PEPEUSDT",
-    "baseAsset" : "PEPE",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "1000RATSUSDT",
-    "baseAsset" : "RATS",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
@@ -1666,35 +1216,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "WDCUSDT",
-    "baseAsset" : "WDC",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "ORCLUSDT",
-    "baseAsset" : "ORCL",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "POPMARTUSDT",
-    "baseAsset" : "POPMART",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "CROUSDT",
     "baseAsset" : "CRO",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "SKDDUSDT",
-    "baseAsset" : "SKDD",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "VUSDT",
-    "baseAsset" : "V",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "BNCUSDT",
     "baseAsset" : "BNC",
@@ -1705,11 +1230,6 @@
     "baseAsset" : "AKE",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "SKUUUSDT",
-    "baseAsset" : "SKUU",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "ZILUSDT",
     "baseAsset" : "ZIL",
@@ -1756,28 +1276,13 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "VELODROMEUSDT",
-    "baseAsset" : "VELODROME",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
     "symbol" : "VTHOUSDT",
     "baseAsset" : "VTHO",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "MEITUANUSDT",
-    "baseAsset" : "MEITUAN",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "GRAMUSDT",
     "baseAsset" : "GRAM",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "NETUSDT",
-    "baseAsset" : "NET",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -1801,11 +1306,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "EWZUSDT",
-    "baseAsset" : "EWZ",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "INITUSDT",
     "baseAsset" : "INIT",
     "quoteAsset" : "USDT",
@@ -1825,11 +1325,6 @@
     "baseAsset" : "ARIA",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "MVLLUSDT",
-    "baseAsset" : "MVLL",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "ZRXUSDT",
     "baseAsset" : "ZRX",
@@ -1926,6 +1421,11 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
+    "symbol" : "SMCIUSDT",
+    "baseAsset" : "SMCI",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 11, 12 ]
+  }, {
     "symbol" : "TOWNSUSDT",
     "baseAsset" : "TOWNS",
     "quoteAsset" : "USDT",
@@ -1966,40 +1466,15 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "XLEUSDT",
-    "baseAsset" : "XLE",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "RUMUSDT",
-    "baseAsset" : "RUM",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "SUSDT",
     "baseAsset" : "S",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "ONDSUSDT",
-    "baseAsset" : "ONDS",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "UNITREEUSDT",
-    "baseAsset" : "UNITREE",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "EDENUSDT",
     "baseAsset" : "EDEN",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "BITOUSDT",
-    "baseAsset" : "BITO",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "XLMUSDT",
     "baseAsset" : "XLM",
@@ -2013,11 +1488,6 @@
   }, {
     "symbol" : "COINUSDT",
     "baseAsset" : "COIN",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "GPROUSDT",
-    "baseAsset" : "GPRO",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -2035,11 +1505,6 @@
     "baseAsset" : "BROCCOLI",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "UVXYUSDT",
-    "baseAsset" : "UVXY",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "DASHUSDT",
     "baseAsset" : "DASH",
@@ -2066,20 +1531,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "VKTXUSDT",
-    "baseAsset" : "VKTX",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "ATHUSDT",
     "baseAsset" : "ATH",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "SKHYNIXUSDT",
-    "baseAsset" : "SKHYNIX",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "AEONUSDT",
     "baseAsset" : "AEON",
@@ -2091,10 +1546,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "STRCUSDT",
-    "baseAsset" : "STRC",
+    "symbol" : "AXISUSDT",
+    "baseAsset" : "AXIS",
     "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
+    "firstSeen" : [ 2026, 11, 12 ]
   }, {
     "symbol" : "DOGSUSDT",
     "baseAsset" : "DOGS",
@@ -2105,11 +1560,6 @@
     "baseAsset" : "GLM",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "OPENAIUSDT",
-    "baseAsset" : "OPENAI",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "USELESSUSDT",
     "baseAsset" : "USELESS",
@@ -2146,11 +1596,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "SOXLUSDT",
-    "baseAsset" : "SOXL",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "CHRUSDT",
     "baseAsset" : "CHR",
     "quoteAsset" : "USDT",
@@ -2166,28 +1611,8 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "SHEINUSDT",
-    "baseAsset" : "SHEIN",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "SAMSUNGUSDT",
-    "baseAsset" : "SAMSUNG",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "AEVOUSDT",
     "baseAsset" : "AEVO",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "MRKUSDT",
-    "baseAsset" : "MRK",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "NOWUSDT",
-    "baseAsset" : "NOW",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -2215,11 +1640,6 @@
     "baseAsset" : "RAVE",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "WMTUSDT",
-    "baseAsset" : "WMT",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "USUSDT",
     "baseAsset" : "US",
@@ -2251,10 +1671,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "RKLBUSDT",
-    "baseAsset" : "RKLB",
+    "symbol" : "PLTRUSDT",
+    "baseAsset" : "PLTR",
     "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
+    "firstSeen" : [ 2026, 11, 12 ]
   }, {
     "symbol" : "POWERUSDT",
     "baseAsset" : "POWER",
@@ -2278,11 +1698,6 @@
   }, {
     "symbol" : "NMRUSDT",
     "baseAsset" : "NMR",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "LITEUSDT",
-    "baseAsset" : "LITE",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -2321,11 +1736,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "VSTUSDT",
-    "baseAsset" : "VST",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "FLOCKUSDT",
     "baseAsset" : "FLOCK",
     "quoteAsset" : "USDT",
@@ -2333,11 +1743,6 @@
   }, {
     "symbol" : "BANANAUSDT",
     "baseAsset" : "BANANA",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "APPUSDT",
-    "baseAsset" : "APP",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -2351,15 +1756,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "IBMUSDT",
-    "baseAsset" : "IBM",
+    "symbol" : "QCOMUSDT",
+    "baseAsset" : "QCOM",
     "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "MDBUSDT",
-    "baseAsset" : "MDB",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
+    "firstSeen" : [ 2026, 11, 12 ]
   }, {
     "symbol" : "AINUSDT",
     "baseAsset" : "AIN",
@@ -2406,6 +1806,11 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
+    "symbol" : "NFLXUSDT",
+    "baseAsset" : "NFLX",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 11, 12 ]
+  }, {
     "symbol" : "BTRUSDT",
     "baseAsset" : "BTR",
     "quoteAsset" : "USDT",
@@ -2441,11 +1846,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "CROSSUSDT",
-    "baseAsset" : "CROSS",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
     "symbol" : "1INCHUSDT",
     "baseAsset" : "1INCH",
     "quoteAsset" : "USDT",
@@ -2471,11 +1871,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "VRTUSDT",
-    "baseAsset" : "VRT",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "STRKUSDT",
     "baseAsset" : "STRK",
     "quoteAsset" : "USDT",
@@ -2491,30 +1886,20 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "TXNUSDT",
-    "baseAsset" : "TXN",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "AIOUSDT",
     "baseAsset" : "AIO",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
+    "symbol" : "NVOUSDT",
+    "baseAsset" : "NVO",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 11, 12 ]
+  }, {
     "symbol" : "FOGOUSDT",
     "baseAsset" : "FOGO",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "MRVLUSDT",
-    "baseAsset" : "MRVL",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "TERUSDT",
-    "baseAsset" : "TER",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "COOKIEUSDT",
     "baseAsset" : "COOKIE",
@@ -2546,11 +1931,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "TSLLUSDT",
-    "baseAsset" : "TSLL",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "ORCAUSDT",
     "baseAsset" : "ORCA",
     "quoteAsset" : "USDT",
@@ -2573,11 +1953,6 @@
   }, {
     "symbol" : "BEUSDT",
     "baseAsset" : "BE",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "CATERPILLARUSDT",
-    "baseAsset" : "CATERPILLAR",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -2606,10 +1981,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "ASMLUSDT",
-    "baseAsset" : "ASML",
+    "symbol" : "QQQUSDT",
+    "baseAsset" : "QQQ",
     "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
+    "firstSeen" : [ 2026, 11, 12 ]
   }, {
     "symbol" : "MIRAUSDT",
     "baseAsset" : "MIRA",
@@ -2621,11 +1996,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "SECZUSDT",
-    "baseAsset" : "SECZ",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "MOCAUSDT",
     "baseAsset" : "MOCA",
     "quoteAsset" : "USDT",
@@ -2633,11 +2003,6 @@
   }, {
     "symbol" : "ANKRUSDT",
     "baseAsset" : "ANKR",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "AIGENSYNUSDT",
-    "baseAsset" : "AIGENSYN",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
@@ -2655,11 +2020,6 @@
     "baseAsset" : "ANIME",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "CRMUSDT",
-    "baseAsset" : "CRM",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "API3USDT",
     "baseAsset" : "API3",
@@ -2686,25 +2046,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "DELLUSDT",
-    "baseAsset" : "DELL",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "ELSAUSDT",
     "baseAsset" : "ELSA",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "KSTRUSDT",
-    "baseAsset" : "KSTR",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "FUTUUSDT",
-    "baseAsset" : "FUTU",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "CYSUSDT",
     "baseAsset" : "CYS",
@@ -2718,11 +2063,6 @@
   }, {
     "symbol" : "CETUSUSDT",
     "baseAsset" : "CETUS",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "HAJIMIUSDT",
-    "baseAsset" : "HAJIMI",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
@@ -2745,11 +2085,6 @@
     "baseAsset" : "TST",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "TQQQUSDT",
-    "baseAsset" : "TQQQ",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "FFUSDT",
     "baseAsset" : "FF",
@@ -2780,16 +2115,6 @@
     "baseAsset" : "LYN",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "DATAIPUSDT",
-    "baseAsset" : "DATAIP",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "BOTUSDT",
-    "baseAsset" : "BOT",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "SOONUSDT",
     "baseAsset" : "SOON",
@@ -2826,35 +2151,20 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "SHAZUSDT",
-    "baseAsset" : "SHAZ",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "DRAMUSDT",
-    "baseAsset" : "DRAM",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "GOOGLUSDT",
     "baseAsset" : "GOOGL",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
+    "symbol" : "MSFTUSDT",
+    "baseAsset" : "MSFT",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 11, 12 ]
+  }, {
     "symbol" : "KERNELUSDT",
     "baseAsset" : "KERNEL",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "CRWVUSDT",
-    "baseAsset" : "CRWV",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "BBXUSDT",
-    "baseAsset" : "BBX",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "IDUSDT",
     "baseAsset" : "ID",
@@ -2863,11 +2173,6 @@
   }, {
     "symbol" : "ACUUSDT",
     "baseAsset" : "ACU",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "SPORTFUNUSDT",
-    "baseAsset" : "SPORTFUN",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
@@ -2881,11 +2186,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "LYTEUSDT",
-    "baseAsset" : "LYTE",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "WAXPUSDT",
     "baseAsset" : "WAXP",
     "quoteAsset" : "USDT",
@@ -2896,11 +2196,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "BNLIFEUSDT",
-    "baseAsset" : "BNLIFE",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
     "symbol" : "CTKUSDT",
     "baseAsset" : "CTK",
     "quoteAsset" : "USDT",
@@ -2908,11 +2203,6 @@
   }, {
     "symbol" : "LINKUSDT",
     "baseAsset" : "LINK",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "LIGHTERUSDT",
-    "baseAsset" : "LIGHTER",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -2956,18 +2246,8 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "PHAROSUSDT",
-    "baseAsset" : "PHAROS",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
     "symbol" : "MELANIAUSDT",
     "baseAsset" : "MELANIA",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "TTWOUSDT",
-    "baseAsset" : "TTWO",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -2981,11 +2261,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "USDEXUSDT",
-    "baseAsset" : "USDEX",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "NAORISUSDT",
     "baseAsset" : "NAORIS",
     "quoteAsset" : "USDT",
@@ -2993,11 +2268,6 @@
   }, {
     "symbol" : "DYMUSDT",
     "baseAsset" : "DYM",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "PENGSTOCKUSDT",
-    "baseAsset" : "PENGSTOCK",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -3021,11 +2291,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "IONQUSDT",
-    "baseAsset" : "IONQ",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "POPCATUSDT",
     "baseAsset" : "POPCAT",
     "quoteAsset" : "USDT",
@@ -3036,18 +2301,8 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "1000CHEEMSUSDT",
-    "baseAsset" : "CHEEMS",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
     "symbol" : "ARBUSDT",
     "baseAsset" : "ARB",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "MOONSHOTUSDT",
-    "baseAsset" : "MOONSHOT",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -3081,10 +2336,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "GSUSDT",
-    "baseAsset" : "GS",
+    "symbol" : "SPYUSDT",
+    "baseAsset" : "SPY",
     "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
+    "firstSeen" : [ 2026, 11, 12 ]
   }, {
     "symbol" : "GENIUSUSDT",
     "baseAsset" : "GENIUS",
@@ -3116,11 +2371,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "HUTUSDT",
-    "baseAsset" : "HUT",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "ZKUSDT",
     "baseAsset" : "ZK",
     "quoteAsset" : "USDT",
@@ -3141,11 +2391,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "IWMUSDT",
-    "baseAsset" : "IWM",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "CKBUSDT",
     "baseAsset" : "CKB",
     "quoteAsset" : "USDT",
@@ -3161,18 +2406,8 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "HIMSUSDT",
-    "baseAsset" : "HIMS",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "CYBERUSDT",
     "baseAsset" : "CYBER",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "ANETUSDT",
-    "baseAsset" : "ANET",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
@@ -3206,21 +2441,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "SNXXUSDT",
-    "baseAsset" : "SNXX",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "PDDUSDT",
-    "baseAsset" : "PDD",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "APLDUSDT",
-    "baseAsset" : "APLD",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "MARSCOINUSDT",
     "baseAsset" : "MARSCOIN",
     "quoteAsset" : "USDT",
@@ -3246,16 +2466,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "ZHIPUUSDT",
-    "baseAsset" : "ZHIPU",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "NVDLUSDT",
-    "baseAsset" : "NVDL",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "ICPUSDT",
     "baseAsset" : "ICP",
     "quoteAsset" : "USDT",
@@ -3271,15 +2481,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
-    "symbol" : "KUAISHOUUSDT",
-    "baseAsset" : "KUAISHOU",
+    "symbol" : "BABAUSDT",
+    "baseAsset" : "BABA",
     "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "INTWUSDT",
-    "baseAsset" : "INTW",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
+    "firstSeen" : [ 2026, 11, 12 ]
   }, {
     "symbol" : "CAKEUSDT",
     "baseAsset" : "CAKE",
@@ -3296,11 +2501,6 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "AGPUUSDT",
-    "baseAsset" : "AGPU",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
     "symbol" : "0GUSDT",
     "baseAsset" : "0G",
     "quoteAsset" : "USDT",
@@ -3311,25 +2511,15 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
+    "symbol" : "ASTSUSDT",
+    "baseAsset" : "ASTS",
+    "quoteAsset" : "USDT",
+    "firstSeen" : [ 2026, 11, 12 ]
+  }, {
     "symbol" : "ROSEUSDT",
     "baseAsset" : "ROSE",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "BSPUSDT",
-    "baseAsset" : "BSP",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "FWDIUSDT",
-    "baseAsset" : "FWDI",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "NKEUSDT",
-    "baseAsset" : "NKE",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "PEOPLEUSDT",
     "baseAsset" : "PEOPLE",
@@ -3346,10 +2536,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "URNMUSDT",
-    "baseAsset" : "URNM",
+    "symbol" : "TSMUSDT",
+    "baseAsset" : "TSM",
     "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
+    "firstSeen" : [ 2026, 11, 12 ]
   }, {
     "symbol" : "LAUSDT",
     "baseAsset" : "LA",
@@ -3371,20 +2561,10 @@
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
   }, {
-    "symbol" : "1000FLOKIUSDT",
-    "baseAsset" : "FLOKI",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 8, 9 ]
-  }, {
     "symbol" : "BASEDUSDT",
     "baseAsset" : "BASED",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 8, 9 ]
-  }, {
-    "symbol" : "TENCENTUSDT",
-    "baseAsset" : "TENCENT",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
   }, {
     "symbol" : "HOODUSDT",
     "baseAsset" : "HOOD",
@@ -3448,21 +2628,6 @@
   }, {
     "symbol" : "DYDXUSDT",
     "baseAsset" : "DYDX",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "FLNCUSDT",
-    "baseAsset" : "FLNC",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "SMHUSDT",
-    "baseAsset" : "SMH",
-    "quoteAsset" : "USDT",
-    "firstSeen" : [ 2026, 10, 13 ]
-  }, {
-    "symbol" : "MUUUSDT",
-    "baseAsset" : "MUU",
     "quoteAsset" : "USDT",
     "firstSeen" : [ 2026, 10, 13 ]
   }, {
