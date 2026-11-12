@@ -128,6 +128,41 @@ public class GitHubScanResultStore {
 		}
 	}
 
+	public synchronized JsonNode getLatest() {
+
+		requireToken();
+
+		try {
+			String apiUrl = "https://api.github.com/repos/" + repository + "/contents/" + FILE_PATH;
+
+			HttpRequest request = HttpRequest.newBuilder().uri(URI.create(apiUrl + "?ref=" + branch))
+					.timeout(Duration.ofSeconds(15)).header("Accept", "application/vnd.github+json")
+					.header("Authorization", "Bearer " + githubToken).header("X-GitHub-Api-Version", "2022-11-28").GET()
+					.build();
+
+			HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+			if (response.statusCode() == 404) {
+				return objectMapper.createObjectNode();
+			}
+
+			if (response.statusCode() != 200) {
+				throw new IllegalStateException("Could not read scan results. GitHub HTTP " + response.statusCode());
+			}
+
+			JsonNode file = objectMapper.readTree(response.body());
+
+			String encodedContent = file.path("content").asText("");
+
+			String decodedContent = new String(Base64.getMimeDecoder().decode(encodedContent), StandardCharsets.UTF_8);
+
+			return objectMapper.readTree(decodedContent);
+
+		} catch (Exception ex) {
+			throw new IllegalStateException("Failed to retrieve latest scan results.", ex);
+		}
+	}
+
 	private void updateScanner(ObjectNode scanners, String name, ObjectNode status, JsonNode result) {
 
 		ObjectNode scanner = scanners.withObject(name);
