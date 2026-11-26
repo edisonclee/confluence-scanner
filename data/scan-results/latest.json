@@ -2,23 +2,23 @@
   "scanners" : {
     "bb50" : {
       "status" : {
-        "attemptedAt" : "2026-11-26T23:00:22.804659692Z",
+        "attemptedAt" : "2026-11-26T23:39:02.547665420Z",
         "state" : "SUCCESS",
         "symbolsScanned" : 513,
         "symbolsFailed" : 0
       },
       "latestSuccessfulResult" : {
         "data" : {
-          "generatedAt" : "2026-11-26T23:11:25.055856316",
-          "downloadSeconds" : 662.178877452,
-          "scanSeconds" : 0.015402137,
-          "totalSeconds" : 662.197987238,
+          "generatedAt" : "2026-11-26T23:50:34.011496037",
+          "downloadSeconds" : 691.38281398,
+          "scanSeconds" : 0.014833789,
+          "totalSeconds" : 691.401426154,
           "symbolsScanned" : 513,
-          "totalMatches" : 231,
+          "totalMatches" : 232,
           "multiTimeframeMatches" : 32,
           "multiTimeframe" : [ {
             "symbol" : "FOLKSUSDT",
-            "timeframes" : [ "W1", "D1" ],
+            "timeframes" : [ "D1", "W1" ],
             "largestBbWidthPercent" : 53.873623
           }, {
             "symbol" : "TAKEUSDT",
@@ -30,11 +30,11 @@
             "largestBbWidthPercent" : 27.288671
           }, {
             "symbol" : "BTCUSDT",
-            "timeframes" : [ "MN1", "H4" ],
+            "timeframes" : [ "H4", "MN1" ],
             "largestBbWidthPercent" : 18.866403
           }, {
             "symbol" : "BNBUSDT",
-            "timeframes" : [ "MN1", "H4" ],
+            "timeframes" : [ "H4", "MN1" ],
             "largestBbWidthPercent" : 16.4887
           }, {
             "symbol" : "GTCUSDT",
@@ -58,7 +58,7 @@
             "largestBbWidthPercent" : 7.211541
           }, {
             "symbol" : "ESPORTSUSDT",
-            "timeframes" : [ "H4", "D1", "H1" ],
+            "timeframes" : [ "D1", "H4", "H1" ],
             "largestBbWidthPercent" : 7.100114
           }, {
             "symbol" : "CYSUSDT",
@@ -818,6 +818,10 @@
               "symbol" : "BMTUSDT",
               "timeframe" : "W1",
               "bbWidthPercent" : 10.17539
+            }, {
+              "symbol" : "SSVUSDT",
+              "timeframe" : "W1",
+              "bbWidthPercent" : 9.184081
             } ],
             "chartTimeframeDisplayName" : "1h",
             "bbTimeframeDisplayName" : "1w"
@@ -825,22 +829,26 @@
           "symbolsFailed" : 0
         }
       },
-      "lastSuccessfulAt" : "2026-11-26T23:00:22.804659692Z"
+      "lastSuccessfulAt" : "2026-11-26T23:39:02.547665420Z"
     },
     "transition" : {
       "status" : {
-        "attemptedAt" : "2026-11-26T23:11:25.091473557Z",
+        "attemptedAt" : "2026-11-26T23:50:34.046264182Z",
         "state" : "SUCCESS",
         "symbolsScanned" : 513,
         "symbolsSkipped" : 0
       },
       "latestSuccessfulResult" : {
         "data" : {
-          "scanTime" : "2026-11-26T23:13:25.009298285",
+          "scanTime" : "2026-11-26T23:52:37.879898819",
           "signals" : [ {
             "symbol" : "AKEUSDT",
             "direction" : "LONG",
             "pattern" : "RGG"
+          }, {
+            "symbol" : "BRUSDT",
+            "direction" : "LONG",
+            "pattern" : "RRG"
           }, {
             "symbol" : "CHRUSDT",
             "direction" : "SHORT",
@@ -860,7 +868,7 @@
           }, {
             "symbol" : "MOVEUSDT",
             "direction" : "SHORT",
-            "pattern" : "GRR"
+            "pattern" : "GRG"
           }, {
             "symbol" : "MUSDT",
             "direction" : "SHORT",
@@ -870,13 +878,13 @@
             "direction" : "LONG",
             "pattern" : "RGG"
           } ],
-          "durationSeconds" : 119.917456306,
+          "durationSeconds" : 123.833338174,
           "symbolsScanned" : 513,
           "symbolsSkipped" : 0
         }
       },
-      "lastSuccessfulAt" : "2026-11-26T23:11:25.091473557Z"
+      "lastSuccessfulAt" : "2026-11-26T23:50:34.046264182Z"
     }
   },
-  "updatedAt" : "2026-11-26T23:13:25.269931461Z"
+  "updatedAt" : "2026-11-26T23:52:38.118278695Z"
 }
