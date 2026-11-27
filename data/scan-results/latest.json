@@ -2,72 +2,72 @@
   "scanners" : {
     "bb50" : {
       "status" : {
-        "attemptedAt" : "2026-11-27T08:01:41.511260740Z",
+        "attemptedAt" : "2026-11-27T09:00:29.433647140Z",
         "state" : "SUCCESS",
         "symbolsScanned" : 513,
         "symbolsFailed" : 0
       },
       "latestSuccessfulResult" : {
         "data" : {
-          "generatedAt" : "2026-11-27T08:12:01.667393069",
-          "downloadSeconds" : 620.064813005,
-          "scanSeconds" : 0.016334751,
-          "totalSeconds" : 620.085155173,
+          "generatedAt" : "2026-11-27T09:11:42.063814018",
+          "downloadSeconds" : 672.525981624,
+          "scanSeconds" : 0.019025082,
+          "totalSeconds" : 672.549231704,
           "symbolsScanned" : 513,
-          "totalMatches" : 209,
+          "totalMatches" : 213,
           "multiTimeframeMatches" : 26,
           "multiTimeframe" : [ {
             "symbol" : "FOLKSUSDT",
-            "timeframes" : [ "W1", "H4" ],
+            "timeframes" : [ "H4", "W1" ],
             "largestBbWidthPercent" : 53.873623
           }, {
             "symbol" : "TAKEUSDT",
             "timeframes" : [ "D1", "W1" ],
             "largestBbWidthPercent" : 52.958652
           }, {
-            "symbol" : "IDOLUSDT",
-            "timeframes" : [ "H1", "D1" ],
-            "largestBbWidthPercent" : 19.241454
+            "symbol" : "MUBARAKUSDT",
+            "timeframes" : [ "H4", "W1" ],
+            "largestBbWidthPercent" : 27.288671
           }, {
             "symbol" : "BLURUSDT",
-            "timeframes" : [ "H1", "D1" ],
+            "timeframes" : [ "D1", "H1" ],
             "largestBbWidthPercent" : 15.176063
           }, {
             "symbol" : "METUSDT",
             "timeframes" : [ "H1", "W1" ],
             "largestBbWidthPercent" : 13.271354
           }, {
-            "symbol" : "MMTUSDT",
-            "timeframes" : [ "D1", "W1" ],
-            "largestBbWidthPercent" : 11.474373
-          }, {
             "symbol" : "BMTUSDT",
             "timeframes" : [ "H1", "W1" ],
             "largestBbWidthPercent" : 10.17539
           }, {
             "symbol" : "BIGTIMEUSDT",
-            "timeframes" : [ "H1", "D1" ],
+            "timeframes" : [ "D1", "H1" ],
             "largestBbWidthPercent" : 8.430567
           }, {
             "symbol" : "LYNUSDT",
-            "timeframes" : [ "D1", "H4" ],
+            "timeframes" : [ "D1", "H1" ],
             "largestBbWidthPercent" : 7.141586
           }, {
             "symbol" : "SIRENUSDT",
-            "timeframes" : [ "H1", "D1" ],
+            "timeframes" : [ "D1", "H1" ],
             "largestBbWidthPercent" : 3.807006
           }, {
             "symbol" : "SKYAIUSDT",
-            "timeframes" : [ "H1", "D1" ],
+            "timeframes" : [ "D1", "H1" ],
             "largestBbWidthPercent" : 3.415771
-          }, {
-            "symbol" : "RIFUSDT",
-            "timeframes" : [ "H1", "H4" ],
-            "largestBbWidthPercent" : 2.823119
           }, {
             "symbol" : "LIGHTUSDT",
             "timeframes" : [ "H1", "H4" ],
             "largestBbWidthPercent" : 2.684163
+          }, {
+            "symbol" : "SOMIUSDT",
+            "timeframes" : [ "H1", "H4" ],
+            "largestBbWidthPercent" : 2.508698
+          }, {
+            "symbol" : "BATUSDT",
+            "timeframes" : [ "H1", "H4" ],
+            "largestBbWidthPercent" : 2.3812
           }, {
             "symbol" : "BASEDUSDT",
             "timeframes" : [ "H1", "H4" ],
@@ -81,17 +81,9 @@
             "timeframes" : [ "H1", "H4" ],
             "largestBbWidthPercent" : 2.230352
           }, {
-            "symbol" : "ZBCNUSDT",
+            "symbol" : "KERNELUSDT",
             "timeframes" : [ "H1", "H4" ],
-            "largestBbWidthPercent" : 2.120834
-          }, {
-            "symbol" : "SQDUSDT",
-            "timeframes" : [ "H1", "H4" ],
-            "largestBbWidthPercent" : 2.067021
-          }, {
-            "symbol" : "PARTIUSDT",
-            "timeframes" : [ "H1", "H4" ],
-            "largestBbWidthPercent" : 1.8324
+            "largestBbWidthPercent" : 2.071033
           }, {
             "symbol" : "CCUSDT",
             "timeframes" : [ "H1", "H4" ],
@@ -99,15 +91,23 @@
           }, {
             "symbol" : "SYNUSDT",
             "timeframes" : [ "H1", "H4" ],
-            "largestBbWidthPercent" : 1.385271
+            "largestBbWidthPercent" : 1.36679
           }, {
-            "symbol" : "BTRUSDT",
+            "symbol" : "CAPUSDT",
             "timeframes" : [ "H1", "H4" ],
-            "largestBbWidthPercent" : 1.219061
+            "largestBbWidthPercent" : 1.278441
+          }, {
+            "symbol" : "DRIFTUSDT",
+            "timeframes" : [ "H1", "H4" ],
+            "largestBbWidthPercent" : 1.24505
           }, {
             "symbol" : "RESOLVUSDT",
             "timeframes" : [ "H1", "H4" ],
-            "largestBbWidthPercent" : 0.94549
+            "largestBbWidthPercent" : 0.936846
+          }, {
+            "symbol" : "ESPUSDT",
+            "timeframes" : [ "H1", "H4" ],
+            "largestBbWidthPercent" : 0.909215
           }, {
             "symbol" : "AUSDT",
             "timeframes" : [ "H1", "H4" ],
@@ -124,177 +124,201 @@
           "timeframes" : [ {
             "timeframe" : "H1",
             "results" : [ {
+              "symbol" : "LISTAUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 5.053203
+            }, {
               "symbol" : "MOVEUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 3.2747
+              "bbWidthPercent" : 3.18361
+            }, {
+              "symbol" : "RIFUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 2.800121
             }, {
               "symbol" : "DOSUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 2.397475
-            }, {
-              "symbol" : "BTWUSDT",
-              "timeframe" : "H1",
-              "bbWidthPercent" : 1.971395
+              "bbWidthPercent" : 2.004237
             }, {
               "symbol" : "VVVUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 1.927493
+              "bbWidthPercent" : 1.888839
+            }, {
+              "symbol" : "BTWUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 1.879357
+            }, {
+              "symbol" : "4STOCKUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 1.83669
             }, {
               "symbol" : "MUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 1.820677
+              "bbWidthPercent" : 1.77598
+            }, {
+              "symbol" : "ARIAUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 1.753312
             }, {
               "symbol" : "JCTUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 1.601392
+              "bbWidthPercent" : 1.602157
             }, {
               "symbol" : "OUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 1.551395
+              "bbWidthPercent" : 1.475551
             }, {
               "symbol" : "MONUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 1.479347
+              "bbWidthPercent" : 1.461403
             }, {
               "symbol" : "BLESSUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 1.268635
+              "bbWidthPercent" : 1.269389
             }, {
               "symbol" : "MOCAUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 1.238671
-            }, {
-              "symbol" : "ANIMEUSDT",
-              "timeframe" : "H1",
-              "bbWidthPercent" : 1.210098
+              "bbWidthPercent" : 1.214015
             }, {
               "symbol" : "MAGMAUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 1.198019
+              "bbWidthPercent" : 1.207073
+            }, {
+              "symbol" : "ANIMEUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 1.204952
             }, {
               "symbol" : "MOODENGUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 1.18946
+              "bbWidthPercent" : 1.099884
             }, {
               "symbol" : "USUALUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 1.150036
-            }, {
-              "symbol" : "FIGHTUSDT",
-              "timeframe" : "H1",
-              "bbWidthPercent" : 1.0162
-            }, {
-              "symbol" : "ASRUSDT",
-              "timeframe" : "H1",
-              "bbWidthPercent" : 1.009122
+              "bbWidthPercent" : 1.042225
             }, {
               "symbol" : "PIPPINUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 1.006638
+              "bbWidthPercent" : 1.011364
             }, {
-              "symbol" : "AEONUSDT",
+              "symbol" : "ASRUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.975541
-            }, {
-              "symbol" : "ARXUSDT",
-              "timeframe" : "H1",
-              "bbWidthPercent" : 0.97312
+              "bbWidthPercent" : 1.00168
             }, {
               "symbol" : "RIVERUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.954681
+              "bbWidthPercent" : 0.954311
+            }, {
+              "symbol" : "ARXUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 0.937417
+            }, {
+              "symbol" : "FIGHTUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 0.919163
             }, {
               "symbol" : "ROBOUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.85181
+              "bbWidthPercent" : 0.846304
             }, {
-              "symbol" : "MANTAUSDT",
+              "symbol" : "TWTUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.824167
-            }, {
-              "symbol" : "DRIFTUSDT",
-              "timeframe" : "H1",
-              "bbWidthPercent" : 0.80454
-            }, {
-              "symbol" : "BRUSDT",
-              "timeframe" : "H1",
-              "bbWidthPercent" : 0.747541
+              "bbWidthPercent" : 0.782131
             }, {
               "symbol" : "APEXUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.736302
+              "bbWidthPercent" : 0.736077
+            }, {
+              "symbol" : "BRUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 0.731486
+            }, {
+              "symbol" : "MANTAUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 0.702167
             }, {
               "symbol" : "JELLYJELLYUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.725761
+              "bbWidthPercent" : 0.690456
             }, {
-              "symbol" : "NAORISUSDT",
+              "symbol" : "KAITOUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.696495
+              "bbWidthPercent" : 0.675151
             }, {
-              "symbol" : "ZESTUSDT",
+              "symbol" : "GENIUSUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.660877
+              "bbWidthPercent" : 0.665026
             }, {
               "symbol" : "ACEUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.658116
+              "bbWidthPercent" : 0.658779
+            }, {
+              "symbol" : "ZESTUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 0.656898
+            }, {
+              "symbol" : "PENDLEUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 0.656607
+            }, {
+              "symbol" : "CUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 0.653231
             }, {
               "symbol" : "EDUUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.643538
+              "bbWidthPercent" : 0.64355
             }, {
-              "symbol" : "FHEUSDT",
+              "symbol" : "HUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.626792
+              "bbWidthPercent" : 0.628174
             }, {
               "symbol" : "SAHARAUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.612709
+              "bbWidthPercent" : 0.612699
             }, {
-              "symbol" : "DOODUSDT",
+              "symbol" : "FHEUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.596617
+              "bbWidthPercent" : 0.607793
             }, {
               "symbol" : "EULUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.582204
+              "bbWidthPercent" : 0.581842
             }, {
               "symbol" : "TAIKOUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.573688
+              "bbWidthPercent" : 0.572883
             }, {
               "symbol" : "APRUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.545509
+              "bbWidthPercent" : 0.53692
             }, {
               "symbol" : "DEXEUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.512263
+              "bbWidthPercent" : 0.503132
             }, {
               "symbol" : "WAXPUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.506799
-            }, {
-              "symbol" : "IRYSUSDT",
-              "timeframe" : "H1",
-              "bbWidthPercent" : 0.488798
-            }, {
-              "symbol" : "ESPUSDT",
-              "timeframe" : "H1",
-              "bbWidthPercent" : 0.476101
+              "bbWidthPercent" : 0.470767
             }, {
               "symbol" : "PORTALUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.450138
+              "bbWidthPercent" : 0.431986
             }, {
               "symbol" : "BREVUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.413854
+              "bbWidthPercent" : 0.413331
+            }, {
+              "symbol" : "HOMEUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 0.403067
+            }, {
+              "symbol" : "SOONUSDT",
+              "timeframe" : "H1",
+              "bbWidthPercent" : 0.353909
             }, {
               "symbol" : "SUNUSDT",
               "timeframe" : "H1",
-              "bbWidthPercent" : 0.126666
+              "bbWidthPercent" : 0.119097
             } ],
             "chartTimeframeDisplayName" : "1h",
             "bbTimeframeDisplayName" : "1h"
@@ -341,6 +365,10 @@
               "timeframe" : "H4",
               "bbWidthPercent" : 2.829598
             }, {
+              "symbol" : "SPKUSDT",
+              "timeframe" : "H4",
+              "bbWidthPercent" : 2.787339
+            }, {
               "symbol" : "SOPHUSDT",
               "timeframe" : "H4",
               "bbWidthPercent" : 2.783014
@@ -353,25 +381,13 @@
               "timeframe" : "H4",
               "bbWidthPercent" : 2.646498
             }, {
-              "symbol" : "SOMIUSDT",
-              "timeframe" : "H4",
-              "bbWidthPercent" : 2.508698
-            }, {
               "symbol" : "VIRTUALUSDT",
               "timeframe" : "H4",
               "bbWidthPercent" : 2.508648
             }, {
-              "symbol" : "INJUSDT",
-              "timeframe" : "H4",
-              "bbWidthPercent" : 2.49412
-            }, {
               "symbol" : "4USDT",
               "timeframe" : "H4",
               "bbWidthPercent" : 2.430587
-            }, {
-              "symbol" : "BATUSDT",
-              "timeframe" : "H4",
-              "bbWidthPercent" : 2.3812
             }, {
               "symbol" : "THEUSDT",
               "timeframe" : "H4",
@@ -397,6 +413,10 @@
               "timeframe" : "H4",
               "bbWidthPercent" : 2.186785
             }, {
+              "symbol" : "ZBCNUSDT",
+              "timeframe" : "H4",
+              "bbWidthPercent" : 2.120834
+            }, {
               "symbol" : "LUMIAUSDT",
               "timeframe" : "H4",
               "bbWidthPercent" : 2.115561
@@ -405,21 +425,17 @@
               "timeframe" : "H4",
               "bbWidthPercent" : 2.084423
             }, {
-              "symbol" : "TRIAUSDT",
-              "timeframe" : "H4",
-              "bbWidthPercent" : 2.078447
-            }, {
               "symbol" : "CLANKERUSDT",
               "timeframe" : "H4",
               "bbWidthPercent" : 2.072175
             }, {
-              "symbol" : "KERNELUSDT",
-              "timeframe" : "H4",
-              "bbWidthPercent" : 2.071033
-            }, {
               "symbol" : "LINEAUSDT",
               "timeframe" : "H4",
               "bbWidthPercent" : 2.069763
+            }, {
+              "symbol" : "SQDUSDT",
+              "timeframe" : "H4",
+              "bbWidthPercent" : 2.067021
             }, {
               "symbol" : "CTRUSDT",
               "timeframe" : "H4",
@@ -433,9 +449,9 @@
               "timeframe" : "H4",
               "bbWidthPercent" : 2.012915
             }, {
-              "symbol" : "TWTUSDT",
+              "symbol" : "SNXUSDT",
               "timeframe" : "H4",
-              "bbWidthPercent" : 2.0119
+              "bbWidthPercent" : 2.001535
             }, {
               "symbol" : "OPENUSDT",
               "timeframe" : "H4",
@@ -469,9 +485,17 @@
               "timeframe" : "H4",
               "bbWidthPercent" : 1.869421
             }, {
+              "symbol" : "AAVEUSDT",
+              "timeframe" : "H4",
+              "bbWidthPercent" : 1.841646
+            }, {
               "symbol" : "TRUMPUSDT",
               "timeframe" : "H4",
               "bbWidthPercent" : 1.83616
+            }, {
+              "symbol" : "PARTIUSDT",
+              "timeframe" : "H4",
+              "bbWidthPercent" : 1.8324
             }, {
               "symbol" : "SAPIENUSDT",
               "timeframe" : "H4",
@@ -492,6 +516,10 @@
               "symbol" : "CYBERUSDT",
               "timeframe" : "H4",
               "bbWidthPercent" : 1.748506
+            }, {
+              "symbol" : "HOLOUSDT",
+              "timeframe" : "H4",
+              "bbWidthPercent" : 1.745017
             }, {
               "symbol" : "CRVUSDT",
               "timeframe" : "H4",
@@ -516,10 +544,6 @@
               "symbol" : "PIUSDT",
               "timeframe" : "H4",
               "bbWidthPercent" : 1.651842
-            }, {
-              "symbol" : "KMNOUSDT",
-              "timeframe" : "H4",
-              "bbWidthPercent" : 1.651737
             }, {
               "symbol" : "FLOCKUSDT",
               "timeframe" : "H4",
@@ -553,10 +577,6 @@
               "timeframe" : "H4",
               "bbWidthPercent" : 1.550533
             }, {
-              "symbol" : "NOMUSDT",
-              "timeframe" : "H4",
-              "bbWidthPercent" : 1.534637
-            }, {
               "symbol" : "AEROUSDT",
               "timeframe" : "H4",
               "bbWidthPercent" : 1.514788
@@ -565,13 +585,9 @@
               "timeframe" : "H4",
               "bbWidthPercent" : 1.494035
             }, {
-              "symbol" : "ATOMUSDT",
+              "symbol" : "RAVEUSDT",
               "timeframe" : "H4",
-              "bbWidthPercent" : 1.46817
-            }, {
-              "symbol" : "ORDERUSDT",
-              "timeframe" : "H4",
-              "bbWidthPercent" : 1.453759
+              "bbWidthPercent" : 1.4816
             }, {
               "symbol" : "MEMEUSDT",
               "timeframe" : "H4",
@@ -588,6 +604,10 @@
               "symbol" : "UMAUSDT",
               "timeframe" : "H4",
               "bbWidthPercent" : 1.403
+            }, {
+              "symbol" : "SKLUSDT",
+              "timeframe" : "H4",
+              "bbWidthPercent" : 1.396522
             }, {
               "symbol" : "REDUSDT",
               "timeframe" : "H4",
@@ -617,17 +637,13 @@
               "timeframe" : "H4",
               "bbWidthPercent" : 1.286482
             }, {
-              "symbol" : "CAPUSDT",
-              "timeframe" : "H4",
-              "bbWidthPercent" : 1.278441
-            }, {
               "symbol" : "TRUTHUSDT",
               "timeframe" : "H4",
               "bbWidthPercent" : 1.231324
             }, {
-              "symbol" : "XLMUSDT",
+              "symbol" : "BTRUSDT",
               "timeframe" : "H4",
-              "bbWidthPercent" : 1.195847
+              "bbWidthPercent" : 1.219061
             }, {
               "symbol" : "CTSIUSDT",
               "timeframe" : "H4",
@@ -636,6 +652,10 @@
               "symbol" : "CTKUSDT",
               "timeframe" : "H4",
               "bbWidthPercent" : 1.155679
+            }, {
+              "symbol" : "AMZNUSDT",
+              "timeframe" : "H4",
+              "bbWidthPercent" : 1.081446
             }, {
               "symbol" : "YFIUSDT",
               "timeframe" : "H4",
@@ -668,19 +688,15 @@
               "symbol" : "FFUSDT",
               "timeframe" : "H4",
               "bbWidthPercent" : 0.587555
-            }, {
-              "symbol" : "TRXUSDT",
-              "timeframe" : "H4",
-              "bbWidthPercent" : 0.392975
             } ],
             "chartTimeframeDisplayName" : "1h",
             "bbTimeframeDisplayName" : "4h"
           }, {
             "timeframe" : "D1",
             "results" : [ {
-              "symbol" : "AINUSDT",
+              "symbol" : "IDOLUSDT",
               "timeframe" : "D1",
-              "bbWidthPercent" : 26.601334
+              "bbWidthPercent" : 19.241454
             }, {
               "symbol" : "INITUSDT",
               "timeframe" : "D1",
@@ -694,9 +710,17 @@
               "timeframe" : "D1",
               "bbWidthPercent" : 7.132704
             }, {
+              "symbol" : "HANAUSDT",
+              "timeframe" : "D1",
+              "bbWidthPercent" : 4.936225
+            }, {
               "symbol" : "ACTUSDT",
               "timeframe" : "D1",
               "bbWidthPercent" : 3.271031
+            }, {
+              "symbol" : "XPINUSDT",
+              "timeframe" : "D1",
+              "bbWidthPercent" : 2.739154
             }, {
               "symbol" : "B2USDT",
               "timeframe" : "D1",
@@ -723,10 +747,6 @@
               "timeframe" : "W1",
               "bbWidthPercent" : 28.010163
             }, {
-              "symbol" : "MUBARAKUSDT",
-              "timeframe" : "W1",
-              "bbWidthPercent" : 27.288671
-            }, {
               "symbol" : "ICNTUSDT",
               "timeframe" : "W1",
               "bbWidthPercent" : 17.20689
@@ -751,10 +771,6 @@
               "timeframe" : "W1",
               "bbWidthPercent" : 10.645736
             }, {
-              "symbol" : "STXUSDT",
-              "timeframe" : "W1",
-              "bbWidthPercent" : 10.322028
-            }, {
               "symbol" : "SSVUSDT",
               "timeframe" : "W1",
               "bbWidthPercent" : 9.184081
@@ -778,18 +794,18 @@
           "symbolsFailed" : 0
         }
       },
-      "lastSuccessfulAt" : "2026-11-27T08:01:41.511260740Z"
+      "lastSuccessfulAt" : "2026-11-27T09:00:29.433647140Z"
     },
     "transition" : {
       "status" : {
-        "attemptedAt" : "2026-11-27T08:12:01.721578064Z",
+        "attemptedAt" : "2026-11-27T09:11:42.127170309Z",
         "state" : "SUCCESS",
         "symbolsScanned" : 513,
         "symbolsSkipped" : 0
       },
       "latestSuccessfulResult" : {
         "data" : {
-          "scanTime" : "2026-11-27T08:13:53.138266946",
+          "scanTime" : "2026-11-27T09:13:43.934619023",
           "signals" : [ {
             "symbol" : "2ZUSDT",
             "direction" : "SHORT",
@@ -803,13 +819,13 @@
             "direction" : "SHORT",
             "pattern" : "GGR"
           }, {
+            "symbol" : "BCHUSDT",
+            "direction" : "SHORT",
+            "pattern" : "GGR"
+          }, {
             "symbol" : "BRUSDT",
             "direction" : "LONG",
             "pattern" : "RGG"
-          }, {
-            "symbol" : "CHRUSDT",
-            "direction" : "SHORT",
-            "pattern" : "GGR"
           }, {
             "symbol" : "COLLECTUSDT",
             "direction" : "SHORT",
@@ -817,7 +833,7 @@
           }, {
             "symbol" : "HUMAUSDT",
             "direction" : "LONG",
-            "pattern" : "RGR"
+            "pattern" : "RGG"
           }, {
             "symbol" : "ICNTUSDT",
             "direction" : "LONG",
@@ -831,15 +847,15 @@
             "direction" : "SHORT",
             "pattern" : "GRR"
           }, {
-            "symbol" : "ONEUSDT",
-            "direction" : "SHORT",
-            "pattern" : "GGR"
-          }, {
             "symbol" : "RIFUSDT",
             "direction" : "LONG",
             "pattern" : "RGG"
           }, {
-            "symbol" : "SEIUSDT",
+            "symbol" : "SKYUSDT",
+            "direction" : "SHORT",
+            "pattern" : "GGR"
+          }, {
+            "symbol" : "SPKUSDT",
             "direction" : "SHORT",
             "pattern" : "GGR"
           }, {
@@ -851,13 +867,13 @@
             "direction" : "SHORT",
             "pattern" : "GGR"
           } ],
-          "durationSeconds" : 111.416291864,
+          "durationSeconds" : 121.807114681,
           "symbolsScanned" : 513,
           "symbolsSkipped" : 0
         }
       },
-      "lastSuccessfulAt" : "2026-11-27T08:12:01.721578064Z"
+      "lastSuccessfulAt" : "2026-11-27T09:11:42.127170309Z"
     }
   },
-  "updatedAt" : "2026-11-27T08:13:53.450498264Z"
+  "updatedAt" : "2026-11-27T09:13:44.309688957Z"
 }
